@@ -7,11 +7,32 @@
 </template>
 
 <script>
+import * as axios from 'axios'
+
 export default {
   name: 'blog',
   data() {
     return {
       blogpost: this.$store.state.activeBlogPost
+    }
+  },
+  created() {
+    let vm = this
+    if (this.blogpost.slug !== this.$route.params.id) {
+      axios
+        .get('/blogposts/' + this.$route.params.id)
+        .then(function(res) {
+          console.log(res.data)
+          vm.blogpost = res.data
+          vm.$store.commit("SET_ACTIVE_POST", {
+            title: res.data.title,
+            content: res.data.content,
+            slug: res.data.slug
+          });
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
     }
   },
   methods: {},
