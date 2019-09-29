@@ -30,6 +30,11 @@ export default new Router({
       path: '/blog/:id',
       name: 'blog',
       component: () => import('./views/BlogPost.vue')
+    },
+    {
+      path: '/write',
+      name: 'write',
+      component: () => import('./views/WritePost.vue')
     }
   ]
 })

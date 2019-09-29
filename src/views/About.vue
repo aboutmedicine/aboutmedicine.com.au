@@ -1,29 +1,31 @@
 <template>
-
-  <div class="about">
-    <h4>Thanks for visiting.</h4>
-    <p>
-      I'm a fourth year medical student about to embark on my medical career. <br /> My main interests are:
-    </p>
-    <ul>
-      <li>
-        Rational use of technology in healthcare
-      </li>
-      <li>
-        Education that is clear, and tries to build empathy
-      </li>
-    </ul>
-  </div>
-
+<div class="about">
+  <h4>Thanks for visiting.</h4>
+  <p>
+    I'm a fourth year medical student about to embark on my medical career. <br /> My main interests are:
+  </p>
+  <ul>
+    <li>
+      The rational use of technology in healthcare
+    </li>
+    <li>
+      Education for clarity, and for empathy
+    </li>
+  </ul>
+</div>
 </template>
 
 <style scoped>
-p{
-  margin: 16px 0px;
+p {
+  margin: 2rem;
 }
 
-h4{
-  margin: 16px 0px;
+h4 {
+  margin: 2rem;
 }
 
+ul {
+  margin: 0 2rem;
+  line-height: 1.6;
+}
 </style>

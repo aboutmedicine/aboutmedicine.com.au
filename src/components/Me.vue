@@ -48,7 +48,7 @@ p{
 }
 
 h4{
-  margin: 0px 0px 16px;
+  margin: 2rem 0 1rem;
   text-align: center;
 }
 

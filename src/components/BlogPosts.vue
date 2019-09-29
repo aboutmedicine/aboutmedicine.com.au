@@ -1,69 +1,71 @@
 <template>
-
-  <div>
-    <h5>Recent Posts</h5>
-    <a class="posts" v-for="post in posts_array" :key="post.id" :href="'/blog/' + post.slug">
-              {{post.title}}
-              {{post.content}}
-            </a>
-  </div>
-
+<div>
+  <h5>Recent Posts</h5>
+  <a class="posts" v-for="post in posts_array" v-on:click.prevent="setActiveBlogPost(post)" :key="post.id">
+    {{post.title}}
+  </a>
+</div>
 </template>
 
 <script>
+import * as axios from 'axios'
 
-  import * as axios from 'axios'
-
-  export default {
-    name: 'BlogPosts',
-    data() {
-      return {
-        posts_array: [{title: 'test', content: 'testing', slug:'tester'}]
-      }
-    },
-    methods: {},
-    created() {
-      let vm = this
-      axios
-        .get('/blogposts')
-        .then(function(response) {
-          let i
-          for (i = 0; i < response.data.length; i++) {
-            vm.posts_array.push(response.data[i])
-          }
-          console.log(vm.posts_array)
-        })
-        .catch(function(error) {
-          console.log(error)
-        })
+export default {
+  name: 'BlogPosts',
+  data() {
+    return {
+      posts_array: []
     }
+  },
+  methods: {
+    setActiveBlogPost: function(post) {
+      this.$store.commit("SET_ACTIVE_POST", {
+        title: post.title,
+        content: post.content,
+        slug: post.slug
+      });
+      this.$router.push('/blog/' + post.slug)
+    }
+  },
+  created() {
+    let vm = this
+    axios
+      .get('/blogposts')
+      .then(function(res) {
+        let i
+        for (i = 0; i < res.data.length; i++) {
+          vm.posts_array.push(res.data[i])
+        }
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
   }
-
+}
 </script>
 
 <style scoped>
+p {
+  margin: 0px 0px 52px;
+  text-align: center;
+}
 
-  p {
-    margin: 0px 0px 52px;
-    text-align: center;
-  }
+h5 {
+  margin: 2rem;
+}
 
-  h5 {
-    margin: 0px 0px 16px;
-  }
+.posts {
+  padding: 16px;
+  display: block;
+  border-radius: 8px;
+}
 
-  .posts {
-    padding: 16px;
-    display: block;
-    border-radius: 8px;
-  }
+a {
+  text-decoration: none;
+  margin: 0 2rem;
+}
 
-  a {
-    text-decoration: none;
-  }
-
-  .posts:hover {
-    background-color: #eee;
-  }
-
+.posts:hover {
+  background-color: #eee;
+}
 </style>

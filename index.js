@@ -37,6 +37,16 @@ app.get('/blogposts/:_id', (req, res) => {
 	});
 });
 
+app.post('/blogposts', (req, res) => {
+  var blogpost = req.body;
+  BlogPost.addBlogPost(blogpost, (err, blogpost) => {
+    if(err){
+      throw err;
+    }
+    res.json(blogpost);
+  });
+});
+
 const port = process.env.PORT || 80;
 console.log(port)
 app.listen(port);

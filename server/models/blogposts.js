@@ -27,3 +27,8 @@ module.exports.getBlogPosts = (callback, limit) => {
 module.exports.getBlogPostBySlug = (s, callback) => {
     BlogPost.findOne({ slug: s }, callback);
 }
+
+// Add BlogPost
+module.exports.addBlogPost = (blogpost, callback) => {
+    BlogPost.create(blogpost, callback);
+}
