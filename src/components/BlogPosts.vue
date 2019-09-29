@@ -1,7 +1,7 @@
 <template>
 <div>
   <h5>Recent Posts</h5>
-  <a class="posts" v-for="post in posts_array" v-on:click.prevent="setActiveBlogPost(post)" :key="post.id">
+  <a class="posts" v-for="post in posts_array.slice().reverse()" v-on:click.prevent="setActiveBlogPost(post)" :key="post.id">
     {{post.title}}
   </a>
 </div>
@@ -14,7 +14,9 @@ export default {
   name: 'BlogPosts',
   data() {
     return {
-      posts_array: []
+      posts_array: [{
+        title: 'test'
+      }]
     }
   },
   methods: {
@@ -51,7 +53,7 @@ p {
 }
 
 h5 {
-  margin: 2rem;
+  margin: 1rem 2rem;
 }
 
 .posts {
@@ -67,5 +69,16 @@ a {
 
 .posts:hover {
   background-color: #eee;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  h5 {
+    margin: 1rem 1rem;
+  }
+
+  a {
+    margin: 0 1rem;
+  }
 }
 </style>

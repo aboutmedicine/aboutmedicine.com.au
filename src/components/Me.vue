@@ -1,15 +1,15 @@
 <template>
-  <div>
-    <h4>Hey I'm Reuben.</h4>
-    <p>
-      I make videos about medicine + sometimes I write stuff too.
-    </p>
-  <div class="me-box">
-    <img id="me" alt="me" src="../assets/me.jpg">
+<div>
+  <h4>Hey I'm Reuben.</h4>
+  <p>
+    I make videos about medicine + sometimes I write stuff too.
+  </p>
+  <div class="hero-box">
+    <img id="hero" alt="me" src="../assets/heart.jpg">
   </div>
   <div class="social">
-    <a href="https://www.youtube.com/c/AboutMedicine"><img alt="youtube" src="../assets/youtube.svg"/></a>
-    <a href="https://twitter.com/About_Medicine"><img alt="twitter" src="../assets/twitter.svg"/></a>
+    <a href="https://www.youtube.com/c/AboutMedicine"><img alt="youtube" src="../assets/youtube.svg" /></a>
+    <a href="https://twitter.com/About_Medicine"><img alt="twitter" src="../assets/twitter.svg" /></a>
   </div>
 
 </div>
@@ -26,7 +26,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.me-box {
+.hero-box {
   display: flex;
   justify-content: center;
 }
@@ -39,29 +39,32 @@ export default {
 }
 
 .social img {
-  width:36px;
+  width: 36px;
 }
 
-p{
+p {
   margin: 0px 0px 32px;
   text-align: center;
 }
 
-h4{
+h4 {
   margin: 2rem 0 1rem;
   text-align: center;
 }
 
 a {
-padding: 0 16px;
-opacity: .4;
+  padding: 0 16px;
+  opacity: .4;
 }
 
 a:hover {
-opacity: 1;
+  opacity: 1;
+  cursor: pointer;
 }
 
-#me {
-  border-radius: 140px;
+#hero {
+  width: 360px;
+  margin: 0 0 1rem .5rem;
+  max-width: 90%;
 }
 </style>

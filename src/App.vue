@@ -13,7 +13,7 @@
   <router-view />
   <div id="footer">
     <router-link to="/contact">contact</router-link>
-    <router-link to="/contact">patreon</router-link>
+    <router-link to="/patreon">patreon</router-link>
     <router-link to="/learning">learning</router-link>
   </div>
 </div>
@@ -42,7 +42,6 @@
 }
 
 #nav a {
-  /* font-family: 'Avenir Next'; */
   font-weight: 500;
   color: #777;
   padding: 0px 10px;
@@ -50,6 +49,7 @@
 
 #nav a:hover {
   color: #333;
+  cursor: pointer;
 }
 
 #nav a.router-link-exact-active {
@@ -60,7 +60,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 180px;
+  padding: 2rem 10rem;
   margin-top: 60px;
 }
 
@@ -71,12 +71,7 @@
 
 #footer a:hover {
   color: #555;
-}
-
-@media screen and (max-width: 800px) {
-  #app {
-    padding: 0px 16px;
-  }
+  cursor: pointer;
 }
 
 ::selection {
@@ -143,6 +138,7 @@ h6 {
 p {
   font-size: 1rem;
   letter-spacing: 0.5;
+  line-height: 1.5;
 }
 
 code {
@@ -188,4 +184,13 @@ button:hover {
   background: #5183f5
 }
 
+@media screen and (max-width: 800px) {
+  #app {
+    padding: 0 1rem;
+  }
+
+  #footer {
+    padding: 2rem 2rem;
+  }
+}
 </style>

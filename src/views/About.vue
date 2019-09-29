@@ -1,5 +1,6 @@
 <template>
 <div class="about">
+  <img id="me" alt="me" src="../assets/me.jpg">
   <h4>Thanks for visiting.</h4>
   <p>
     I'm a fourth year medical student about to embark on my medical career. <br /> My main interests are:
@@ -27,5 +28,18 @@ h4 {
 ul {
   margin: 0 2rem;
   line-height: 1.6;
+}
+
+#me {
+  position: absolute;
+  right: 19rem;
+  margin-top: .5rem;
+  border-radius: 140px;
+}
+
+@media screen and (max-width: 800px) {
+  #me {
+    right: 2rem;
+  }
 }
 </style>

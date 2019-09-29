@@ -12,7 +12,7 @@ app.use(serveStatic(path.join(__dirname, 'dist')));
 BlogPost =require('./server/models/blogposts');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://heroku_28trdw16:tpk3e8svp7nu5mlceio2ir16jh@ds029814.mlab.com:29814/heroku_28trdw16', { useNewUrlParser: true });
+mongoose.connect('mongodb://heroku_28trdw16:tpk3e8svp7nu5mlceio2ir16jh@ds029814.mlab.com:29814/heroku_28trdw16', { useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 
 app.get('/', (req, res) => {

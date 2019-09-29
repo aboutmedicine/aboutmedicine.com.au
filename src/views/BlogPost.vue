@@ -1,8 +1,7 @@
 <template>
 <div class="blog">
   <h4>{{blogpost.title}}</h4>
-  <div>
-    {{blogpost.content}}
+  <div v-html="blogpost.content">
   </div>
 </div>
 </template>
@@ -20,9 +19,9 @@ export default {
 </script>
 
 <style scoped>
-
 p {
   margin: 2rem;
+  line-height: 1.6;
 }
 
 h4 {

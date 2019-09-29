@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
-    <Me />
-    <BlogPosts />
-  </div>
+<div class="home">
+  <Me />
+  <BlogPosts />
+</div>
 </template>
 
 <script>
