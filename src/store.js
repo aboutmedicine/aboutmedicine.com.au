@@ -18,7 +18,7 @@ export default new Vuex.Store({
         "ex": "Relevant neuro; falls testing: TUG + Romberg's + functional reach + sternal push, heel-to-toe; CV",
         "ix": "X-ray if ?#, urine MCS if confused, CTB / MRI if headstrike",
         "mx": "Rehabilitation programme w/ OT input, remediation of RFs",
-        "_category": "Geriatrics"
+        "_category": "Geris"
       },
       {
         "name": "Cardiac failure",
@@ -27,7 +27,7 @@ export default new Vuex.Store({
         "ex": "Vitals, cardiac examination - JVP, lung crackles, peripheral oedema, thready pulse",
         "ix": "FBE + UEC + BNP",
         "mx": "Optimisation of fluid balance (diuretics vs. fluid restriction), cardiac Rx (ACEi + cardioselective β-blocker + CaCB)",
-        "_category": "Geriatrics"
+        "_category": "Geris"
       },
       {
         "name": "Faecal incontinence",
@@ -36,7 +36,7 @@ export default new Vuex.Store({
         "ex": "LL neurological exam",
         "ix": "NCS + fecal MCS",
         "mx": "Treat cause",
-        "_category": "Geriatrics"
+        "_category": "Geris"
       },
     ]
   },
