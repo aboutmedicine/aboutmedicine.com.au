@@ -141,34 +141,49 @@ p {
   line-height: 1.5;
 }
 
-code {
+pre {
+  background: #181818;
+  color: #f2f2f2;
   font-family: Menlo, monospace;
-  font-size: 13px;
-  color: #b3b9c5;
+  line-height: 1.5;
+  margin: 1rem;
+  border-radius: .5rem;
+  overflow-wrap: normal;
+  overflow: auto;
+}
+
+code {
+  color: #f2f2f2;
+  font-family: Menlo, monospace;
+  line-height: 1.5;
   direction: ltr;
   text-align: left;
-  white-space: pre-wrap;
+  white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  line-height: 1.7;
-  font-weight: 400;
-  margin: 2rem 0;
-  -moz-tab-size: 2;
-  -o-tab-size: 2;
-  tab-size: 2;
-  -webkit-hyphens: none;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  border-radius: 4px;
+}
+
+.code-lines {
+  background: #000000;
+  color: #555555;
+  float: left;
+  padding: 0 1.7rem;
+  margin: 0 0 0 -5rem;
 }
 
 button {
+  background: #7B98FC;
+  color: #fff;
   max-width: 180px;
   font-family: inherit;
   border: none;
   border-radius: 4px;
-  background: #7B98FC;
-  color: #fff;
   font-weight: 600;
   font-size: 1.1rem;
   text-transform: none;

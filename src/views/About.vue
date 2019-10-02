@@ -17,29 +17,63 @@
 </template>
 
 <style scoped>
+.about {
+  display: grid;
+  grid-template-areas:
+    'heading heading photo'
+    'paragraph paragraph photo'
+    'ul ul photo'
+    'ul ul photo';
+}
+
 p {
+  grid-area: paragraph;
   margin: 2rem;
 }
 
 h4 {
-  margin: 2rem;
+  grid-area: heading;
+  margin: 2rem 2rem 0;
 }
 
 ul {
+  grid-area: ul;
   margin: 0 2rem;
   line-height: 1.6;
 }
 
 #me {
-  position: absolute;
-  right: 19rem;
-  margin-top: .5rem;
+  grid-area: photo;
+  margin: 2rem;
   border-radius: 140px;
+  max-width: 125px;
 }
 
 @media screen and (max-width: 800px) {
+  .about {
+    grid-template-areas:
+      'heading photo'
+      'paragraph photo'
+      'ul ul'
+      'ul ul';
+    min-width: 320px;
+  }
+
   #me {
-    right: 2rem;
+    width: 96px;
+    margin: 2rem 1rem 2rem 0;
+  }
+
+  p {
+    margin: .5rem .1rem 0;;
+  }
+
+  h4 {
+    margin: .5rem .1rem 0;
+  }
+
+  ul {
+    margin: 0.5rem 0;
   }
 }
 </style>

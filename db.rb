@@ -17,7 +17,7 @@ db = client.database
 #     puts "#{key}: #{value}"
 # end
 
-client[:blogposts].delete_one({:name => "Test"})
+# client[:blogposts].delete_one({:name => "Test"})
 
 db[:blogposts].find.each { |doc| puts doc }
 

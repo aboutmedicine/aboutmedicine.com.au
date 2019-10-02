@@ -65,6 +65,16 @@ a:hover {
 #hero {
   width: 360px;
   margin: 0 0 1rem .5rem;
-  max-width: 90%;
+}
+
+@media screen and (max-width: 500px) {
+  #hero {
+    width: 270px;
+  }
+
+  h4 {
+    margin: 1rem 0;
+    text-align: center;
+  }
 }
 </style>

@@ -31,21 +31,22 @@ export default {
 
 <style scoped>
 p {
-  margin: 16px 0px;
+  margin: 2rem;
+  line-height: 1.6;
 }
 
 h4 {
-  margin: 16px 0px;
+  margin: 2rem;
 }
 
 h5,
 h6 {
-  margin: 32px 0px 16px;
+  margin: 2rem 2rem 1rem;
 }
 
 ul {
-  padding-left: 8px;
-  padding-bottom: 16px;
+  padding-left: .5rem;
+  padding-bottom: 1rem;
 }
 
 ul li {

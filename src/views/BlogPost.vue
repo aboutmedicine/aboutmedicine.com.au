@@ -22,8 +22,6 @@ export default {
       axios
         .get('/blogposts/' + this.$route.params.id)
         .then(function(res) {
-          console.log(res.data)
-          vm.blogpost = res.data
           vm.$store.commit("SET_ACTIVE_POST", {
             title: res.data.title,
             content: res.data.content,

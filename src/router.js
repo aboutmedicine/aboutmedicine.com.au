@@ -35,6 +35,32 @@ export default new Router({
       path: '/write',
       name: 'write',
       component: () => import('./views/WritePost.vue')
+    },
+    {
+      path: '/neural-networks',
+      name: 'neural-networks',
+      component: () => import('./views/NN.vue')
+    },
+    {
+      path: '/notes',
+      name: 'notes',
+      component: () => import('./views/Notes.vue')
+    },
+    {
+      path: '/notes/:spec',
+      name: 'notes-spec',
+      component: () => import('./views/Notes.vue')
+    },
+    {
+      path: '/notes/:spec/:section',
+      name: 'notes-spec-section',
+      component: () => import('./views/Notes.vue')
+    }
+    ,
+    {
+      path: '/notes/:spec/:section/:note',
+      name: 'notes-spec-section-note',
+      component: () => import('./views/Notes.vue')
     }
   ],
   scrollBehavior (to, from, savedPosition) {
