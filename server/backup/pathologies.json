@@ -6,7 +6,7 @@
     "ex": "Relevant neuro; falls testing: TUG + Romberg's + functional reach + sternal push, heel-to-toe; CV",
     "ix": "X-ray if ?#, urine MCS if confused, CTB / MRI if headstrike",
     "mx": "Rehabilitation programme w/ OT input, remediation of RFs",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Cardiac failure",
@@ -15,7 +15,7 @@
     "ex": "Vitals, cardiac examination - JVP, lung crackles, peripheral oedema, thready pulse",
     "ix": "FBE + UEC + BNP",
     "mx": "Optimisation of fluid balance (diuretics vs. fluid restriction), cardiac Rx (ACEi + cardioselective β-blocker + CaCB)",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Faecal incontinence",
@@ -24,7 +24,7 @@
     "ex": "LL neurological exam",
     "ix": "NCS + fecal MCS",
     "mx": "Treat cause",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Dementia",
@@ -33,7 +33,7 @@
     "ex": "Gait + balance + CN",
     "ix": "MSU",
     "mx": "DBMAS, carer support, residential services, SW + OT",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Elder abuse",
@@ -42,7 +42,7 @@
     "ex": "Marks of abuse",
     "ix": "N/A",
     "mx": "In 90% of cases abuser is a family member - support via friends and other family members",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Constipation",
@@ -51,7 +51,7 @@
     "ex": "DRE",
     "ix": "AXR",
     "mx": "Stool softener & stimulant laxative, rationalisation of Rx",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Depression",
@@ -60,7 +60,7 @@
     "ex": "MSE, cognitive testing",
     "ix": "FBE + Iron studies",
     "mx": "SSRIs, psychotherapy",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Pneumonia",
@@ -69,7 +69,7 @@
     "ex": "Vitals, resp exam",
     "ix": "FBE + CXR + BCs + sputum MCS",
     "mx": "Cef + azithro, f/u CXR, pneumococcal vaccine for over 65s",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Bowel cancer",
@@ -78,7 +78,7 @@
     "ex": "GI exam, DRE",
     "ix": "CT, PET",
     "mx": "CTx, RTx, surgery, palliative care",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Fractured NOF",
@@ -87,7 +87,7 @@
     "ex": "Acutely painful hip, shortened and externally rotated",
     "ix": "Xray",
     "mx": "Resuscitate and stabilise pt (ABCDE), analgesia; surgical Mx depends on classification: ?displaced, ?intracapsular, ?trochanteric",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Parkinsons",
@@ -96,7 +96,7 @@
     "ex": "Bradykinesia, tremor, rigidity, postural instability, masked facial expression, freezing",
     "ix": "SMMSE, MRI to exclude structural lesions",
     "mx": "Levodopa - absence of observable response rules out Dx",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Functional decline",
@@ -105,7 +105,7 @@
     "ex": "CGA",
     "ix": "FBE + CMP + Iron studies + UEC + DEXA... the list could go on.",
     "mx": "Neuropsych r/f",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Polypharmacy",
@@ -114,7 +114,7 @@
     "ex": "Vitals + gait + neuro",
     "ix": "N/A",
     "mx": "Rationalise based on symptomatology.",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Frailty",
@@ -123,7 +123,7 @@
     "ex": "As I.",
     "ix": "N/A",
     "mx": "Optimise function, limit decline",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Vascular dementia",
@@ -132,7 +132,7 @@
     "ex": "Cognitive testing",
     "ix": "MRI",
     "mx": "Neuropsych r/f",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "Delirium",
@@ -141,7 +141,7 @@
     "ex": "Vitals; CAM - acute onset & fluctuating course, disorganised speech and/or behaviour, inattention, altered conscious state; other cognitive testing (SMMSE, RUDAS, MOCA)",
     "ix": "Urine MCS, FBE + UEC + CRP + BSL",
     "mx": "Remove trigger, halo",
-    "_category": "Geriatric Medicine"
+    "_category": "Geris"
   },
   {
     "name": "COPD",
@@ -150,7 +150,7 @@
     "ex": "Vitals: likely chronic hypercapnoea; Barrel chest + flap + tobacco stains + mixed cyanosis & plethora ('blue')",
     "ix": "Spirometry, ABGs",
     "mx": "Short - ↑SABA intake + oral Abx + CS; Long - SABA, ICS + LABA (seretide - fluticasone & formeterol), OCS",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "T2DM",
@@ -159,7 +159,7 @@
     "ex": "Heart + carotids + sensation + proprioception",
     "ix": "FBE + HbA1c + FBG",
     "mx": "Lifestyle +/- metformin +/- SUs +/- exenatide for weight loss +/- insulin (basal or bolus)",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Rhinosinusitis (Acute)",
@@ -168,7 +168,7 @@
     "ex": "Fever, purulent nasal d/c",
     "ix": "None",
     "mx": "Supportive therapy, + Abx if Hx as above",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Tonsillitis (Tonsillopharyngitis)",
@@ -177,7 +177,7 @@
     "ex": "Exudative, enlarged, erythematous tonsils",
     "ix": "Rapid antigen detection test (strep throat swab)",
     "mx": "Mainstay is Abx (if viral ruled out)",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Hypertension",
@@ -186,7 +186,7 @@
     "ex": "BP 5 mins apart x3",
     "ix": "Gold standard ABMP",
     "mx": "Aim 140/90 or 130/85 if DM: Lifestyle +/- ACEi +/- ARB +/- β-blocker",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Skin Cancer",
@@ -195,7 +195,7 @@
     "ex": "Full skin check",
     "ix": "Excisional Bx for melanoma, shave or punch for other",
     "mx": "Usu wide local excision; topical e.g. imiquimod for superficial SCC",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Trichomoniasis",
@@ -204,7 +204,7 @@
     "ex": "Genital examination",
     "ix": "Women: NAAT HVS or FPU; Men: NAAT FPU",
     "mx": "Met 2g + tinid 2g PO stat",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Atrial Fibrillation",
@@ -213,7 +213,7 @@
     "ex": "HR irregularly irregular",
     "ix": "ECG",
     "mx": "Rate control for older pts w/ persistent, rhythm control for younger w/ sporadic. Thrombi forms in poorly clearing atria so NOAC if ≥2pts on CHADSVASc",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Eczema",
@@ -222,7 +222,7 @@
     "ex": "Flexor rash w/ excoriation / lichenification",
     "ix": "Clinical Dx",
     "mx": "Topical CS + emollients +/- tacrolimus, avoid irritants",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Dyslipidaemia",
@@ -231,7 +231,7 @@
     "ex": "BMI",
     "ix": "Lipid profile, HbA1c",
     "mx": "Statins +/- ezetimibe +/- cholestyramine",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Rheumatoid Arthritis",
@@ -240,7 +240,7 @@
     "ex": "Z-deformity, swan-neck, lateral deviation of wrist",
     "ix": "Serum ANCA, ANA, anti-dsDNA + ESR + CRP + FBE",
     "mx": "Simple analgesia, pred, mabs",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Osteoarthritis",
@@ -249,7 +249,7 @@
     "ex": "Joints examination",
     "ix": "Xray",
     "mx": "Supportive w/ encouragement of gentle exercise, until surgery (joint replacement), with careful deliberation.",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Mycoplasma genitalium",
@@ -258,7 +258,7 @@
     "ex": "Genital examination +/- spec",
     "ix": "Women: NAAT endocervical / self-collected vaginal swab if more comfortable; Men: NAAT FPU",
     "mx": "Most are macrolide-resistant these days, so doxy 100 BD 7d then moxi 400 OD 7d.",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Asthma",
@@ -267,7 +267,7 @@
     "ex": "Wheeze, in order of severity: end expiratory - expiratory - inspiratory & expiratory; accessory muscle use (FARTs), O2 saturation, resp rate",
     "ix": "Spirometry pre- and post-bronchodilator",
     "mx": "Chronic maintenance: SABA -> SABA + ICS -> SABA + ICS + LAMA -> oral CS as part of asthma Mx plan. Acute setting: SABA MDI 8 puffs every 20-30 mins +/- O2 if sats <92% / ipratroprium + oral CS if no improvement after first SABA dose. C. IM methylpred if +severe or if oral CS is vomited. C. IM adrenaline if +++severe then IV methylpred + mag sulph",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "CKD",
@@ -276,7 +276,7 @@
     "ex": "Diabetic exam",
     "ix": "FBE + UEC + CMP +/- CTKUB if structural cause suspected",
     "mx": "ACEi + diuretic + fluid restriction + control causes",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Acne",
@@ -285,7 +285,7 @@
     "ex": "Skin check",
     "ix": "Clinical Dx",
     "mx": "Mild -BPO / salicylic acid; Moderate -Topical retinoids +/- topical/oral Abx +/- hormonal Rx in females; Severe -Isotretinoin",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Chest Pain",
@@ -294,7 +294,7 @@
     "ex": "Vitals, palpate abdo, check for pulsatile mass",
     "ix": "ECG, FBE + CRP + lipase",
     "mx": "Depends on cause",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Gonorrhoea",
@@ -303,7 +303,7 @@
     "ex": "Genital examination, joints for reactive arthritis",
     "ix": "Women: NAAT endocervical / self-collected vaginal swab if more comfortable; Men: NAAT FPU",
     "mx": "Azithro 1g PO + Cef 500 IM stat",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Back Pain",
@@ -312,7 +312,7 @@
     "ex": "Palpate site of pain",
     "ix": "Imaging only I. if red flags present, or if pain has persisted for >6wks w/o response to conservative treatment.",
     "mx": "Simple analgesia (paracetamol, ibuprofen, topical NSAIDs), C. brief opioid therapy, physio, exercise as tolerated - hurt is not harm.",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Stroke",
@@ -321,7 +321,7 @@
     "ex": "Vitals, neuro exam, CV",
     "ix": "CT brain, lipids, HbA1c",
     "mx": "A/c ongoing (usu NOAC)",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "T1DM",
@@ -330,7 +330,7 @@
     "ex": "Ongoing CV",
     "ix": "HbA1c",
     "mx": "Individualise insulin regime",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Chlamydia",
@@ -339,7 +339,7 @@
     "ex": "Genital examination, joints for reactive arthritis",
     "ix": "Women: NAAT endocervical / vaginal swab; Men: NAAT FPU",
     "mx": "Azithro 1g stat -or- doxy 100 BD 7d",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Non-specific Headache",
@@ -348,7 +348,7 @@
     "ex": "Neuro, CN",
     "ix": "Depends on severity",
     "mx": "Simple analgesia",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Hypothyroidism",
@@ -357,7 +357,7 @@
     "ex": "Vitals",
     "ix": "FBE + TFTs",
     "mx": "Levothyroxine, aim TSH & T4 in reference range",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "IBS",
@@ -366,7 +366,7 @@
     "ex": "GIT exam",
     "ix": "FBE + CRP + coeliac screen +/- stool sampling",
     "mx": "Fucking hard. Pt r/ship is critical. Try FODMAPs +/- psyllium to begin with, then C. antispasmodics, antidarrhoeals / polyethylene glycol.",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Meningitis",
@@ -375,7 +375,7 @@
     "ex": "CN",
     "ix": "FBE + CRP + BCs x 2 + LP",
     "mx": "Empiric Abx therapy while awaiting cultures",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Coeliac",
@@ -384,7 +384,7 @@
     "ex": "GI exam",
     "ix": "Anti-TTG, anti-gliadin",
     "mx": "Avoid gluten.",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "GORD",
@@ -393,7 +393,7 @@
     "ex": "GI exam",
     "ix": "Clinical Dx",
     "mx": "Avoid fatty foods,",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Migraine",
@@ -402,7 +402,7 @@
     "ex": "Neuro + CVS",
     "ix": "Clinical Dx, however: -if considering GCA, ESR + CRP",
     "mx": "Acute: NSAIDs, paracetamol, sumatriptan; Preventive: β-blockers, anticonvulsants TCAs",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Fatty Liver",
@@ -411,7 +411,7 @@
     "ex": "GI exam",
     "ix": "FBE + LFTs + lipase + US + Hep serology + lipids + HbA1c",
     "mx": "If ↑lipids Rx statin, weight loss, EtOH cessation",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Hyperthyroidism",
@@ -420,7 +420,7 @@
     "ex": "Thyroid exam (heart, tremor, eyes, pretibial)",
     "ix": "TFTs + FBE",
     "mx": "Antithyroid agents (carbimazole / PTU), radioactive iodine, surgery (hemi- / total thyroidectomy), +/- endo referral",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Tension Headache",
@@ -429,7 +429,7 @@
     "ex": "CN exam",
     "ix": "Only if focal neurological signs present",
     "mx": "Simple analgesia, lifestyle",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Polymyalgia Rheumatica",
@@ -438,7 +438,7 @@
     "ex": "Relevant joint exams -classical finding is restricted ROM esp abduction of shoulder",
     "ix": "ESR + CRP + RA screen",
     "mx": "Rx low-dose CS (15mg/d), advise that PMR worsens w/ inactivity",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Osteoporosis",
@@ -447,7 +447,7 @@
     "ex": "Gait & balance testing to Ax falls risk",
     "ix": "DEXA, biannual in ↑risk pop.n",
     "mx": "↑dietary Ca + Vit D, bisphosphonates (alendronate → fosamax), RANK-Lis (denosumab), SERMs (tamoxifen)",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Red Eye",
@@ -456,7 +456,7 @@
     "ex": "Eye inspection -?distorted pupil -?corneal involvement -?copious d/c; vision testing",
     "ix": "Conjunctival scraping & culture if severe bacterial conjunctivitis suspected",
     "mx": "Hard to differentiate b/w viral and bacterial:: most cases treated w/ Abx; R/f when severe pain not relieved w/ topical anaesthetics",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Prostate Cancer",
@@ -465,7 +465,7 @@
     "ex": "DRE (though inaccurate)",
     "ix": "PSA + FBE + ferritin, +/- Bx",
     "mx": "Watchful waiting / active surveillance / surgery / TURP / external or internal (aka brachy) RTx / hormone therapy (GnRH agonist - zoladex, antiandrogen / testosterone receptor blockers - bicalutamide)",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Fever in a Returned Traveller",
@@ -474,7 +474,7 @@
     "ex": "Vitals and CV",
     "ix": "FBE + malaria ICT + thick&thin films +/- LFTs if jaundiced +/- stool sample if diarrhoea",
     "mx": "OP Mx suitable for some uncomplicated cases; mainstay of Rx is chloroquine",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Benign Prostatic Hyperplasia",
@@ -483,7 +483,7 @@
     "ex": "DRE",
     "ix": "Urine MCS if acute; microscopic haematuria is common",
     "mx": "Rx monotherapy tamsulosin / duodart (dutasteride + tamsulosin) +/- oxybutynin, urology r/f for severe Sx, advice re: controlling Sx -avoid fluid intake before bed / outing -↓caffeine / alcohol -double voiding",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Wrist Injury, ?Fracture",
@@ -492,7 +492,7 @@
     "ex": "Ax neurovascular compromise",
     "ix": "Xray",
     "mx": "Resuscitate + stabilise pt; analgesia + closed reduction + below-elbow backslab, or surgical intervention: ORIF / K-wire / external fixation; PT",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Chalazion",
@@ -501,7 +501,7 @@
     "ex": "Inspect",
     "ix": "N/A",
     "mx": "øsqueeze or popping; warm compresses + reassurance",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Psoriasis",
@@ -510,7 +510,7 @@
     "ex": "Symmetrical erythematous plaques w/ silver scaling",
     "ix": "Clinical Dx",
     "mx": "Topical emollients & CS +/- MTX, cyclosporine, adalimumab, phototherapy",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Erectile Dysfunction",
@@ -519,7 +519,7 @@
     "ex": "Ax secondary sexual characteristics, femoral + peripheral pulses",
     "ix": "HbA1c + FBE + TFTs + serum total testosterone",
     "mx": "Rationalise Rx, lifestyle, sexual therapy counselling, PDE-5i (sildenafil → viagra)",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Anaphylaxis",
@@ -528,7 +528,7 @@
     "ex": "Recognise early. Angiooedema, bronchoconstriction, diffuse erythema +/- urticaria, hypotension, N/V",
     "ix": "For further Ix by allergist",
     "mx": "IM adrenaline in Epipen (*there are no absolute contraindications to adrenaline admx & better to admx than to wait for further Sx to appear), IV fluid resusc",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Eye Foreign Body",
@@ -537,7 +537,7 @@
     "ex": "Visual acuity (if normal, penetrating eye injury unlikely), eye exam",
     "ix": "Fluorescein staining to rule out penetrative injury",
     "mx": "Immediate removal, simple oral analgesia if small +/- topical NSAIDs on eye, reassure that most abrasions heal w/in 24-48hrs",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Fatigue",
@@ -546,7 +546,7 @@
     "ex": "Systems review",
     "ix": "Recommended initial battery: urine dipstick + fingerprick BSL + FBE + TSH + ferritin +/- ESR/CRP",
     "mx": "Delaying Ix does not ↓pt satisfaction levels; Ix for Sx w/ low pre-test probability of serious illness does not reassure or ↓pt anxiety",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Epistaxis",
@@ -555,7 +555,7 @@
     "ex": "Ax site of bleed",
     "ix": "FBE + G&H if bleeding severe",
     "mx": "ABCs, topical anaesthetic spray, cauterise w/ silver nitrate, nasal packing",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Pancreatitis",
@@ -564,7 +564,7 @@
     "ex": "GI exam",
     "ix": "Lipase, LFTs, FBE + UEC + CTAbdo",
     "mx": "NBM, IV fluids + Abx",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "IBD",
@@ -573,7 +573,7 @@
     "ex": "GI exam + DRE",
     "ix": "Anti-TTG, anti-gliadin",
     "mx": "Severe refractory: Mabs",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Breast Ca",
@@ -582,7 +582,7 @@
     "ex": "RACGP: there is insufficient evidence to recommend clinical breast examination (!)",
     "ix": "Mammogram 2-yearly from age 50-74",
     "mx": "r/f for family Ca clinic / oncology if higher risk (≥1 1˚ relative), possible genetic testing, C. mastectomy / salpingo-oophorectomy if +++risk",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Fever in a returned traveller",
@@ -591,7 +591,7 @@
     "ex": "Liver, lymph nodes, spleen",
     "ix": "FBE + LFTs + thick&thin malaria films +/- stool culture, serology",
     "mx": "R/f to ED if no clear Dx made",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Acute Abdomen",
@@ -600,7 +600,7 @@
     "ex": "Ax immediately (w/ observation and vitals): are they critically unwell? If so, ABC; GI exam",
     "ix": "FBE + CRP + ABGs + UEC + LFTs + lipase + urine dip + erect CXR + CT",
     "mx": "ABCs, IV access, NBM, Rx analgesia, VTE prophylaxis +/- antiemetics, give fluids & monitor fluid balance,",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Sebaceous Cyst",
@@ -609,7 +609,7 @@
     "ex": "Fluctuant",
     "ix": "None",
     "mx": "Elective excision",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Diverticular Disease",
@@ -618,7 +618,7 @@
     "ex": "GI exam, abdo palp, DRE",
     "ix": "CT abdomen",
     "mx": "If uncomplicated presentation: free fluids, analgesia + Abx, education re: fibre + fluid intake; If burst diverticulae: immediate Hartmann's.",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Ureteric Colic",
@@ -627,7 +627,7 @@
     "ex": "Urinalysis",
     "ix": "FBE if febrile, non-contrast CTAP +/- KUBUS",
     "mx": "Analgesia, Abx, alpha blockers, IV fluids, surgery (stent / nephrostomy / shockwave lithotripsy),",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Lipoma",
@@ -636,7 +636,7 @@
     "ex": "Palpate, full skin check",
     "ix": "US",
     "mx": "Elective excision if bothersome",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Insomnia",
@@ -645,7 +645,7 @@
     "ex": "Neuro for RLS, Epworth Sleepiness Scale",
     "ix": "Clinical Dx",
     "mx": "CBT, Sxatic relief w/ benzos, Z-drugs, exercise",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "PUD",
@@ -654,7 +654,7 @@
     "ex": "Epig. tenderness (usually mild)",
     "ix": "Helicobacter fecal antigen / breath test, G-scope Bx",
     "mx": "PPI (esomeprazole), H2RA (ranitidine), antacids (sodium bic/alg); Rx of H. pylori -clarithro+amoxi+metro",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Haemorrhoids",
@@ -663,7 +663,7 @@
     "ex": "GI exam + DRE",
     "ix": "None",
     "mx": "↑fluid & fibre, banding",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Gallbladder Disease",
@@ -672,7 +672,7 @@
     "ex": "Jaundice, RUQ pain, fever",
     "ix": "LFTs + FBE + UEC + lipase + US +/- ERCP",
     "mx": "Abx + analgesia + lap chole",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Chicken Pox",
@@ -681,7 +681,7 @@
     "ex": "Complete skin check for characteristic rash",
     "ix": "Culture from vesicle but simple clinical Dx",
     "mx": "School absence - infectious 4-5 days after clearing rash, calamine gel for itch, acyclovir",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Balanitis",
@@ -690,7 +690,7 @@
     "ex": "Genital examination, vitals",
     "ix": "None",
     "mx": "Effective cleaning principles +/- clotrimazole cream",
-    "_category": "General Practise"
+    "_category": "GP"
   },
   {
     "name": "Schizophrenia",
@@ -699,7 +699,7 @@
     "ex": "MSE",
     "ix": "Gene testing someday",
     "mx": "Maintentance atypicals, for at least 12m from Dx. ↓insight is common and the most powerful indicator of adherence to treatment.",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Dependent personality disorder",
@@ -708,7 +708,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "CBT +/- Rx for comorbidity",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Substance dependence",
@@ -717,7 +717,7 @@
     "ex": "MSE, urine screening (w/ C.n of time span between ingestion and detection)",
     "ix": "Drug tox screen + EtOH levels",
     "mx": "MI, group therapy, disulfiram, thiamine",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Schizoid personality disorder",
@@ -726,7 +726,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Be wary of ↑Ro suicide / psych comorbidity. Treat Sx as they appear",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Delusional disorder",
@@ -735,7 +735,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Rx atypicals; Care re: ↑Ro psych comorbidity, possibility of other causes e.g. delirium",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Factitious disorder",
@@ -744,7 +744,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Just as hard to treat.",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Generalised anxiety disorder",
@@ -753,7 +753,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "CBT +/- SSRI",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Brief psychotic disorder",
@@ -762,7 +762,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Rx atypicals, ongoing psychotherapy",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Borderline personality disorder",
@@ -771,7 +771,7 @@
     "ex": "A pattern of the ≥5 of the above traits, that is pervasive, unwavering and causes significant distress",
     "ix": "N/A",
     "mx": "Dialectical Behavioural Therapy",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Conversion disorder",
@@ -780,7 +780,7 @@
     "ex": "MSE, neuro exam w/ attention to dermatomes vs. e.g. sensory loss",
     "ix": "N/A",
     "mx": "",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Schizoaffective disorder",
@@ -789,7 +789,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Rx atypicals",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Somatic symptom disorder",
@@ -798,7 +798,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Acknowledge that the pt is not faking their Sx - they believe in earnest that there is something seriously wrong, & this causes them +++anxiety & impairment. The suffering they inflict on themselves and others thereby, is entirely unintentional.",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Wernicke-Korsakoff syndrome",
@@ -807,7 +807,7 @@
     "ex": "MSE",
     "ix": "FBE + LFTs",
     "mx": "IV thiamine in acute setting, supplementation ongoing",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Major depression",
@@ -816,7 +816,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Rx CBT +/- SSRI",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Antisocial personality disorder",
@@ -825,7 +825,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "CBT doesn't work. Does the prison system?",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Post-traumatic stress disorder",
@@ -834,7 +834,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Risk Ax, CBT, group therapy, screen for psych comorbidity",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Bipolar disorder",
@@ -843,7 +843,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Sodium valproate / lithium plus atypical for acute mania, group therapy + lithium / valproate for maintenance",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Panic disorder",
@@ -852,7 +852,7 @@
     "ex": "MSE; tachycardia, diaphoresis, SOB, chest pain",
     "ix": "N/A",
     "mx": "CBT +/- SSRI +/- benzo PRN",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Bulimia nervosa",
@@ -861,7 +861,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "CBT +/- SSRI, care for relapse",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Obsessive-compulsive disorder",
@@ -870,7 +870,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "CBT +/- SSRI",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Schizotypal personality disorder",
@@ -879,7 +879,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Psychotherapy + Rx which targets specific Sx (atypicals)",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Social anxiety disorder",
@@ -888,7 +888,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "CBT +/- SSRI",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Body dysmorphic disorder",
@@ -897,7 +897,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Educate re illness + psychiatric treatments, futility of cosmetic interventions. Focus on pt's suffering and impaired functioning r/t their appearance. CBT +/- SSRI",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Narcissistic personality disorder",
@@ -906,7 +906,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "Try for CBT",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Agoraphobia",
@@ -915,7 +915,7 @@
     "ex": "MSE",
     "ix": "N/A",
     "mx": "CBT / SSRI for initial Mx depending on pt preference, combine as required; add on benzo or if Hx of SUD pregabalin / gabapentin",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Anorexia nervosa",
@@ -924,7 +924,7 @@
     "ex": "Vitals, inspect for parotid thickening / lanugo, BMI",
     "ix": "Fingerprick BGL + FBE + ferritin + TFTs",
     "mx": "Admx w/ parenteral nutrition + care for refeeding",
-    "_category": "Mental Health"
+    "_category": "Psych"
   },
   {
     "name": "Normal labour",
@@ -933,7 +933,7 @@
     "ex": "Vaginal exam every 4hrs",
     "ix": "CTG often stays on iso ?definitive I.",
     "mx": "Physiological / augmented w/ cervical ripeners + uterotonics",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Cervical cancer screening",
@@ -942,7 +942,7 @@
     "ex": "Spec",
     "ix": "HSV DNA test; if Sxatic at any time, otherwise every 5 years from 25",
     "mx": "HPV vaccine; ablation or excision via colposcope if HSIL",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Recurrent miscarriage",
@@ -951,7 +951,7 @@
     "ex": "Spec",
     "ix": "Anti-Mullerian hormone, APLS screen, mycoplasma NAAT endocervical / vaginal swab",
     "mx": "As much reassurance as possible - it's a hard road.",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Normal physiological changes in pregnancy",
@@ -960,7 +960,7 @@
     "ex": "Vitals",
     "ix": "N/A",
     "mx": "Reassurance",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Ectopic pregnancy",
@@ -969,7 +969,7 @@
     "ex": "Abdo, bimanual for cervical excitation",
     "ix": "βhCG + FBE + CRP + UEC + ",
     "mx": "Medical: MTX; surgical: e.g. lap salpingectomy",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Stillbirth",
@@ -978,7 +978,7 @@
     "ex": "Structural defects",
     "ix": "Perinatal autopsy if I.",
     "mx": "Optimise RFs; help the parents connect with and separate from their child",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Multiple pregnancy",
@@ -987,7 +987,7 @@
     "ex": "Palp",
     "ix": "FBE + G&H + folate B12 + Ab titres (HBV / HCV / HSV / MMR) + OGTT + US",
     "mx": "Monitor for complications: ↑Ro PET, PPH, APH, anaemia, CS",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Teratogenic infection",
@@ -996,7 +996,7 @@
     "ex": "Fever, skin check",
     "ix": "Stool sampling, Ab titres",
     "mx": "Mainly supportive depending on Sx; Rx for C-ganciclovir & H-acyclovir",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Breast Ca",
@@ -1005,7 +1005,7 @@
     "ex": "Breast exam",
     "ix": "Mammogram, FNA, core needle Bx",
     "mx": "CTx / RTx",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "GDM",
@@ -1014,7 +1014,7 @@
     "ex": "CV exam",
     "ix": "OGTT at 16-18 and 26 weeks, ~6 weeks postpartum +/- SMBG",
     "mx": "Diet / lifestyle, if targets not met: insulin (safe during pregnancy); offer IOL @ 39wks to ↓rate of macrosomia, shoulder dystocia and CS; encourage breastfeeding",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Anaemia",
@@ -1023,7 +1023,7 @@
     "ex": "Pallor, tachycardia, ↓CRT",
     "ix": "FBE + Iron studies + thal testing",
     "mx": "Oral iron w/ vitC / iron infusion; pregnancy multivitamin for F/B12; Prevention w/ prenatal vitamins",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Preeclampsia",
@@ -1032,7 +1032,7 @@
     "ex": "Vitals",
     "ix": "FBE + coags + uric acid + PCR",
     "mx": "Labetalol",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Placenta praevia",
@@ -1041,7 +1041,7 @@
     "ex": "øVE",
     "ix": "Regular US",
     "mx": "90% of cases Dx <20wks resolve spontaneously; CS",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Hyperemesis",
@@ -1050,7 +1050,7 @@
     "ex": "Weight, orthostatic BP",
     "ix": "UEC + urinalysis for ketones",
     "mx": "Titrate use of Rx to severity of N/V and response to trigger avoidance / diet mod.n; C. admx if severe for IV ondansetron + fluid replacement; pt preferences should guide therapy re: acupuncture & other CAMs.",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Placental adhesive disorders",
@@ -1059,7 +1059,7 @@
     "ex": "N/A",
     "ix": "Regular US",
     "mx": "CS w/ total hysterectomy",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "APH",
@@ -1068,7 +1068,7 @@
     "ex": "ABCs, vitals, spec, øVE in case of PP",
     "ix": "Kleihauer, amnisure",
     "mx": "If significant, delivery may be I.",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Alloimunisation",
@@ -1077,7 +1077,7 @@
     "ex": "N/A",
     "ix": "G&H mother and father",
     "mx": "If Rh-ve, admx Anti-D at first AN visit, 36 wks and at delivery",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Chorioamnionitis",
@@ -1086,7 +1086,7 @@
     "ex": "Fever, discoloured liquor, purulent discharge from os on spec",
     "ix": "FBE + AF mcs",
     "mx": "IV Abx - amp+gent, delivery",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Induction of labour",
@@ -1095,7 +1095,7 @@
     "ex": "Observe colour of liquor",
     "ix": "CEFM",
     "mx": "Cervical ripening: balloon catheter / cervidil (prostaglandin); S&S if post-term; IV synt to stimulate contractions (major risk is of uterine hyperstimulation)",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Termination of pregnancy",
@@ -1104,7 +1104,7 @@
     "ex": "Confirm uterine size & position",
     "ix": "FBE + G&H",
     "mx": "Mifepristone + misoprostol / D&E, link pt to emotional support services",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Malpresentation",
@@ -1113,7 +1113,7 @@
     "ex": "Palp abdomen, determine station + lie",
     "ix": "Regular US",
     "mx": "ECV, CS",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Prolonged labour",
@@ -1122,7 +1122,7 @@
     "ex": "Ax lie + station",
     "ix": "Investigations have been shown to be inaccurate in determing presence of CPD, and are no longer performed",
     "mx": "Ventouse / forceps / CS",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Fetal distress",
@@ -1131,7 +1131,7 @@
     "ex": "Foetal movements",
     "ix": "Normal variability: 5-25bpm; accelerations (>15bpm for >15s) are a reassuring sign; early decels follow contractions and are physiological, variable decels are random and a bit worrying, late decels begin at the peak of contraction and are worrying, prolonged decels are >3mins and are super worrying: emCS; sinuisoidal = severe hypoxia: emCS, outcome usually poor.",
     "mx": "C. IOL / emCS",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Shoulder dystocia",
@@ -1140,7 +1140,7 @@
     "ex": "Ax level of descent",
     "ix": "N/A",
     "mx": "HELPERR -call for Help -Evaluate for epis -Legs elevated / McRoberts -Pressure suprapubically -Enter vagina and perform manoeuvres -Remove posterior arm -Roll onto all fours; PPH Mx, tear repair",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Instrumental birth",
@@ -1149,7 +1149,7 @@
     "ex": "VE to determine dilation",
     "ix": "FBE + coags + G&H",
     "mx": "Req.ts for instrumental delivery: -cephalic presentation -lithotomy position -adequate analgesia -IDC inserted -resusc prepped -full dilation; Ventouse: less maternal morbidity; Forceps: preferred by old hands, traction force safe limit 20kg in primips",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Caesarean section",
@@ -1158,7 +1158,7 @@
     "ex": "Vitals, prev. abdo surgery scars",
     "ix": "FBE + coags + G&H",
     "mx": "Unless on maternal request, the decision for CS is based on a spectrum of safety.",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "VBAC",
@@ -1167,7 +1167,7 @@
     "ex": "Abdo for scars",
     "ix": "FBE + coags + G&H",
     "mx": "Counsel re: ↓Ro puerperal inxn, ↓blood loss, ↓hospital stay",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "PPH",
@@ -1176,7 +1176,7 @@
     "ex": "Vitals",
     "ix": "FBE + G&H + coags",
     "mx": "10IU synt IM, +ergot / carboprost",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Heavy menstrual bleeding",
@@ -1185,7 +1185,7 @@
     "ex": "Abdo, spec",
     "ix": "FBE + coags + US",
     "mx": "Non-hormonal: tranexamic acid / mefenamic acid; hormonal: OCP / IUD / implanon",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "PCOS",
@@ -1194,7 +1194,7 @@
     "ex": "BMI",
     "ix": "TVUS + FSH&LH + TFTs + prolactin (extended Ax of oligomenorrhoea causes)",
     "mx": "Lifestyle, then clomiphene citrate, then metformin, +/- hormonal contraception (esp. OCP)",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Menopause",
@@ -1203,7 +1203,7 @@
     "ex": "Vaginal exam",
     "ix": "Anti-mullerian hormone",
     "mx": "Topical oestrogen for AV, venlafaxine / CBT for vasomotor, HRT (oestrogen-only for women w/o uterus)",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Fibroids",
@@ -1212,7 +1212,7 @@
     "ex": "Abdo + bimanual",
     "ix": "TVUS",
     "mx": "Only if Sxatic, unless attempting conception: hysteroscopic resection (submucosal), lap myomectomy (other), hysterectomy, IUD if øeager or øcandidate for surgery",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "PID",
@@ -1221,7 +1221,7 @@
     "ex": "Spec for discharge",
     "ix": "Clinical Dx; urine pregnancy test, CRP",
     "mx": "Mainstay is Abx - cef+met+doxy",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Endometriosis",
@@ -1230,7 +1230,7 @@
     "ex": "Abdo, bimanual",
     "ix": "GS diagnostic lap",
     "mx": "Simple analgesia, hormonal contraception (pill / IUD), lap excision",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Infertility",
@@ -1239,7 +1239,7 @@
     "ex": "TVUS",
     "ix": "Sperm sampling (40%MF), hormonal testing",
     "mx": "IVF, ICSI, clomiphene",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "STI",
@@ -1248,7 +1248,7 @@
     "ex": "Genital exam, spec",
     "ix": "Swab + culture / PCR",
     "mx": "Abx therapy, contact tracing, notification",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Stress incontinence",
@@ -1257,7 +1257,7 @@
     "ex": "Abdo palp, vaginal inspection + bimanual for prolapse",
     "ix": "PVR",
     "mx": "Weight loss, smoking cessation. Surgical options aren't great but include bladder neck suspensory sling",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Contraception",
@@ -1266,7 +1266,7 @@
     "ex": "N/A",
     "ix": "N/A",
     "mx": "Offer based on pt request.",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Ovarian cancer",
@@ -1275,7 +1275,7 @@
     "ex": "Palpable mass",
     "ix": "CA-125, β-hCG, αFP, LDH, Tv/aUS, CTAP, CXR to exclude mets",
     "mx": "5-year survival: 45%, R/f to gynae oncologist, mention surgical and CTx options, f/u in one week",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "SGA",
@@ -1284,7 +1284,7 @@
     "ex": "US used for Dx, only accurate to w/in 20%",
     "ix": "BGL",
     "mx": "Endo / dietitian / GE / behaviourist r/f if growth does not catch up",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Mastitis",
@@ -1293,7 +1293,7 @@
     "ex": "Red and swollen area, skin may locally appear shiny and tight w/ red streaks, fever",
     "ix": "FBE + CRP + BCs if severe + US if abscess suspected",
     "mx": "Continue feeds + ensure correct positioning, heat before and cold after, r/f lactation consultant; Rx simple analgesia + Abx if >12hrs",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "LGA",
@@ -1302,7 +1302,7 @@
     "ex": "N/A",
     "ix": "US AC >35cm",
     "mx": "↑Ro fetal and maternal injury at birth, shoulder dystocia, hypoglycaemia & NRDS",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Ovarian torsion",
@@ -1311,7 +1311,7 @@
     "ex": "Adnexal mass",
     "ix": "Pelvic US, diagnostic lap",
     "mx": "Surgery: detorsion to conserve ovary preferred over salpingo-oophorectomy",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "IUGR",
@@ -1320,7 +1320,7 @@
     "ex": "IUGR babes look like old people. Likely to be hypothermic b/c low fat stores, to develop perinatal asphyxia b/c poor tolerance of labour stress",
     "ix": "US is very inaccurate, but is the best test we have; umbilical artery doppler",
     "mx": "↑monitoring, ↑likelihood of IOL esp. if approaching post-term. At birth, keep baby warm, pink and sweet",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Urge incontinence",
@@ -1329,7 +1329,7 @@
     "ex": "Palp abdomen",
     "ix": "MSU, ?Flow studies",
     "mx": "Bladder re-training, avoid triggers, oxybutynin, intravesical botox injection / surgical denervation",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Placental abruption",
@@ -1338,7 +1338,7 @@
     "ex": "Vitals, tender, 'woody' uterus",
     "ix": "CTG, AFI, FFN, amnisure, Kleihauer?, FBE + Coags + G&H",
     "mx": "Deliver iso fetal or maternal deterioration",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Endometrial hyperplasia",
@@ -1347,7 +1347,7 @@
     "ex": "Spec, bedside pipelle",
     "ix": "US, HD&C",
     "mx": "Tranexamic acid / HRT / endometrial ablation / hysterectomy",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Prolapse",
@@ -1356,7 +1356,7 @@
     "ex": "Speculum exam + bimanual",
     "ix": "None",
     "mx": "Pelvic floor PT, pessary, urogynae r/f",
-    "_category": "Obstetrics"
+    "_category": "Obs"
   },
   {
     "name": "Normal growth and feeding",
@@ -1365,7 +1365,7 @@
     "ex": "Correlation btw length & adult height 0.25 at birth, 0.8 at 2yo; proportionality useful in Dx of obesity",
     "ix": "WHO growth chart",
     "mx": "Avoid unnecessary intervention with accurate growth charting.",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Normal development including puberty",
@@ -1374,7 +1374,7 @@
     "ex": "Height + weight + head circumference, yearly BP",
     "ix": "BRIGANZ testing",
     "mx": "MCHN, r/f as required: ST, SW, PT",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Immunisation",
@@ -1383,7 +1383,7 @@
     "ex": "N/A",
     "ix": "Serology",
     "mx": "Recommend UTD",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Continence",
@@ -1392,7 +1392,7 @@
     "ex": "Inspect genitalia, Vincent's curtsy",
     "ix": "MSU",
     "mx": "Discuss toilet training at every opportunity >12mo (readiness based on milestones r/t age, however). C. alarm / desmopressin / anticholinergics / fluid restriction",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Newborn check",
@@ -1401,7 +1401,7 @@
     "ex": "Average length at birth for term infant: 50cm; head circumference: 35cm; chest ~2cm less than this; remember leg click checks",
     "ix": "If abnormalities are present",
     "mx": "As above",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Developmental dysplasia of the hip",
@@ -1410,7 +1410,7 @@
     "ex": "Hip exam at every visit: abduction + elevation for reducibility, gentle adduction for dislocatability. Look for extra skin crease unilaterally, leg length discrepancy",
     "ix": "US during first 4m",
     "mx": "r/f to orthopedic surgeon",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Sleep",
@@ -1419,7 +1419,7 @@
     "ex": "Epworth Sleepiness Scale",
     "ix": "Polysomnography to confirm OSA / narcolepsy, not for general Ix",
     "mx": "Often behavioural ∴ psych r/f",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Sepsis",
@@ -1428,7 +1428,7 @@
     "ex": "Vitals (C. prone to confounding), BP (hypotension in late stage), CRT, skin check",
     "ix": "BCs + VBG + BGL + FBE + CRP; Clinician judgment the best tool for Dx",
     "mx": "O2, early Abx, careful fluid resusc +/- interval vasopressors / inotropes",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Anaphylaxis",
@@ -1437,7 +1437,7 @@
     "ex": "Vitals, CRT",
     "ix": "R/f allergist",
     "mx": "Adrenaline / Epipen; do not allow pt to stand or walk; ABCs; attempt to identify RFs for fatal anaphylaxis",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Diabetic ketoacidosis",
@@ -1446,7 +1446,7 @@
     "ex": "CRT",
     "ix": "FBE + UEC + VBG + BGL + urinalysis + ketones",
     "mx": "Admx insulin + glucose + potassium",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Meningitis",
@@ -1455,7 +1455,7 @@
     "ex": "Fever, purpura, weight & head circumference, fontanelle must be full for Dx to be made",
     "ix": "LP + FBE + BGL + UEC + BCs",
     "mx": "Cefotaxime +/- Benpen, acyclovir if susp. encephalitis, treat seizures immediately w/ benzos.",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Congenital heart disease",
@@ -1464,7 +1464,7 @@
     "ex": "Vitals esp. O2 sat",
     "ix": "Most identified on antenatal US",
     "mx": "Supportive care for perfusion & oxygenation",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Brief Resolved Unexplained Event (formerly ALTE)",
@@ -1473,7 +1473,7 @@
     "ex": "Complete",
     "ix": "Low-risk: none",
     "mx": "If pt requires ongoing acute treatment → øBRUE",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Febrile seizure",
@@ -1482,7 +1482,7 @@
     "ex": ">38ºC",
     "ix": "LP only I. if meningitis or intracranial pathology suspected",
     "mx": "Expectant; IV benzos if >5min",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Epilepsy",
@@ -1491,7 +1491,7 @@
     "ex": "Neuro + CN",
     "ix": "EEG",
     "mx": "Acute: IV benzos; Long-term: anticonvulsants (only w/ strict indication - seizures grossly affecting QOL)",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Non-specific headache",
@@ -1500,7 +1500,7 @@
     "ex": "CN, HEADSS",
     "ix": "LP / MRI onli if I.",
     "mx": "Paracetamol 15mg/kg PO, add ibuprofen + prochlorperazine if migraine <12yo, GP f/u",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Raised ICP",
@@ -1509,7 +1509,7 @@
     "ex": "HTN, papilloedema, ↓GCS",
     "ix": "Imaging",
     "mx": "ABCD",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Bacteraemia",
@@ -1518,7 +1518,7 @@
     "ex": "BP, JVP",
     "ix": "BCs every 24hrs",
     "mx": "Antipyretics, fluid resusc, vasopressors, resp support; Abx cefazolin /  vanc if MRSA",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Pneumonia",
@@ -1527,7 +1527,7 @@
     "ex": "Appearance, fever, ↓O2, WOB, Sx of resp distress (subcostal / substernal / intercostal retraction, head bobbing, nasal flaring, grunting, tachypnoea)",
     "ix": "Only if severe and requiring admx: BCs + CXR + FBE + CRP",
     "mx": "Early Abx (oral in majority of cases, IV only if not tolerating), careful fluid resusc. D/c when tolerating oral intake + O2 adequate",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Cellulitis",
@@ -1536,7 +1536,7 @@
     "ex": "?impetigo / SSSS / contact dermatitis / erysipelas / necfasc",
     "ix": "Swab if discharge present, FBE + BCs if systemic, US if fluctuant",
     "mx": "Fluclox",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Urinary tract infection",
@@ -1545,7 +1545,7 @@
     "ex": "Fever, unwell appearance, costovertebral angle tenderness",
     "ix": "C. RBUS in <2yo",
     "mx": "Usually OP, unless I. for hospital admx (<2mo, vomiting, urosepsis); Ceph +/- amoxi, if no improvement w/in 48hrs, extend coverage",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Septic arthritis/osteomyelitis",
@@ -1554,7 +1554,7 @@
     "ex": "Tenderness to palp.n, fever",
     "ix": "FBE + ESR + BCs + Xray affected area + bone scan",
     "mx": "R/f orthopaedics for aspiration +/- arthrotomy + washout",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Otitis media (acute)",
@@ -1563,7 +1563,7 @@
     "ex": "Otoscopy - bulging and erythematous TM +/- effusion",
     "ix": "None",
     "mx": "Simple analgesia +/- topical lignocaine, amoxi if >48hrs or in only hearing ear / indigenous child. If a/w AM, IV fluclox + cef",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Bronchiolitis",
@@ -1572,7 +1572,7 @@
     "ex": "Sx of URTI + resp distress + fever",
     "ix": "Clinical Dx",
     "mx": "Comfort feeds to settle, supportive O2, reassurance, natural Hx 7-10d",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Croup",
@@ -1581,7 +1581,7 @@
     "ex": "Inspiratory stridor",
     "ix": "None",
     "mx": "Mild: self-limited 3-5 day course, steam inhalation, analgesia; Severe: minimal handling, single dose oral dexa + norad nebs, IV fluids, monitoring",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Pertussis",
@@ -1590,7 +1590,7 @@
     "ex": "Inspiratory whoop",
     "ix": "Nasopharyngeal culture / PCR if ≤4wks duration; Serology if >4wks duration",
     "mx": "Abx øreduce Sx course but ✓limit spread; stay at home.",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "GI foreign body",
@@ -1599,7 +1599,7 @@
     "ex": "Inspect neck: swelling / erythema / crepitus I. immediate surg r/f (perf oesophagus); resp exam",
     "ix": "Neck, chest & abdo AP & L Xray",
     "mx": "Depends on object: blunt objects will often pass e.g. $2 coin, G-scope for all else",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Cystic fibrosis",
@@ -1608,7 +1608,7 @@
     "ex": "C. meconium ileus",
     "ix": "Newborn screening test (heel prick immediately after birth), sweat test",
     "mx": "Chest physio, regular Abx, high-kJ foods (↓pancreas fxn → ↑requirement), exercise, CF clinic",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "GORD",
@@ -1617,7 +1617,7 @@
     "ex": "Weight & height",
     "ix": "N/A",
     "mx": "Prone position after feeds, milk thickeners, can try omeprazole",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Otitis media w/ effusion (glue ear)",
@@ -1626,7 +1626,7 @@
     "ex": "Otoscopy - bulging TM, may see air fluid levels (aka bubbles)",
     "ix": "None",
     "mx": "Should resolve spontaneously. If >3m duration, for audiology + ENT referral",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Viral rashes (aka exanthems)",
@@ -1635,7 +1635,7 @@
     "ex": "Thorough skin check",
     "ix": "None except swab if vesicles present",
     "mx": "Topical antihistamine, reassurance",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Urticaria",
@@ -1644,7 +1644,7 @@
     "ex": "Full skin check, vitals",
     "ix": "Allergic testing and other labs only if Sx persist",
     "mx": "R/f allergist, oral H1a (cetirizine - zyrtec / loratidine - claritin) + H2a if severe (ranitidine - zantac) +/- oral CS",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Intussusception",
@@ -1653,7 +1653,7 @@
     "ex": "Pallor, palpable mass",
     "ix": "US - target sign; AXR - absence of gas around cecum",
     "mx": "Simple: air enema reduction; Complicated: laparotomy",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Functional abdominal pain",
@@ -1662,7 +1662,7 @@
     "ex": "Ax growth chart for interruption",
     "ix": "FOBT",
     "mx": "Rehab approach r/t elimination of pain",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Constipation",
@@ -1671,7 +1671,7 @@
     "ex": "Inspection: abdo for distension + palp, anus, check tone",
     "ix": "Depends on DDx",
     "mx": "↑fibre +/- osmotic laxative (lactulose) / stool softener (coloxyl drops) in children, infrequent glycerin supp. in infants",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Diarrhoea",
@@ -1680,7 +1680,7 @@
     "ex": "Weight, CRT, vitals, GI exam ?palpable mass ?tender to palp.n, mucus membranes",
     "ix": "None unless known exposure to causative bacteria",
     "mx": "Volume resusc",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Cows milk protein intolerance",
@@ -1689,7 +1689,7 @@
     "ex": "Abdo exam",
     "ix": "FBE + UEC + LFTs + urine MCS + stool sampling + ESR",
     "mx": "Admx, stop formula, give AA formula, close f/u",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Failure to thrive",
@@ -1698,7 +1698,7 @@
     "ex": "Normal low weight children don't look ill. FTT children have -sparse hair -wasted appearance (esp. gluten & thighs) -abdo protuberance -ricketic features; Observe child-parent interaction",
     "ix": "FBE + film + urine MCS + UEC + CMP + LFTs w/ albumin + protein + ESR + stool sampling + vit D",
     "mx": "Admx for weight gain",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Leukaemia",
@@ -1707,7 +1707,7 @@
     "ex": "Lymphadenopathy, hepatosplenomegaly",
     "ix": "FBE + blood film + special WC tests",
     "mx": "R/f paediatric Ca centre",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Slipped upper femoral epiphysis",
@@ -1716,7 +1716,7 @@
     "ex": "Altered gait",
     "ix": "Xray",
     "mx": "Avoid WB until surgery. Educate re: 45% Ro same in contralateral hip",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Juvenile arthritis",
@@ -1725,7 +1725,7 @@
     "ex": "Evanescent rash",
     "ix": "No definitive tests exist, thus clinical Dx",
     "mx": "Varies; physio",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Autism",
@@ -1734,7 +1734,7 @@
     "ex": "Observe stereotypical behaviours",
     "ix": "Can recommend genetic testing + counselling",
     "mx": "R/f paed / psych / speech input; Amaze.org.au website; address psych comorbidities",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "ADD / ADHD",
@@ -1743,7 +1743,7 @@
     "ex": "A good chance to Ax level of attention & activity",
     "ix": "N/A",
     "mx": "Educate re +ve parenting strategies",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Oppositional Defiant Disorder",
@@ -1752,7 +1752,7 @@
     "ex": "Unnecessary, and the child may refuse",
     "ix": "N/A",
     "mx": "R/f child psychologist / paed specialising in BD; parental training, family therapy",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Sudden Infant Death Syndrome",
@@ -1761,7 +1761,7 @@
     "ex": "N/A",
     "ix": "N/A",
     "mx": "Infant bedding should be w/o blanket, pillow, toy or excess clothing. Co-sleeping not recommended, room-sharing is, and monitors have shown no benefit.",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Torsion of testis / Hydatid of Morgagni",
@@ -1770,7 +1770,7 @@
     "ex": "Palpate testes",
     "ix": "ØUS",
     "mx": "The latter is self-limited, so surgery is elective; former = emergent surgery",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Epididymoorchitis",
@@ -1779,7 +1779,7 @@
     "ex": "Palpate scrotum, transilluminate, valsalva maneuvre",
     "ix": "Urinalysis, urine MCS, US w/ doppler, scrotal exploration if Dx of testicular torsion cannot be ruled out",
     "mx": "Supportive care + Abx",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Undescended testis",
@@ -1788,7 +1788,7 @@
     "ex": "20% are unpalpable",
     "ix": "Unilateral w/o hypospadia: no further Ix; bilateral or w/ hypospadia: Ix for intersexuality, hormone testing",
     "mx": "Orchidopexy, recommended at 6-12m",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Hypospadias",
@@ -1797,7 +1797,7 @@
     "ex": "Scrotal exam",
     "ix": "N/A",
     "mx": "Observation or surgical correction",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Phimosis",
@@ -1806,7 +1806,7 @@
     "ex": "Glans erythema + swelling",
     "ix": "N/A",
     "mx": "Topical CS, if no improvement circumcision",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "UTI",
@@ -1815,7 +1815,7 @@
     "ex": "Vague clinical signs; fever, vomiting w/o diarrhoea = UTI",
     "ix": "Clean catch / suprapubic",
     "mx": "Oral co-trimoxazole / IV genta+benpen (always look up guidelines to match to weight accurately)",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Hydrocele / Varicocele",
@@ -1824,7 +1824,7 @@
     "ex": "Attempt to empty: if empties quickly => hernia w/ omental fat; transillumination; palpate testis",
     "ix": "Clinical Dx",
     "mx": "Hydrocele usually resolves naturally, only operate if no resolution after 2 years",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Henloch-Schonlein purpura",
@@ -1833,7 +1833,7 @@
     "ex": "Palpable purpura",
     "ix": "FBE + coags",
     "mx": "Abdo US",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Gastroenteritis",
@@ -1842,7 +1842,7 @@
     "ex": "Signs of dehydration / hypovolaemic shock",
     "ix": "If you place a cannula, take bloods: UEC + BGL",
     "mx": "Rehydration: trial of oral → NG RR according to RCH → IV NS+5%D; weigh, monitor input + output",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Infant colic",
@@ -1851,7 +1851,7 @@
     "ex": "Complete",
     "ix": "N/A",
     "mx": "Spont. resolution in 90% by 8wks; parental support; rubbing abdomen, white noise; sleep / cry chart from RCH",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   },
   {
     "name": "Hypertrophic pyloric stenosis",
@@ -1860,6 +1860,6 @@
     "ex": "Palpable mass & peristalsis",
     "ix": "UEC (hypokalaemia, hypochloraemia), VBG (metabolic alkalosis), US (thickened pylorus)",
     "mx": "Fluid resusc, correct electrolyte imbalance, NBM, NGT if vomiting continues, consent for pyloromyotomy",
-    "_category": "Paediatrics"
+    "_category": "Paeds"
   }
 ]

@@ -12,13 +12,11 @@ import * as axios from 'axios'
 export default {
   name: 'blog',
   data() {
-    return {
-      blogpost: this.$store.state.activeBlogPost
-    }
+    return {}
   },
   created() {
     let vm = this
-    if (this.blogpost.slug !== this.$route.params.id) {
+    if (!vm.$store.state.activeBlogPost.slug) {
       axios
         .get('/blogposts/' + this.$route.params.id)
         .then(function(res) {
@@ -31,6 +29,11 @@ export default {
         .catch(function(error) {
           console.log(error)
         })
+    }
+  },
+  computed: {
+    blogpost: function() {
+      return this.$store.state.activeBlogPost
     }
   },
   methods: {},

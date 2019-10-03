@@ -2,13 +2,13 @@
 <div class="notes">
   <div class="flex-row">
     <div class="flex-column">
-      <a v-for="spec in specs" @click="selectSpec(spec)">{{spec}}</a>
+      <a v-for="spec in specs" :class="{highlight:spec == selected_spec}" @click="selectSpec(spec); selected_spec = spec">{{spec}}</a>
     </div>
     <div v-if="sectionsOn" class="flex-column">
-      <a v-for="section in sections" @click="selectSection(section)">{{section}}</a>
+      <a v-for="section in sections" :class="{highlight:section == selected_section}" @click="selectSection(section); selected_section = section">{{section}}</a>
     </div>
     <div v-if="notesOn" class="flex-column">
-      <a v-for="pathology in pathologies" @click="selectNote(pathology)">{{pathology.name}}</a>
+      <a v-for="note in notes_local" :class="{highlight:note == selected_note}" @click="selectNote(note); selected_note = note">{{note.name}}</a>
     </div>
   </div>
   <div v-if="noteOn" class="note">
@@ -20,10 +20,10 @@
         <a @click.prevent="noteOn = false"><img class="icon" src="../assets/x.svg"></a>
       </div>
       <p>{{this.$store.state.activeNote.description}}</p>
-      <p><strong>Hx:</strong> {{this.$store.state.activeNote.hx}}</p>
-      <p><strong>Ex:</strong> {{this.$store.state.activeNote.ex}}</p>
-      <p><strong>Ix:</strong> {{this.$store.state.activeNote.ix}}</p>
-      <p><strong>Mx:</strong> {{this.$store.state.activeNote.mx}}</p>
+      <p><strong>Hx:</strong> {{this.$store.state.activeNote.special.hx}}</p>
+      <p><strong>Ex:</strong> {{this.$store.state.activeNote.special.ex}}</p>
+      <p><strong>Ix:</strong> {{this.$store.state.activeNote.special.ix}}</p>
+      <p><strong>Mx:</strong> {{this.$store.state.activeNote.special.mx}}</p>
     </div>
   </div>
 </div>
@@ -40,9 +40,12 @@ export default {
       sectionsOn: false,
       notesOn: false,
       noteOn: false,
+      selected_spec: undefined,
+      selected_section: undefined,
+      selected_note: undefined,
       specs: this.$store.state.specs,
       sections: this.$store.state.sections,
-      pathologies: []
+      notes_local: []
     }
   },
   methods: {
@@ -54,16 +57,18 @@ export default {
       }
 
       this.sectionsOn = true;
-      this.notesOn = false;
+      this.notesOn, this.noteOn = false;
     },
     selectSection: function(section) {
       this.$store.state.activeSection = section
 
+      this.notes_local = [];
+
       let i
-      for (i = 0; i < 3; i++) {
-        let pathology = this.$store.state.pathologies[i]
-        if (pathology._category === this.$store.state.activeSpec) {
-          this.pathologies.push(pathology)
+      for (i = 0; i < this.notes.length; i++) {
+        let note = this.notes[i]
+        if (note._spec === this.$store.state.activeSpec) {
+          this.notes_local.push(note)
         }
       }
       this.notesOn = true;
@@ -73,14 +78,12 @@ export default {
       }
     },
     selectNote: function(note) {
-      console.log(note.name)
-      console.log(this.pathologies)
 
       let i
-      for (i = 0; i < 3; i++) {
-        let pathology = this.pathologies[i]
-        if (pathology.name === note.name) {
-          this.$store.state.activeNote = pathology
+      for (i = 0; i < this.notes.length; i++) {
+        let notei = this.notes[i]
+        if (notei.name === note.name) {
+          this.$store.state.activeNote = notei
         }
       }
 
@@ -108,6 +111,21 @@ export default {
       }
     }
     this.mounted = false;
+
+    let vm = this;
+    axios
+      .get('/notes')
+      .then(function(res) {
+        vm.$store.commit("SET_NOTES", res.data);
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
+  },
+  computed: {
+    notes: function() {
+      return this.$store.state.notes
+    }
   }
 }
 </script>
@@ -116,15 +134,25 @@ export default {
 a {
   padding: 1rem;
   border-radius: .25rem;
+  border-bottom: 1px solid #fafafa;
 }
 
 a:hover {
-  background: #eee;
+  background: #fafafa;
+}
+
+a.highlight {
+  background: #eaeaea;
+  font-weight: 600;
 }
 
 p {
   margin: 1rem;
   line-height: 1.6;
+}
+
+h4 {
+  margin: 2rem;
 }
 
 h5,
@@ -142,11 +170,8 @@ h6 {
   display: flex;
   flex-direction: column;
   max-height: 38rem;
+  margin: 0 .2rem;
   overflow: scroll;
-}
-
-h4 {
-  margin: 2rem;
 }
 
 .note {
@@ -168,6 +193,7 @@ h4 {
 }
 
 @media screen and (max-width: 500px) {
+
   .note,
   .flex-row {
     margin: .2rem;

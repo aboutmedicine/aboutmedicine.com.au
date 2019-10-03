@@ -57,9 +57,9 @@ h5 {
 }
 
 .posts {
-  padding: 16px;
+  padding: 1rem;
   display: block;
-  border-radius: 8px;
+  border-radius: .5rem;
 }
 
 a {

@@ -9,7 +9,8 @@ app.use(history());
 app.use(bodyParser.json());
 app.use(serveStatic(path.join(__dirname, 'dist')));
 
-BlogPost =require('./server/models/blogposts');
+BlogPost = require('./server/models/blogposts');
+Note = require('./server/models/notes');
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://heroku_28trdw16:tpk3e8svp7nu5mlceio2ir16jh@ds029814.mlab.com:29814/heroku_28trdw16', { useNewUrlParser: true, useUnifiedTopology: true});
@@ -45,6 +46,15 @@ app.post('/blogposts', (req, res) => {
     }
     res.json(blogpost);
   });
+});
+
+app.get('/notes', (req, res) => {
+    Note.getNotes((err, notes) => {
+      if(err){
+        throw err;
+      }
+      res.json(notes)
+    });
 });
 
 const port = process.env.PORT || 80;
