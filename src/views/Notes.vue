@@ -1,23 +1,26 @@
 <template>
 <div class="notes">
   <div class="flex-row">
+
     <div class="flex-column">
-      <a v-for="spec in specs" :class="{highlight:spec == selected_spec}" @click="selectSpec(spec); selected_spec = spec">{{spec}}</a>
+      <a v-for="spec in specs" :class="{highlight:spec == selected_spec}" @click="selectSpec(spec)">{{spec}}</a>
     </div>
+
     <div v-if="sectionsOn" class="flex-column">
-      <a v-for="section in sections" :class="{highlight:section == selected_section}" @click="selectSection(section); selected_section = section">{{section}}</a>
+      <a v-for="section in sections" :class="{highlight:section == selected_section}" @click="selectSection(section)">{{section}}</a>
     </div>
+
     <div v-if="notesOn" class="flex-column">
-      <a v-for="note in notes_local" :class="{highlight:note == selected_note}" @click="selectNote(note); selected_note = note">{{note.name}}</a>
+      <a v-for="note in notes_local" :class="{highlight:note == selected_note}" @click="selectNote(note.name)">{{note.name}}</a>
     </div>
+
   </div>
   <div v-if="noteOn" class="note">
-    <!-- {{this.$store.state.activeSpec}} >
-    {{this.$store.state.activeSection}} > -->
+
     <div>
       <div class="note-head">
         <h5>{{this.$store.state.activeNote.name}}</h5>
-        <a @click.prevent="noteOn = false"><img class="icon" src="../assets/x.svg"></a>
+        <img @click="noteOn = false" class="icon" src="../assets/x.svg">
       </div>
       <p>{{this.$store.state.activeNote.description}}</p>
       <p><strong>Hx:</strong> {{this.$store.state.activeNote.special.hx}}</p>
@@ -25,6 +28,7 @@
       <p><strong>Ix:</strong> {{this.$store.state.activeNote.special.ix}}</p>
       <p><strong>Mx:</strong> {{this.$store.state.activeNote.special.mx}}</p>
     </div>
+
   </div>
 </div>
 </template>
@@ -50,6 +54,7 @@ export default {
   },
   methods: {
     selectSpec: function(spec) {
+      this.selected_spec = spec
       this.$store.state.activeSpec = spec
 
       if (!this.mounted) {
@@ -57,9 +62,12 @@ export default {
       }
 
       this.sectionsOn = true;
-      this.notesOn, this.noteOn = false;
+      this.notesOn = false;
+      this.noteOn = false;
+      this.selected_section = undefined;
     },
     selectSection: function(section) {
+      this.selected_section = section
       this.$store.state.activeSection = section
 
       this.notes_local = [];
@@ -67,22 +75,26 @@ export default {
       let i
       for (i = 0; i < this.notes.length; i++) {
         let note = this.notes[i]
-        if (note._spec === this.$store.state.activeSpec) {
+        if ((note._spec === this.$store.state.activeSpec && note._section === section)) {
           this.notes_local.push(note)
         }
       }
-      this.notesOn = true;
 
       if (!this.mounted) {
         this.$router.push('/notes/' + this.$store.state.activeSpec + '/' + section)
       }
+
+      this.notesOn = true;
+      this.noteOn = false;
     },
     selectNote: function(note) {
+      this.selected_note = note
 
       let i
-      for (i = 0; i < this.notes.length; i++) {
-        let notei = this.notes[i]
-        if (notei.name === note.name) {
+      for (i = 0; i < this.notes_local.length; i++) {
+        let notei = this.notes_local[i]
+        console.log(notei.name)
+        if (notei.name === note) {
           this.$store.state.activeNote = notei
         }
       }
@@ -90,33 +102,35 @@ export default {
       this.noteOn = true;
 
       if (!this.mounted) {
-        this.$router.push('/notes/' + this.$store.state.activeSpec + '/' + this.$store.state.activeSection + '/' + note.name)
+        this.$router.push('/notes/' + this.$store.state.activeSpec + '/' + this.$store.state.activeSection + '/' + note)
       }
     }
   },
   mounted() {
-    if (this.$route.params.spec) {
-      this.mounted = true;
-      let spec = this.$route.params.spec
-      this.selectSpec(spec)
-
-      if (this.$route.params.section) {
-        let section = this.$route.params.section
-        this.selectSection(section)
-
-        if (this.$route.params.section) {
-          let note = this.$route.params.note
-          this.selectNote(note)
-        }
-      }
-    }
-    this.mounted = false;
 
     let vm = this;
     axios
       .get('/notes')
       .then(function(res) {
         vm.$store.commit("SET_NOTES", res.data);
+
+        if (vm.$route.params.spec) {
+          vm.mounted = true;
+          let spec = vm.$route.params.spec
+          vm.selectSpec(spec)
+
+          if (vm.$route.params.section) {
+            let section = vm.$route.params.section
+            vm.selectSection(section)
+
+            if (vm.$route.params.section) {
+              let note = vm.$route.params.note
+              vm.selectNote(note)
+
+            }
+          }
+        }
+        vm.mounted = false;
       })
       .catch(function(error) {
         console.log(error)
@@ -190,6 +204,8 @@ h6 {
 
 .icon {
   width: 1rem;
+  padding: 1rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {

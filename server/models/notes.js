@@ -11,7 +11,6 @@ const TagSchema = new mongoose.Schema({
 
 mongoose.model('Tag', TagSchema);
 
-// Osce Schema
 const noteSchema = mongoose.Schema({
   //general
   name: {
@@ -32,10 +31,10 @@ const noteSchema = mongoose.Schema({
 
   //taxonomies
   _tags: [TagSchema],
-  _category: {
+  _spec: {
     type: String,
   },
-  _type: {
+  _section: {
     type: String,
   }
 });

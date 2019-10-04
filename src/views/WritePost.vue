@@ -35,7 +35,8 @@ export default {
           title: this.title,
           content: this.content,
           slug: this.slug
-        }).then(function(res) {
+        })
+        .then(function(res) {
           console.log(res);
         })
         .catch(function(err) {
