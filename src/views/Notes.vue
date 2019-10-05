@@ -15,7 +15,7 @@
     </div>
 
     <div v-if="dbLoading" class="flex-column">
-      <a> <strong>dbLoading notes...</strong>  </a>
+      <a> <strong>Loading notes...</strong>  </a>
     </div>
 
   </div>
