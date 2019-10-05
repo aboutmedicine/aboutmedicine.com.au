@@ -14,14 +14,20 @@
       <a v-for="note in notes_local" :class="{highlight:note == selected_note}" @click="selectNote(note.name)">{{note.name}}</a>
     </div>
 
+    <div v-if="dbLoading" class="flex-column">
+      <a> <strong>dbLoading notes...</strong>  </a>
+    </div>
+
   </div>
+
   <div v-if="noteOn" class="note">
 
     <div>
       <div class="note-head">
         <h5>{{this.$store.state.activeNote.name}}</h5>
-        <img @click="noteOn = false" class="icon" src="../assets/x.svg">
+        <div @click="noteOn = false" class="icon"><img src="../assets/x.svg"> </div>
       </div>
+
       <p>{{this.$store.state.activeNote.description}}</p>
       <p><strong>Hx:</strong> {{this.$store.state.activeNote.special.hx}}</p>
       <p><strong>Ex:</strong> {{this.$store.state.activeNote.special.ex}}</p>
@@ -40,7 +46,8 @@ export default {
   name: 'notes',
   data() {
     return {
-      mounted: false,
+      routeLoading: false,
+      dbLoading: false,
       sectionsOn: false,
       notesOn: false,
       noteOn: false,
@@ -57,7 +64,7 @@ export default {
       this.selected_spec = spec
       this.$store.state.activeSpec = spec
 
-      if (!this.mounted) {
+      if (!this.routeLoading) {
         this.$router.push('/notes/' + spec)
       }
 
@@ -80,7 +87,7 @@ export default {
         }
       }
 
-      if (!this.mounted) {
+      if (!this.routeLoading) {
         this.$router.push('/notes/' + this.$store.state.activeSpec + '/' + section)
       }
 
@@ -101,7 +108,7 @@ export default {
 
       this.noteOn = true;
 
-      if (!this.mounted) {
+      if (!this.routeLoading) {
         this.$router.push('/notes/' + this.$store.state.activeSpec + '/' + this.$store.state.activeSection + '/' + note)
       }
     }
@@ -109,13 +116,14 @@ export default {
   mounted() {
 
     let vm = this;
+    vm.dbLoading = true;
     axios
       .get('/notes')
       .then(function(res) {
         vm.$store.commit("SET_NOTES", res.data);
 
         if (vm.$route.params.spec) {
-          vm.mounted = true;
+          vm.routeLoading = true;
           let spec = vm.$route.params.spec
           vm.selectSpec(spec)
 
@@ -123,14 +131,15 @@ export default {
             let section = vm.$route.params.section
             vm.selectSection(section)
 
-            if (vm.$route.params.section) {
+            if (vm.$route.params.note) {
               let note = vm.$route.params.note
               vm.selectNote(note)
 
             }
           }
         }
-        vm.mounted = false;
+        vm.routeLoading = false;
+        vm.dbLoading = false;
       })
       .catch(function(error) {
         console.log(error)
@@ -146,13 +155,14 @@ export default {
 
 <style scoped>
 a {
-  padding: 1rem;
+  background: #fafafa;
+  padding: .65rem .5rem;
+  margin: .25rem 0;
   border-radius: .25rem;
-  border-bottom: 1px solid #fafafa;
 }
 
 a:hover {
-  background: #fafafa;
+  background: #eee;
 }
 
 a.highlight {
@@ -186,6 +196,7 @@ h6 {
   max-height: 38rem;
   margin: 0 .2rem;
   overflow: scroll;
+  min-width: 8rem;
 }
 
 .note {
@@ -217,6 +228,7 @@ h6 {
 
   .flex-column {
     max-width: 33%;
+    min-width: 0;
   }
 
   a {
