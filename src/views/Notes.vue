@@ -3,19 +3,19 @@
   <div class="flex-row">
 
     <div class="flex-column">
-      <a v-for="spec in specs" :class="{highlight:spec == selected_spec}" @click="selectSpec(spec)">{{spec}}</a>
+      <a v-for="spec in this.$store.state.specs" :key="spec.id" :class="{highlight:spec == selected_spec}" @click="selectSpec(spec)">{{spec}}</a>
     </div>
 
-    <div v-if="sectionsOn" class="flex-column">
-      <a v-for="section in sections" :class="{highlight:section == selected_section}" @click="selectSection(section)">{{section}}</a>
+    <div v-if="this.$store.state.activeSpec" class="flex-column">
+      <a v-for="section in this.$store.state.sections" :key="section.id" :class="{highlight:section == selected_section}" @click="selectSection(section)">{{section}}</a>
     </div>
 
     <div v-if="notesOn" class="flex-column">
-      <a v-for="note in notes_local" :class="{highlight:note == selected_note}" @click="selectNote(note.name)">{{note.name}}</a>
+      <a v-for="note in notes_local" :key="note.id" :class="{highlight:note.name == selected_note}" @click="selectNote(note.name)">{{note.name}}</a>
     </div>
 
     <div v-if="dbLoading" class="flex-column">
-      <a> <strong>Loading notes...</strong>  </a>
+      <a> <strong>Loading notes...</strong></a>
     </div>
 
   </div>
@@ -28,11 +28,12 @@
         <div @click="noteOn = false" class="icon"><img src="../assets/x.svg"> </div>
       </div>
 
-      <p>{{this.$store.state.activeNote.description}}</p>
-      <p><strong>Hx:</strong> {{this.$store.state.activeNote.special.hx}}</p>
-      <p><strong>Ex:</strong> {{this.$store.state.activeNote.special.ex}}</p>
-      <p><strong>Ix:</strong> {{this.$store.state.activeNote.special.ix}}</p>
-      <p><strong>Mx:</strong> {{this.$store.state.activeNote.special.mx}}</p>
+      <p style="padding: 0 0 .5rem"><i>{{this.$store.state.activeNote.description}}</i></p>
+
+      <Pathology v-if="this.$store.state.activeNote._section === 'Pathology'" />
+      <Cases v-else-if="this.$store.state.activeNote._section === 'Cases'" />
+      <div v-else><pre>{{this.$store.state.activeNote.notes}}</pre></div>
+
     </div>
 
   </div>
@@ -41,21 +42,24 @@
 
 <script>
 import * as axios from 'axios'
+import Pathology from '@/components/notes/Pathology.vue'
+import Cases from '@/components/notes/Cases.vue'
 
 export default {
   name: 'notes',
+  components: {
+    Pathology,
+    Cases
+  },
   data() {
     return {
       routeLoading: false,
       dbLoading: false,
-      sectionsOn: false,
-      notesOn: false,
-      noteOn: false,
       selected_spec: undefined,
       selected_section: undefined,
       selected_note: undefined,
-      specs: this.$store.state.specs,
-      sections: this.$store.state.sections,
+      notesOn: false,
+      noteOn: false,
       notes_local: []
     }
   },
@@ -68,7 +72,6 @@ export default {
         this.$router.push('/notes/' + spec)
       }
 
-      this.sectionsOn = true;
       this.notesOn = false;
       this.noteOn = false;
       this.selected_section = undefined;
@@ -100,22 +103,22 @@ export default {
       let i
       for (i = 0; i < this.notes_local.length; i++) {
         let notei = this.notes_local[i]
-        console.log(notei.name)
         if (notei.name === note) {
           this.$store.state.activeNote = notei
         }
       }
 
-      this.noteOn = true;
-
       if (!this.routeLoading) {
         this.$router.push('/notes/' + this.$store.state.activeSpec + '/' + this.$store.state.activeSection + '/' + note)
       }
+
+      this.noteOn = true;
     }
   },
   mounted() {
 
     let vm = this;
+
     vm.dbLoading = true;
     axios
       .get('/notes')
@@ -134,7 +137,6 @@ export default {
             if (vm.$route.params.note) {
               let note = vm.$route.params.note
               vm.selectNote(note)
-
             }
           }
         }
@@ -170,18 +172,16 @@ a.highlight {
   font-weight: 600;
 }
 
-p {
+p,
+pre {
+  font-family: inherit;
+  word-wrap: normal;
   margin: 1rem;
   line-height: 1.6;
 }
 
-h4 {
-  margin: 2rem;
-}
-
-h5,
-h6 {
-  margin: 1rem;
+h5 {
+  margin: 1rem 1rem 0;
 }
 
 .flex-row {
@@ -193,15 +193,16 @@ h6 {
 .flex-column {
   display: flex;
   flex-direction: column;
-  max-height: 38rem;
   margin: 0 .2rem;
-  overflow: scroll;
+  max-height: 36rem;
   min-width: 8rem;
+  overflow: scroll;
 }
 
 .note {
+  background: #fafafa;
+  border: 3px solid #eee;
   margin: 2rem;
-  background: #eee;
   padding: 1rem;
   border-radius: .25rem;
   position: sticky;
@@ -214,8 +215,8 @@ h6 {
 }
 
 .icon {
-  width: 1rem;
-  padding: 1rem;
+  min-width: 1rem;
+  padding: 1rem 1rem 0;
   cursor: pointer;
 }
 
@@ -223,7 +224,7 @@ h6 {
 
   .note,
   .flex-row {
-    margin: .2rem;
+    margin: .2rem 0;
   }
 
   .flex-column {

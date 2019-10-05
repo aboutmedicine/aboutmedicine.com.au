@@ -8,17 +8,30 @@ client = Mongo::Client.new(mongo_uri);
 db = client.database
 
 ###
-# Reads a json array and adds each entry
+# Read a json file and add each entry
 ###
 
-json = File.read('/Users/reuben/notes.json')
+# json = File.read('/Users/reuben/notes.json')
+#
+# data = JSON.parse(json)
+#
+# data.each do |child|
+#     db[:notes].insert_one child
+# end
 
-data = JSON.parse(json)
+###
+# Find one document
+###
 
-data.each do |child|
-    db[:notes].insert_one child
+db[:notes].find(:name => "Acute Coronary Syndromes").each do |doc|
+    puts doc[:special]
 end
 
+###
+# Find and update one document
+###
+
+# db[:notes].update_one({:name => "Acute Stroke"}, '$set' => {:special => {"mx"=>"Urgent non-contrast CT brain (to rule out haemorrhage), call radiology, call neuro / stroke reg", "ex"=>"Functional status-good? poor?; NIHSS stroke score", "hx"=>"Time course: last known well, wake in stroke, within 24hrs? 4.5hrs?", "etiology"=>"Ischaemic or haemorrhagic", "ix"=>"CT +/- CT angio"}})
 
 ###
 # Delete all documents
@@ -27,7 +40,7 @@ end
 # db[:notes].delete_many
 
 ###
-# List all documents in collection
+# List all documents in collection - limit selection with .limit(n)
 ###
 
 # notes = db[:notes].find

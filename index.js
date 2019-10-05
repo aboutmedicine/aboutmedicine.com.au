@@ -57,6 +57,16 @@ app.get('/notes', (req, res) => {
     });
 });
 
+app.post('/notes', (req, res) => {
+  var note = req.body;
+  Note.addNote(note, (err, note) => {
+    if(err){
+      throw err;
+    }
+    res.json(note);
+  });
+});
+
 const port = process.env.PORT || 80;
 console.log(port)
 app.listen(port);

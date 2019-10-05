@@ -19,11 +19,9 @@ const noteSchema = mongoose.Schema({
   },
   description: {
     type: String,
-    required: false
   },
   notes: {
     type: String,
-    required: false
   },
 
   //post type specific

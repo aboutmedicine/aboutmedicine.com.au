@@ -110,6 +110,42 @@ a:hover {
   color: #5183f5
 }
 
+pre {
+  background: #181818;
+  color: #f2f2f2;
+  font-family: Menlo, monospace;
+  line-height: 1.5;
+  margin: 1rem;
+  border-radius: .5rem;
+  overflow-wrap: normal;
+  overflow: auto;
+}
+
+code {
+  color: #f2f2f2;
+  font-family: Menlo, monospace;
+  line-height: 1.5;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.code-lines {
+  background: #000000;
+  color: #555555;
+  float: left;
+  padding: 0 1.7rem;
+  margin: 0 0 0 -5rem;
+}
+
 @media screen and (max-width: 800px) {
   h5 {
     margin: 1rem 1rem;

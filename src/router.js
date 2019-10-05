@@ -61,7 +61,13 @@ export default new Router({
       path: '/notes/:spec/:section/:note',
       name: 'notes-spec-section-note',
       component: () => import('./views/Notes.vue')
-    }
+    },
+    ,
+    {
+      path: '/add-note',
+      name: 'add-note',
+      component: () => import('./views/AddNote.vue')
+    },
   ],
   scrollBehavior (to, from, savedPosition) {
   if (savedPosition) {
