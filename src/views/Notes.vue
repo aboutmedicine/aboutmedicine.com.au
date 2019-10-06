@@ -163,7 +163,7 @@ export default {
     }
   },
   watch: {
-    $route (to, from) {
+    $route(to, from) {
       this.routeCheck(this)
     }
   }
@@ -221,8 +221,8 @@ h5 {
   padding: 1rem;
   border-radius: .25rem;
   position: sticky;
-  bottom: 2rem;
-  z-index: 1;
+  bottom: 1rem;
+  z-index: 0;
 }
 
 .note-head {
@@ -234,6 +234,10 @@ h5 {
   min-width: 1rem;
   padding: 1rem 1rem 0;
   cursor: pointer;
+}
+
+.front {
+  z-index: 4;
 }
 
 @media screen and (max-width: 500px) {

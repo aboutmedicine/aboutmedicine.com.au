@@ -94,6 +94,7 @@ a:hover {
   background: #fff;
   border-radius: .2rem;
   padding: .75rem .75rem 0 .75rem;
+  z-index: 2;
 }
 
 input:active {
