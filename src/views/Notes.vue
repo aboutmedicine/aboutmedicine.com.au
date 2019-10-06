@@ -1,5 +1,8 @@
 <template>
 <div class="notes">
+
+  <SearchBar />
+
   <div class="flex-row">
 
     <div class="flex-column">
@@ -32,7 +35,9 @@
 
       <Pathology v-if="this.$store.state.activeNote._section === 'Pathology'" />
       <Cases v-else-if="this.$store.state.activeNote._section === 'Cases'" />
-      <div v-else><pre>{{this.$store.state.activeNote.notes}}</pre></div>
+      <div v-else>
+        <pre>{{this.$store.state.activeNote.notes}}</pre>
+      </div>
 
     </div>
 
@@ -44,12 +49,14 @@
 import * as axios from 'axios'
 import Pathology from '@/components/notes/Pathology.vue'
 import Cases from '@/components/notes/Cases.vue'
+import SearchBar from '@/components/SearchBar.vue'
 
 export default {
   name: 'notes',
   components: {
     Pathology,
-    Cases
+    Cases,
+    SearchBar
   },
   data() {
     return {
@@ -113,6 +120,23 @@ export default {
       }
 
       this.noteOn = true;
+    },
+    routeCheck: function(vm) {
+      if (vm.$route.params.spec) {
+        vm.routeLoading = true;
+        let spec = vm.$route.params.spec
+        vm.selectSpec(spec)
+
+        if (vm.$route.params.section) {
+          let section = vm.$route.params.section
+          vm.selectSection(section)
+
+          if (vm.$route.params.note) {
+            let note = vm.$route.params.note
+            vm.selectNote(note)
+          }
+        }
+      }
     }
   },
   mounted() {
@@ -124,22 +148,8 @@ export default {
       .get('/notes')
       .then(function(res) {
         vm.$store.commit("SET_NOTES", res.data);
+        vm.routeCheck(vm)
 
-        if (vm.$route.params.spec) {
-          vm.routeLoading = true;
-          let spec = vm.$route.params.spec
-          vm.selectSpec(spec)
-
-          if (vm.$route.params.section) {
-            let section = vm.$route.params.section
-            vm.selectSection(section)
-
-            if (vm.$route.params.note) {
-              let note = vm.$route.params.note
-              vm.selectNote(note)
-            }
-          }
-        }
         vm.routeLoading = false;
         vm.dbLoading = false;
       })
@@ -150,6 +160,11 @@ export default {
   computed: {
     notes: function() {
       return this.$store.state.notes
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.routeCheck(this)
     }
   }
 }
@@ -207,6 +222,7 @@ h5 {
   border-radius: .25rem;
   position: sticky;
   bottom: 2rem;
+  z-index: 1;
 }
 
 .note-head {
