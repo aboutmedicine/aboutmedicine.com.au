@@ -28,7 +28,7 @@
 
     <textarea rows="10" id="content" v-model="notes" name="notes" placeholder="Notes"></textarea>
 
-    <button type="submit" name="button" v-on:click.prevent="submitNote">Submit</button>
+    <button type="submit" name="button" v-on:click="submitNote">Submit</button>
 
   </form>
 </div>

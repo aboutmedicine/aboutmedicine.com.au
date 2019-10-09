@@ -25,20 +25,17 @@
 
   <div v-if="noteOn" class="note">
 
-    <div>
-      <div class="note-head">
-        <h5>{{this.$store.state.activeNote.name}}</h5>
-        <div @click="noteOn = false" class="icon"><img src="../assets/x.svg"> </div>
-      </div>
+    <div class="note-head">
+      <h5>{{this.$store.state.activeNote.name}}</h5>
+      <div @click="noteOn = false" class="icon"><img src="../assets/x.svg"> </div>
+    </div>
 
-      <p style="padding: 0 0 .5rem"><i>{{this.$store.state.activeNote.description}}</i></p>
+    <p style="padding: 0 0 .5rem"><i>{{this.$store.state.activeNote.description}}</i></p>
 
-      <Pathology v-if="this.$store.state.activeNote._section === 'Pathology'" />
-      <Cases v-else-if="this.$store.state.activeNote._section === 'Cases'" />
-      <div v-else>
-        <pre>{{this.$store.state.activeNote.notes}}</pre>
-      </div>
-
+    <Pathology v-if="this.$store.state.activeNote._section === 'Pathology'" />
+    <Cases v-else-if="this.$store.state.activeNote._section === 'Cases'" />
+    <div v-else>
+      <pre>{{this.$store.state.activeNote.notes}}</pre>
     </div>
 
   </div>
@@ -232,6 +229,7 @@ h5 {
 
 .icon {
   min-width: 1rem;
+  height: auto;
   padding: 1rem 1rem 0;
   cursor: pointer;
 }

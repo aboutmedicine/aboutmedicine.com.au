@@ -2,9 +2,11 @@
 <div class="about">
   <img id="me" alt="me" src="../assets/me.jpg">
   <h4>Thanks for visiting.</h4>
+
   <p>
     I'm a fourth year medical student about to embark on my medical career. <br /> My main interests are:
   </p>
+
   <ul>
     <li>
       The rational use of technology in healthcare
@@ -13,6 +15,7 @@
       Education for clarity, and for empathy
     </li>
   </ul>
+
 </div>
 </template>
 
@@ -47,6 +50,7 @@ ul {
   margin: 2rem;
   border-radius: 140px;
   max-width: 125px;
+  height: auto;
 }
 
 @media screen and (max-width: 800px) {
@@ -65,7 +69,8 @@ ul {
   }
 
   p {
-    margin: .5rem .1rem 0;;
+    margin: .5rem .1rem 0;
+    ;
   }
 
   h4 {

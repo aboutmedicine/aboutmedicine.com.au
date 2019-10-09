@@ -23,15 +23,15 @@ db = client.database
 # Find one document
 ###
 
-db[:notes].find(:name => "Acute Coronary Syndromes").each do |doc|
-    puts doc[:special]
-end
+# db[:notes].find(:name => "Acute Coronary Syndromes").each do |doc|
+#     puts doc[:special]
+# end
 
 ###
 # Find and update one document
 ###
 
-# db[:notes].update_one({:name => "Acute Stroke"}, '$set' => {:special => {"mx"=>"Urgent non-contrast CT brain (to rule out haemorrhage), call radiology, call neuro / stroke reg", "ex"=>"Functional status-good? poor?; NIHSS stroke score", "hx"=>"Time course: last known well, wake in stroke, within 24hrs? 4.5hrs?", "etiology"=>"Ischaemic or haemorrhagic", "ix"=>"CT +/- CT angio"}})
+db[:notes].update_one({:_spec => "Respiratory"}, '$set' => {:_spec => "Resp"})
 
 ###
 # Delete all documents

@@ -34,16 +34,16 @@ export default {
 .social {
   display: flex;
   justify-content: center;
-  margin: 20px;
-  color: #444;
+  margin: 2rem 0;
 }
 
 .social img {
-  width: 36px;
+  width: 2.5rem;
+  height: auto;
 }
 
 p {
-  margin: 0px 0px 32px;
+  margin: 0 0 2rem;
   text-align: center;
 }
 
@@ -53,7 +53,7 @@ h4 {
 }
 
 a {
-  padding: 0 16px;
+  padding: 0 1rem;
   opacity: .4;
 }
 
@@ -63,13 +63,14 @@ a:hover {
 }
 
 #hero {
-  width: 360px;
+  max-width: 360px;
   margin: 0 0 1rem .5rem;
+  height: auto;
 }
 
 @media screen and (max-width: 500px) {
   #hero {
-    width: 270px;
+    max-width: 270px;
   }
 
   h4 {
