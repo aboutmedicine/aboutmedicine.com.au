@@ -14,9 +14,7 @@ export default {
   name: 'BlogPosts',
   data() {
     return {
-      posts_array: [{
-        title: 'test'
-      }]
+      posts_array: []
     }
   },
   methods: {

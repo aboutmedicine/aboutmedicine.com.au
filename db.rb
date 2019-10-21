@@ -23,15 +23,15 @@ db = client.database
 # Find one document
 ###
 
-# db[:notes].find(:name => "Acute Coronary Syndromes").each do |doc|
-#     puts doc[:special]
-# end
+db[:notes].find(:name => "Pulmonary Embolism").each do |doc|
+    puts doc
+end
 
 ###
 # Find and update one document
 ###
 
-db[:notes].update_one({:_spec => "Respiratory"}, '$set' => {:_spec => "Resp"})
+# db[:notes].update_one({:_spec => "Respiratory"}, '$set' => {:_spec => "Resp"})
 
 ###
 # Delete all documents

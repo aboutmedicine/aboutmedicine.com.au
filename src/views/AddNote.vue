@@ -102,6 +102,7 @@ form {
 input,
 textarea,
 select {
+  font-family: inherit;
   display: block;
   border: 2px solid #ccc;
   border-radius: 4px;

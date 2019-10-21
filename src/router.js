@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Notes from './views/Notes.vue'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'home',
       component: Home
@@ -19,7 +19,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import( /* webpackChunkName: "about" */ './views/About.vue')
     },
     {
       path: '/learning',
@@ -44,36 +44,47 @@ export default new Router({
     {
       path: '/notes',
       name: 'notes',
-      component: () => import('./views/Notes.vue')
+      component: Notes
     },
     {
       path: '/notes/:spec',
       name: 'notes-spec',
-      component: () => import('./views/Notes.vue')
+      component: Notes
     },
     {
       path: '/notes/:spec/:section',
       name: 'notes-spec-section',
-      component: () => import('./views/Notes.vue')
-    }
-    ,
+      component: Notes
+    },
     {
       path: '/notes/:spec/:section/:note',
       name: 'notes-spec-section-note',
-      component: () => import('./views/Notes.vue')
+      component: Notes
     },
-    ,
     {
       path: '/add-note',
       name: 'add-note',
       component: () => import('./views/AddNote.vue')
     },
+    {
+      path: '/models',
+      name: 'models',
+      component: () => import('./views/Models.vue')
+    },
+    {
+      path: '/models/:model',
+      name: 'model',
+      component: () => import('./views/Models.vue')
+    },
   ],
-  scrollBehavior (to, from, savedPosition) {
-  if (savedPosition) {
-    return savedPosition
-  } else {
-    return { x: 0, y: 0 }
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return {
+        x: 0,
+        y: 0
+      }
+    }
   }
-}
 })
