@@ -2,12 +2,15 @@ const express = require('express');
 const path = require('path');
 const history = require('connect-history-api-fallback');
 const bodyParser = require('body-parser');
-const serveStatic = require("serve-static")
+// const serveStatic = require("serve-static")
+const expressStaticGzip = require('express-static-gzip');
 app = express();
 
 app.use(history());
 app.use(bodyParser.json());
-app.use(serveStatic(path.join(__dirname, 'dist')));
+app.use('/', expressStaticGzip(path.join(__dirname,'/dist'), {
+    // index: false,
+}));
 
 BlogPost = require('./server/models/blogposts');
 Note = require('./server/models/notes');
@@ -15,6 +18,8 @@ Note = require('./server/models/notes');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://heroku_28trdw16:tpk3e8svp7nu5mlceio2ir16jh@ds029814.mlab.com:29814/heroku_28trdw16', { useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
+
+
 
 app.get('/', (req, res) => {
     res.render('./client/index')

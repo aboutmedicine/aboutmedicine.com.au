@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-// const CompressionPlugin = require('compression-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   // outputDir: path.resolve(__dirname, '/dist'),
@@ -18,11 +18,11 @@ module.exports = {
     plugins: [
 			new webpack.ProvidePlugin({
         THREE: 'three'
+      }),
+      new CompressionPlugin({
+        algorithm: 'gzip',
+        test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.wasm$|\.svg?.+$/,
       })
-      // new CompressionPlugin({
-      //   algorithm: 'gzip',
-      //   test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.wasm$|\.svg?.+$/,
-      // })
 		]
   },
 }
