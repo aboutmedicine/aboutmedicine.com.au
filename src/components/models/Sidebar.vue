@@ -3,10 +3,8 @@
   <div class="sidebar">
 
     <a @click.prevent="showModels = !showModels">
-      <transition name="fade">
-        <img key=1 v-if="!showModels" alt="Model List" class="sidebar-toggle" src="../../assets/bars.svg" height="32" width="32">
-        <img key=2 v-if="showModels" alt="CloseModel List" class="sidebar-toggle" src="../../assets/x.svg" height="32" width="32">
-      </transition>
+        <img v-if="!showModels" alt="Model List" class="sidebar-toggle" src="../../assets/bars.svg" height="32" width="32">
+        <img v-if="showModels" alt="CloseModel List" class="sidebar-toggle" src="../../assets/x.svg" height="32" width="32">
     </a>
 
     <div class="model-list" v-if="showModels" v-for="model in this.$store.state.models">
@@ -25,6 +23,7 @@ export default {
   methods: {
     showModel: function(model) {
       this.$router.push('/models/' + model);
+      this.$store.commit('SET_ACTIVE_MESH', {});
     }
   },
   computed: {
@@ -37,17 +36,16 @@ export default {
 
 <style>
 .sidebar-toggle {
-  position: absolute;
+  position: fixed;
   display: block;
   right: 1.5rem;
   top: 1.5rem;
   z-index: 1;
-  transition: .2s;
 }
 
 .model-list {
-  position: sticky;
-  margin-top: -1rem;
+  position: relative;
+  top: -1rem;
   text-align: right;
   display: flex;
   flex-direction: column;
@@ -55,21 +53,11 @@ export default {
 }
 
 .model-link {
-  padding: .75rem;
+  padding: .5rem .75rem;
 }
 
 .model-link:hover {
   color: #888;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity .2s
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0
 }
 
 a.highlight {
@@ -79,4 +67,5 @@ a.highlight {
 a.highlight:hover {
   color: #444;
 }
+
 </style>

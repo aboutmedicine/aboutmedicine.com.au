@@ -18,7 +18,7 @@ export default {
   position: absolute;
   bottom: 0;
   z-index: 1;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 </style>

@@ -61,7 +61,6 @@ export default {
     loadModel(model) {
       this.$store.state.controller.load("../static/models/" + model + ".glb");
       this.currentModel = model;
-      console.log(model)
     }
   },
   watch: {
