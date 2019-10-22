@@ -1,22 +1,30 @@
 <template>
-<div class="about">
-  <img id="me" alt="me" src="../assets/me.jpg">
-  <h4>Thanks for visiting.</h4>
+<main>
 
-  <p>
-    I'm a fourth year medical student about to embark on my medical career. <br /> My main interests are:
+  <div class="about">
+    <img id="me" alt="me" src="../assets/me.jpg">
+    <h4>Thanks for visiting.</h4>
+
+    <p class="first-para">
+      I'm a fourth year medical student about to embark on my medical career. <br /> My main interests are:
+    </p>
+
+    <ul>
+      <li>
+        The rational use of technology in healthcare
+      </li>
+      <li>
+        Education for clarity, and for empathy
+      </li>
+    </ul>
+
+  </div>
+
+  <p class="second-para">
+    If you'd like, you can contact me <a href="mailto:reuben.schmidt@icloud.com">here</a>, or follow me on <a href="https://twitter.com/About_Medicine">Twitter</a>.
   </p>
 
-  <ul>
-    <li>
-      The rational use of technology in healthcare
-    </li>
-    <li>
-      Education for clarity, and for empathy
-    </li>
-  </ul>
-
-</div>
+</main>
 </template>
 
 <style scoped>
@@ -29,8 +37,12 @@
     'ul ul photo';
 }
 
-p {
+.first-para {
   grid-area: paragraph;
+  margin: 2rem;
+}
+
+.second-para {
   margin: 2rem;
 }
 
@@ -53,6 +65,17 @@ ul {
   height: auto;
 }
 
+a {
+  font-weight: 600;
+  color: #5183f5;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #7b98fc;
+}
+
 @media screen and (max-width: 800px) {
   .about {
     grid-template-areas:
@@ -68,7 +91,8 @@ ul {
     margin: 2rem 1rem 2rem 0;
   }
 
-  p {
+  .first-para,
+  .second-para {
     margin: .5rem .1rem 0;
     ;
   }

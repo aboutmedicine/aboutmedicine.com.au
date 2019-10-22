@@ -25,7 +25,6 @@ export default {
       for (i = 0; i < this.link_array.length; i++) {
         let link = this.link_array[i]
         if (link.name === note) {
-          console.log(link);
           this.$router.push('/notes/' + link._spec + '/' + link._section + '/' + note);
           this.search_data = '';
         }

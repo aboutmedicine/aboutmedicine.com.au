@@ -42,7 +42,7 @@ export default {
   }),
   methods: {
     reset() {
-      this.$store.state.controller.restoreVisibility();
+    this.$store.dispatch("CLEAR_SCENE");
     },
     dissect() {
       this.$store.state.controller.hideMesh(this.$store.state.activeMesh.object);

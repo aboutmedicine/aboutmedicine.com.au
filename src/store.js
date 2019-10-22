@@ -18,7 +18,7 @@ export default new Vuex.Store({
     //
     // Models
     //
-    models: ['ischioanal-fossae', 'heart', 'peritoneum'],
+    models: ['heart', 'heart-schematic', 'ischioanal-fossae', 'peritoneum'],
     controller: null,
     currentModel: null,
     activeMesh: {},
