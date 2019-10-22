@@ -7,7 +7,7 @@
       <img v-show="showModels" alt="CloseModel List" class="sidebar-toggle" src="../../assets/x.svg" height="32" width="32">
     </a>
 
-    <div class="model-list" v-show="showModels" v-for="model in this.$store.state.models">
+    <div class="model-list" v-if="showModels" v-for="model in this.$store.state.models">
       <a @click.prevent="showModel(model)" class="model-link" :key="model.id" :class="{highlight:model == active}">{{model}}</a>
     </div>
     <div class="navigation" v-if="showModels">
@@ -51,6 +51,7 @@ export default {
   position: relative;
   top: -1rem;
   text-align: right;
+  text-shadow: 0 0 4px #fff;
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -70,6 +71,7 @@ export default {
 
 .navigation a {
   color: #5183f5;
+  text-shadow: 0 0 3px #fff;
 }
 
 .navigation a:hover {
