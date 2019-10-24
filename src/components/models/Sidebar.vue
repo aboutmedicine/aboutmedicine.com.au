@@ -7,14 +7,15 @@
       <img v-show="showModels" alt="CloseModel List" class="sidebar-toggle" src="../../assets/x.svg" height="32" width="32">
     </a>
     <div class="sidebar-open">
-      <div class="border" v-if="showModels"></div>
+      <div class="border" v-if="showModels" style="margin-right:2rem;"></div>
       <div class="model-list" v-if="showModels" v-for="model in this.$store.state.models">
         <a @click.prevent="showModel(model)" :key="model.id" :class="{highlight:model == active}">{{model}}</a>
       </div>
       <div class="border" v-if="showModels"></div>
       <div class="navigation" v-if="showModels">
-        <router-link to="/notes" style="padding-bottom: .5rem">Notes</router-link>
+        <router-link to="/notes">Notes</router-link>
         <router-link to="/">Blog</router-link>
+        <a href="https://twitter.com/About_Medicine">Twitter</a>
       </div>
     </div>
   </div>
@@ -52,16 +53,16 @@ export default {
 
 .sidebar-open {
   position: absolute;
-  right: 1.5rem;
-  top: 1.5rem;
+  right: .5rem;
+  top: .45rem;
   text-align: right;
-  background: #fafafa;
+  background: #fff;
   padding: 1rem;
   border-radius: 5px;
 }
 
 .model-list {
-  padding: .5rem .75rem;
+  padding: .5rem .5rem;
   text-align: right;
   display: flex;
   flex-direction: column;
@@ -69,26 +70,25 @@ export default {
 }
 
 .navigation {
-
   text-align: right;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: scroll;
   font-weight: 600;
 }
 
 .border {
-  border: 1px solid #ddd;
+  border: 1px solid #f0f0f0;
   margin: 1rem 0;
 }
 
 .navigation a {
-  color: #5183f5;
-  padding: .5rem .75rem;
+  color: #7B98FC;
+  padding: .5rem .5rem;
 }
 
 .navigation a:hover {
-  color: #7B98FC;
+  color: #5183f5;
 }
 
 a:hover {
