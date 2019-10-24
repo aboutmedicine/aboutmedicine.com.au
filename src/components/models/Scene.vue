@@ -32,7 +32,7 @@ export default {
     if (this.$route.params.model) {
       this.loadModel(this.$route.params.model);
     } else {
-      this.$router.push('/models/' + this.$store.state.models[0]);
+      this.$router.push('/models/heart');
     }
 
   },

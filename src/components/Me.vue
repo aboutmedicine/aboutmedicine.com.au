@@ -5,7 +5,7 @@
     I make videos about medicine + sometimes I write stuff too.
   </p>
   <div class="hero-box">
-    <img id="hero" alt="me" src="../assets/heart.jpg">
+    <img id="hero" alt="me" src="../assets/heart_01.jpg">
   </div>
   <div class="social">
     <a href="https://www.youtube.com/c/AboutMedicine"><img alt="youtube" src="../assets/youtube.svg" /></a>
@@ -37,7 +37,7 @@ export default {
 }
 
 .social img {
-  width: 2.5rem;
+  width: 3rem;
   height: auto;
 }
 
@@ -52,7 +52,7 @@ h4 {
 }
 
 a {
-  padding: 0 1rem;
+  padding: 0 2rem;
   opacity: .4;
 }
 
@@ -62,14 +62,14 @@ a:hover {
 }
 
 #hero {
-  max-width: 360px;
-  margin: 0 0 1rem .5rem;
+  width: 360px;
+  margin: 0 0 0 .5rem;
   height: auto;
 }
 
 @media screen and (max-width: 500px) {
   #hero {
-    max-width: 270px;
+    width: 270px;
     height: auto;
   }
 
