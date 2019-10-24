@@ -6,13 +6,16 @@
       <img v-show="!showModels" alt="Model List" class="sidebar-toggle" src="../../assets/bars.svg" height="32" width="32">
       <img v-show="showModels" alt="CloseModel List" class="sidebar-toggle" src="../../assets/x.svg" height="32" width="32">
     </a>
-
-    <div class="model-list" v-if="showModels" v-for="model in this.$store.state.models">
-      <a @click.prevent="showModel(model)" class="model-link" :key="model.id" :class="{highlight:model == active}">{{model}}</a>
-    </div>
-    <div class="navigation" v-if="showModels">
-      <router-link to="/notes" style="padding-bottom: .5rem">Notes</router-link>
-      <router-link to="/">Blog</router-link>
+    <div class="sidebar-open">
+      <div class="border" v-if="showModels"></div>
+      <div class="model-list" v-if="showModels" v-for="model in this.$store.state.models">
+        <a @click.prevent="showModel(model)" :key="model.id" :class="{highlight:model == active}">{{model}}</a>
+      </div>
+      <div class="border" v-if="showModels"></div>
+      <div class="navigation" v-if="showModels">
+        <router-link to="/notes" style="padding-bottom: .5rem">Notes</router-link>
+        <router-link to="/">Blog</router-link>
+      </div>
     </div>
   </div>
 </main>
@@ -47,39 +50,45 @@ export default {
   z-index: 1;
 }
 
-.model-list {
-  position: relative;
-  top: -1rem;
+.sidebar-open {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
   text-align: right;
-  text-shadow: 0 0 4px #fff;
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.model-list {
+  padding: .5rem .75rem;
+  text-align: right;
   display: flex;
   flex-direction: column;
   overflow: scroll;
 }
 
 .navigation {
-  position: absolute;
-  right: 2rem;
+
   text-align: right;
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  text-decoration: none;
   font-weight: 600;
-  width: 100px;
+}
+
+.border {
+  border: 1px solid #ddd;
+  margin: 1rem 0;
 }
 
 .navigation a {
   color: #5183f5;
-  text-shadow: 0 0 3px #fff;
+  padding: .5rem .75rem;
 }
 
 .navigation a:hover {
   color: #7B98FC;
-}
-
-.model-link {
-  padding: .5rem .75rem;
 }
 
 a:hover {
