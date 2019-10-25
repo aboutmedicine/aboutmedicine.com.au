@@ -70,7 +70,7 @@ a:hover {
 @media screen and (max-width: 500px) {
   #hero {
     width: 270px;
-    height: auto;
+    height: 238px;
   }
 
   h4 {
