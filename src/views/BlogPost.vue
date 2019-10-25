@@ -49,4 +49,14 @@ p {
 h4 {
   margin: 2rem;
 }
+
+@media screen and (max-width: 500px) {
+  p {
+    margin: 1rem .5rem;
+  }
+
+  h4 {
+    margin: 1rem .5rem;
+  }
+}
 </style>
