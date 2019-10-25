@@ -1,6 +1,8 @@
 <template>
 <div class="scene">
-  <canvas class="" id="scene"> </canvas>
+  <canvas class="" id="scene">
+</canvas>
+<h5 class="loading" v-if="loadingModel">Loading...</h5>
 </div>
 </template>
 
@@ -12,7 +14,8 @@ export default {
   data: () => ({
     intersected: null,
     canvas: null,
-    currentModel: null
+    currentModel: null,
+    loadingModel: false
   }),
   mounted() {
     const canvas = document.getElementById("scene");
@@ -58,8 +61,10 @@ export default {
       }
     },
     loadModel(model) {
+      this.loadingModel = true;
       this.$store.state.controller.load("../static/models/" + model + ".glb");
       this.currentModel = model;
+      this.loadingModel = false;
     }
   },
   watch: {
@@ -79,5 +84,12 @@ export default {
   top: 0;
   bottom: 0;
   right: 0;
+}
+
+.loading {
+  z-index: 5;
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }
 </style>
