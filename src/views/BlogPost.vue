@@ -1,7 +1,7 @@
 <template>
 <div class="blog">
   <h4>{{blogpost.title}}</h4>
-  <div v-html="blogpost.content">
+  <div class="content" v-html="blogpost.content">
   </div>
 </div>
 </template>
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style scoped>
-p {
+.content, p {
   margin: 2rem;
   line-height: 1.6;
 }
@@ -51,7 +51,8 @@ h4 {
 }
 
 @media screen and (max-width: 500px) {
-  p {
+
+  .content, p {
     margin: 1rem .5rem;
   }
 
