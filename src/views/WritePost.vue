@@ -13,7 +13,7 @@
 import * as axios from 'axios'
 
 export default {
-  name: 'write',
+  name: 'WritePost',
   data() {
     return {
       title: '',

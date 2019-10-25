@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
-  // outputDir: path.resolve(__dirname, '/dist'),
   productionSourceMap: false,
   devServer: {
     proxy: {

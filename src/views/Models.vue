@@ -1,10 +1,10 @@
 <template>
-  <div class="home">
-    <Toolbar />
-    <Scene />
-    <MeshName v-if="this.$store.state.activeMesh.name" />
-    <Sidebar></Sidebar>
-  </div>
+<div class="home">
+  <Toolbar />
+  <Scene />
+  <MeshName v-if="this.$store.state.activeMesh.name" />
+  <Sidebar></Sidebar>
+</div>
 </template>
 
 <script>

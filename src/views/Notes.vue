@@ -49,7 +49,7 @@ import Cases from '@/components/notes/Cases.vue'
 import SearchBar from '@/components/SearchBar.vue'
 
 export default {
-  name: 'notes',
+  name: 'Notes',
   components: {
     Pathology,
     Cases,
@@ -59,9 +59,11 @@ export default {
     return {
       routeLoading: false,
       dbLoading: false,
+      //
       selected_spec: undefined,
       selected_section: undefined,
       selected_note: undefined,
+      // 
       notesOn: false,
       noteOn: false,
       notes_local: []

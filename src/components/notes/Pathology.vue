@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'pathology',
+  name: 'Pathology',
 }
 </script>
 

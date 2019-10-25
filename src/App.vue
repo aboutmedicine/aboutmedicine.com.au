@@ -12,7 +12,7 @@
   </div>
   <router-view />
   <div id="footer">
-    <router-link to="/contact">contact</router-link>
+    <router-link to="/about">contact</router-link>
     <router-link to="/patreon">patreon</router-link>
     <router-link to="/learning">learning</router-link>
   </div>

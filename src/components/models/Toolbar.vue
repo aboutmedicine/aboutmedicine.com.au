@@ -27,6 +27,7 @@
     <div id="restore" class="toolbar-btn" @click="reset" data-tooltip-bottom="Reset model">
       <img alt="Reset model" src="../../assets/redo.svg" height="32" width="32">
     </div>
+
   </div>
 </main>
 </template>
@@ -42,7 +43,7 @@ export default {
   }),
   methods: {
     reset() {
-    this.$store.dispatch("CLEAR_SCENE");
+      this.$store.dispatch("CLEAR_SCENE");
     },
     dissect() {
       this.$store.state.controller.hideMesh(this.$store.state.activeMesh.object);
@@ -76,7 +77,7 @@ export default {
   cursor: pointer;
 }
 
-.toolbar-btn:hover{
+.toolbar-btn:hover {
   background: #888;
 }
 
@@ -91,5 +92,4 @@ export default {
 .toolbar-dropdown .toolbar-btn {
   margin-top: .5rem;
 }
-
 </style>

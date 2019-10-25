@@ -43,7 +43,6 @@ export default {
 <style scoped>
 .content {
   margin: 2rem 1.5rem;
-  line-height: 1.6;
 }
 
 h4 {

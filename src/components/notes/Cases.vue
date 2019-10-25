@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'pathology',
+  name: 'Cases',
 }
 </script>
 

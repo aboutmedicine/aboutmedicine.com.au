@@ -18,6 +18,7 @@
         <a href="https://twitter.com/About_Medicine">Twitter</a>
       </div>
     </div>
+    
   </div>
 </main>
 </template>

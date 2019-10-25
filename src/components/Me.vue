@@ -5,7 +5,7 @@
     I make videos about medicine + sometimes I write stuff too.
   </p>
   <div class="hero-box">
-    <img id="hero" alt="me" src="../assets/heart_01.jpg">
+    <a href="/models/heart-schematic"><img id="hero" alt="me" src="../assets/heart_01.jpg"></a>
   </div>
   <div class="social">
     <a href="https://www.youtube.com/c/AboutMedicine"><img alt="youtube" src="../assets/youtube.svg" /></a>
@@ -17,10 +17,7 @@
 
 <script>
 export default {
-  name: 'Me',
-  props: {
-    msg: String
-  }
+  name: 'Me'
 }
 </script>
 
@@ -51,12 +48,12 @@ h4 {
   text-align: center;
 }
 
-a {
+.social a {
   padding: 0 2rem;
   opacity: .4;
 }
 
-a:hover {
+.social a:hover {
   opacity: 1;
   cursor: pointer;
 }

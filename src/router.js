@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Notes from './views/Notes.vue'
 
 Vue.use(Router)
 
@@ -44,22 +43,22 @@ export default new Router({
     {
       path: '/notes',
       name: 'notes',
-      component: Notes
+      component: () => import('./views/Notes.vue')
     },
     {
       path: '/notes/:spec',
       name: 'notes-spec',
-      component: Notes
+      component: () => import('./views/Notes.vue')
     },
     {
       path: '/notes/:spec/:section',
       name: 'notes-spec-section',
-      component: Notes
+      component: () => import('./views/Notes.vue')
     },
     {
       path: '/notes/:spec/:section/:note',
       name: 'notes-spec-section-note',
-      component: Notes
+      component: () => import('./views/Notes.vue')
     },
     {
       path: '/add-note',

@@ -8,8 +8,7 @@
 
 <script>
 export default {
-  name: "MeshName",
-  props: {}
+  name: "MeshName"
 };
 </script>
 

@@ -34,7 +34,6 @@ export default {
     } else {
       this.$router.push('/models/heart');
     }
-
   },
   methods: {
     highlightMesh(e, controller) {
@@ -52,7 +51,7 @@ export default {
           intersected.material.emissive.setHex(0xaa00aa);
 
           this.$store.commit("SET_ACTIVE_MESH", {
-            name: intersection.object.name.replace(/_/g, " ").replace(/\d/g,''),
+            name: intersection.object.name.replace(/_/g, " ").replace(/\d/g, ''),
             object: intersection.object
           });
         }
