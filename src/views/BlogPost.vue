@@ -41,8 +41,8 @@ export default {
 </script>
 
 <style scoped>
-.content, p {
-  margin: 2rem;
+.content {
+  margin: 2rem 1.5rem;
   line-height: 1.6;
 }
 
@@ -52,8 +52,8 @@ h4 {
 
 @media screen and (max-width: 500px) {
 
-  .content, p {
-    margin: 1rem .5rem;
+  .content {
+    margin: 1rem 0;
   }
 
   h4 {
