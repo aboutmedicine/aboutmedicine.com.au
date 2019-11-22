@@ -46,7 +46,7 @@ export default {
       this.$store.dispatch("CLEAR_SCENE");
     },
     dissect() {
-      this.$store.state.controller.hideMesh(this.$store.state.activeMesh.object);
+      this.$store.dispatch("HIDE_MESH");
     },
     clip(...args) {
       this.$store.state.controller.clip(...args);

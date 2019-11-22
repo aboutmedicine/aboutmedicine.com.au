@@ -19,7 +19,6 @@ export default {
     const controller = new SceneManager(canvas);
 
     this.canvas = canvas;
-    this.controller = controller;
     this.$store.commit("SET_CONTROLLER", controller);
 
     canvas.addEventListener("mousedown", e =>
@@ -55,11 +54,21 @@ export default {
             object: intersection.object
           });
         }
+
+        const animated = this.$store.state.controller.checkAnimated()
+        if (animated) {
+          this.$store.state.animated = true;
+        } else {
+          this.$store.state.animated = false;
+        }
+
       }
+
     },
     loadModel(model) {
       this.$store.state.controller.load("../static/models/" + model + ".glb");
-    }
+      this.$store.dispatch('CLEAR_SCENE');
+      }
   },
   watch: {
     $route(to) {

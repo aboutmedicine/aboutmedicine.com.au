@@ -18,10 +18,12 @@ export default new Vuex.Store({
     //
     // Models
     //
-    models: ['axilla', 'brain-schematic', 'cranial-nerves', 'embryo', 'femoral-canal', 'heart', 'heart-schematic', 'inguinal-canal', 'ischioanal-fossae', 'perineum', 'peritoneum'],
+    models: ['axilla', 'brain-schematic', 'cranial-nerves', 'embryo', 'femoral-triangle', 'forearm-anterior', 'heart', 'heart-schematic', 'inguinal-canal', 'ischioanal-fossae', 'perineum', 'peritoneum'],
     controller: null,
     currentModel: null,
     activeMesh: {},
+    animated: false,
+    paused: true
   },
   mutations: {
     SET_ACTIVE_POST(state, payload) {
@@ -44,23 +46,28 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    CLEAR_SCENE({
-      commit,
-      state
-    }) {
+    CLEAR_SCENE({commit, state}) {
       commit('SET_ACTIVE_MESH', {});
+      state.animated = false;
+      state.paused = true;
       state.controller.restoreVisibility();
     },
-    HIDE_MESH({
-      state
-    }) {
+    HIDE_MESH({commit, state}) {
       state.controller.hideMesh(state.activeMesh.object);
+      commit('SET_ACTIVE_MESH', {});
+    },
+    PLAY_ANIM({commit, state}) {
+      state.controller.play(state.activeMesh.object);
+      if (state.controller.checkAnimating()) {
+        state.paused = false;
+      }
+    },
+    PAUSE_ANIM({commit, state}) {
+      state.paused = true;
+      state.controller.pause(state.activeMesh.object);
     }
   },
   getters: {
-    sortedModels: (state) => {
-      return [...state.models].sort((a, b) => a.localeCompare(b));
-    },
     activeModel: (state) => {
       const model = state.models.filter(x => x === state.currentModel)[0];
       if (model) {

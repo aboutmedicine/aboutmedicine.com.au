@@ -60,10 +60,10 @@ export default {
       routeLoading: false,
       dbLoading: false,
       //
-      selected_spec: undefined,
-      selected_section: undefined,
-      selected_note: undefined,
-      // 
+      selected_spec: null,
+      selected_section: null,
+      selected_note: null,
+      //
       notesOn: false,
       noteOn: false,
       notes_local: []
@@ -80,7 +80,7 @@ export default {
 
       this.notesOn = false;
       this.noteOn = false;
-      this.selected_section = undefined;
+      this.selected_section = null;
     },
     selectSection: function(section) {
       this.selected_section = section
@@ -136,6 +136,7 @@ export default {
           }
         }
       }
+      vm.routeLoading = false;
     }
   },
   mounted() {

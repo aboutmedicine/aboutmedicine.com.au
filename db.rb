@@ -23,7 +23,7 @@ db = client.database
 # Find one document
 ###
 
-db[:notes].find(:name => "Viral Hepatitis").each do |doc|
+db[:notes].find(:name => "Amyotrophic Lateral Sclerosis").each do |doc|
     puts doc
 end
 
@@ -31,7 +31,7 @@ end
 # Find and update one document
 ###
 
-# db[:notes].update_one({:name => "Viral Hepatitis"}, '$set' => {:notes => "HAV: Faecal oral\nHBV: blood / perinatal\n- oncogenic integration of HBV DNA predisposes to HCC\nHCV: blood / perinatal (less infective than HBV so requires IVDU)\nHDV: Must have coinfection w/ HBV\n- requires HBsAg to develop complete virions\nHEV: Faecal oral"})
+# db[:notes].update_one({:name => "Amyotrophic Lateral Sclerosis"}, '$set' => {:hx => ""})
 
 ###
 # Delete all documents
