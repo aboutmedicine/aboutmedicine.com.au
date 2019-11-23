@@ -9,82 +9,58 @@
   <p>Firstly, you’ll need to <a href="https://www.anaconda.com/distribution/#macos">install Anaconda</a>.
     It’s a program designed to simplify the setup of machine learning projects.</p>
   <p>The programming language du jour for machine learning is called Python.
-    With Anaconda installed, open Terminal, type <strong>python</strong> and press enter. You should see a response like this:</p>
+    With Anaconda installed, open Terminal, type <strong>python</strong> and press enter.
+    You should see a response like this:</p>
 
-  <pre>
-      <code class='code-lines'>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-      </code>
-<code>  Python 3.7.3 (default, Mar 27 2019, 16:54:48)
+
+  <CodeBlock :lines="4" contents="  Python 3.7.3 (default, Mar 27 2019, 16:54:48)
   [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
-  Type "help", "copyright", "credits" or "license" for more information.
-  >>></code>
-  </pre>
+  Type 'help', 'copyright', 'credits' or 'license' for more information.
+  >>>" />
 
   <p>From here you can write and execute any code written in the Python language. You can also use it as a calculator:</p>
 
-  <pre>
-      <code class='code-lines'>
-        <span>1</span>
-        <span>2</span>
-      </code>
-<code>  >>> 4 ** 3
-  >>> 64</code>
-  </pre>
+  <CodeBlock :lines="2" contents="  >>> 4 ** 3
+  >>> 64" />
 
-  <p>So Python deals in packages - modules of code that are written to perform a specific function. Two of the most popular packages are Numpy and Matplotlib.
-    Numpy is used for math operations. As we've seen, Python can already do math, but numpy allows us a much deeper and faster set of utilities.
+  <p>So Python deals in packages - modules of code that are written to perform a specific function.
+    Two of the most popular packages are Numpy and Matplotlib.
+    Numpy is used for math operations. As we've seen, Python can already do math, but numpy allows
+    us a much deeper and faster set of utilities.
     Matplotlib we use to display graphs.
     To check that both of these are installed correctly, type into your python ‘shell’
 
-    <SuperPopup title="[info]" contents="In layman's terms, a shell is a program you can use to type and execute code from a certain language. When you first open Terminal, you are inside the GNU bash shell.
+    <SuperPopup title="[info]" contents="In layman's terms, a shell is a program you can use to
+    type and execute code from a certain language. When you first open Terminal, you are inside the GNU bash shell.
       Then, if you type <strong>python</strong> and hit enter, you are in the python shell." />
     :</p>
 
-  <pre>
-      <code class='code-lines'>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-      </code>
-<code>  >>> import numpy
+  <CodeBlock :lines="4" contents="  >>> import numpy
   >>> numpy.__version__
   >>> import matplotlib
-  >>> matplotlib.__version__</code>
-  </pre>
+  >>> matplotlib.__version__" />
 
-  <p>Numpy is the universal go-to for operations like matrix multiplication (watch 3b1b’s introductory linear algebra series if those two words gave you palpitations).</p>
 
-  <pre>
-      <code class='code-lines'>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-      </code>
-<code>  >>> a = numpy.array([[1,2],[3,4]])
+  <p>Numpy is the universal go-to for operations like matrix multiplication (watch 3b1b’s
+    introductory linear algebra series if those two words gave you palpitations).</p>
+
+  <CodeBlock :lines="3" contents="  >>> a = numpy.array([[1,2],[3,4]])
   >>> b = numpy.array([[4,3],[2,1]])
-  >>> print(a, b)</code>
-</pre>
+  >>> print(a, b)" />
 
-  <p>As you can see from the output, we’ve made two matrices, which are stored in the variables <strong>a</strong> and <strong>b</strong>.
-    The result of multiplying two matrices is also referred to as their dot product. This is achieved by typing:</p>
+  <p>As you can see from the output, we’ve made two matrices, which are stored in the
+    variables <strong>a</strong> and <strong>b</strong>.
+    The result of multiplying two matrices is also referred to as their dot product.
+    This is achieved by typing:</p>
 
-  <pre>
-      <code class='code-lines'>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-      </code>
-<code>  >>> numpy.dot(a, b)</code>
-<code>  >>> array([[ 8,  5],
-               [20, 13]])</code>
-  </pre>
 
-  <p>Take a look back at the original matrices. How did we get from there to here? Working it out by hand, we take the product
+  <CodeBlock :lines="3" contents="  >>> numpy.dot(a, b)
+  >>> array([[ 8,  5],
+             [20, 13]])" />
+
+
+  <p>Take a look back at the original matrices. How did we get from there to here?
+    Working it out by hand, we take the product
     sum of the first row and the first column, the second row and the first column, and so on with this pattern.</p>
 
   <p>This may seem like an unnecessary detour, but is an important part of understanding neural networks. </p>
@@ -210,8 +186,8 @@
 
   <h6 class="flex-row">{&ensp; [784, 1]
 
-    <SuperPopup title="[info]" contents="This is what we call a column vector, with 784 entries all in one column. Each entry will be a value
-      between 0 and 1, representing the brightness of that pixel (0 is black, 1 is white)." />
+    <SuperPopup title="[info]" contents="This is what's known as a column vector, with 784 entries (because 28 x 28 = 784 pixels make up this image) all in 1 column.
+    Each entry will be a value between 0 and 1, representing the brightness of that pixel (where 0 is black, 1 is white)." />
 
     , &ensp; 0
 
@@ -244,7 +220,10 @@
       <!-- lines  -->
       <path id="0-0" d="M45 62.5 L130 25 Z" />
       <path id="1-0" d="M45 137.5 L130 25 Z" />
-      <text> <textPath startOffset="25" href="#0-0"> w1 </textPath><textPath startOffset="33" href="#1-0"> w2 </textPath> </text>
+      <text>
+        <textPath startOffset="25" href="#0-0"> w1 </textPath>
+        <textPath startOffset="33" href="#1-0"> w2 </textPath>
+      </text>
       <!-- <text x="60" y="100">W</text>
       <text x="60" y="100">W</text> -->
 
@@ -287,24 +266,14 @@
     To make sure everything’s working, type the following into your new file:
   </p>
 
-  <pre>
-      <code class='code-lines'>
-        <span>1</span>
-      </code>
-<code>  print(9 * 9)</code>
-</pre>
+  <CodeBlock :lines="1" contents="  print(9 * 9)"></CodeBlock>
 
   <p>Save the file. Head to the parent folder of where you saved your file, and right-click on the
     folder it is in. Click New Terminal at Folder.</p>
 
   <p>You’re now running the GNU Bash shell in that specific directory. Type in</p>
 
-  <pre>
-      <code class='code-lines'>
-        <span>1</span>
-      </code>
-<code>  python neural-network.py </code>
-</pre>
+  <CodeBlock :lines="1" contents="  python neural-network.py"></CodeBlock>
 
   <p>And hey presto, you should receive an output of 81.
 
@@ -312,16 +281,9 @@
     modules we’ll be using (numpy and matplotlib). Convention has it that we do this in the following way:
   </p>
 
-  <pre>
-      <code class='code-lines'>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-      </code>
-<code>  import numpy as np
+  <CodeBlock :lines="3" contents="  import numpy as np
   from matplotlib import pyplot as plt
-  from numpy.random import randn</code>
-</pre>
+  from numpy.random import randn"></CodeBlock>
 
   <p>That last one will come in handy for our first network, where we’ll be using random toy data
     to get things up and running quickly.</p>
@@ -332,16 +294,11 @@
     Our first proper line of code looks like this:
   </p>
 
-  <pre>
-      <code class='code-lines'>
-        <span>1</span>
-      </code>
-<code>  N, D_in, H, D_out = 8, 8, 8, 8</code>
-</pre>
+  <CodeBlock :lines="1" contents="  N, D_in, H, D_out = 8, 8, 8, 8"></CodeBlock>
 
-<div class="flex-row">
-<svgNodes :input="2" :hidden="3" :output="2" :layers="3"></svgNodes>
-</div>
+  <div class="flex-row">
+    <svgNodes :input="2" :hidden="3" :output="2" :layers="3"></svgNodes>
+  </div>
 
 
 
@@ -355,12 +312,14 @@
 <script>
 import SuperPopup from '@/components/SuperPopup.vue'
 import svgNodes from '@/components/svgNodes.vue'
+import CodeBlock from '@/components/CodeBlock.vue'
 
 export default {
   name: 'neural-networks',
   components: {
     SuperPopup,
-    svgNodes
+    svgNodes,
+    CodeBlock
   },
   data() {
     return {}
@@ -444,7 +403,8 @@ code {
   align-items: center;
 }
 
-line, path {
+line,
+path {
   stroke: #888;
   stroke-width: 3;
 }

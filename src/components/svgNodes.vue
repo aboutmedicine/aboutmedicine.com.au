@@ -12,25 +12,13 @@
   <!-- input -->
   <circle @mouseenter="dark($event)" @mouseleave="light($event)" v-if="input < 3" v-for="i in input" :key="i" :cx="start" :cy="i*(height/hidden)-(strokeWidth+radius)+35" r="20" stroke="#555" :stroke-width="strokeWidth" fill="#d9eaff" />
   <circle v-else v-for="i in input" :key="i" :cx="start" :cy="i*(height/input)-(strokeWidth+radius)" v-bind:r="radius" stroke="#555" :stroke-width="strokeWidth" fill="#d9eaff" />
-  <!-- hidden -->
 
+  <!-- hidden -->
   <circle v-for="j in hidden" :key="j" :cx="end - (end - start)/2" :cy="j*(height/hidden)-(strokeWidth+radius)" v-bind:r="radius" stroke="#555" :stroke-width="strokeWidth" fill="#fafafa" />
 
   <!-- output -->
   <circle @mouseenter="show('output', $event)" @mouseleave="hide('output')" v-if="output < 3" v-for="k in output" :key="k" :cx="end" :cy="k*(height/hidden)-(strokeWidth+radius)+35" r="20" stroke="#555" :stroke-width="strokeWidth" fill="#ffdcd9" />
   <circle v-else v-for="k in output" :key="k" :cx="end" :cy="k*(height/output)-(strokeWidth+radius)" v-bind:r="radius" stroke="#555" :stroke-width="strokeWidth" fill="#ffdcd9" />
-
-  <foreignObject id="foreign" x="87" y="79" width="200" height="300">
-    <div id="input" ref="input" class="popup">
-      Only 2 nodes here, but there should be 768.
-    </div>
-  </foreignObject>
-
-  <foreignObject id="foreign" x="230" y="79" width="300" height="300">
-    <div id="output" ref="output" class="popup">
-      output
-    </div>
-  </foreignObject>
 
 </svg>
 </template>
@@ -63,36 +51,15 @@ export default {
     log: function() {
       console.log();
     },
-    dark: function (e) {
+    dark: function(e) {
 
       this.colour = e.target.attributes.fill.nodeValue;
       e.target.attributes.fill.nodeValue = "#a9aaff"
 
     },
-    light: function (e) {
+    light: function(e) {
 
       e.target.attributes.fill.nodeValue = this.colour
-
-    },
-    show: function(popup) {
-
-      if (popup) {
-
-        let note = this.$refs[popup];
-
-        note.style.opacity = 1;
-        note.hidden = false;
-
-      }
-
-    },
-    hide: function(popup) {
-
-      if (popup) {
-        let note = this.$refs[popup];
-        note.style.opacity = 0;
-        note.hidden = true;
-      }
 
     }
   },

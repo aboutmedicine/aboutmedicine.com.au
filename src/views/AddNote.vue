@@ -3,10 +3,16 @@
   <form>
     <input v-model="name" type="text" name="name" placeholder="Name">
     <input v-model="description" type="text" name="description" placeholder="Description">
-    <input v-model="spec" type="text" name="spec" placeholder="Specialty">
+    <!-- <input v-model="spec" type="text" name="spec" placeholder="Specialty"> -->
+
+    <select v-model="spec" name="spec">
+      <option value="" disabled selected>Specialty</option>
+      <option v-for="spec in this.$store.state.specs" :value="spec">{{spec}}</option>
+    </select>
 
     <select v-model="section" name="section">
-      <option value="Pathology" selected>Pathology</option>
+      <option value="" disabled selected>Note Type</option>
+      <option value="Pathology">Pathology</option>
       <option value="Cases">Cases</option>
       <option value="Anatomy">Anatomy</option>
       <option value="Tests">Tests</option>

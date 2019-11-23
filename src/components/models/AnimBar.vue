@@ -3,10 +3,10 @@
   <div class="animbar" v-if="this.$store.state.animated">
 
     <a class="animbar-btn">
-      <div v-if="paused" v-on:click="play">
+      <div v-show="paused" v-on:click="play">
         <img class="play" alt="Play" src="../../assets/play.svg" height="28" width="28">
       </div>
-      <div v-if="!paused" v-on:click="pause">
+      <div v-show="!paused" v-on:click="pause">
         <img class="pause" alt="Pause" src="../../assets/pause.svg" height="28" width="28">
       </div>
     </a>

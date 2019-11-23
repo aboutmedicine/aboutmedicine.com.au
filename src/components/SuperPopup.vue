@@ -3,8 +3,7 @@
 
   {{title}}
 
-  <div class="popup" v-html="contents">
-  </div>
+  <div class="popup" v-html="contents"> </div>
 
 </sup>
 </template>
