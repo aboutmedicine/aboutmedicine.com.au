@@ -1,260 +1,273 @@
 <template>
-<div class="notes">
 
-  <SearchBar />
+  <div class="notes">
 
-  <div class="flex-row">
+    <SearchBar />
 
-    <div class="flex-column">
-      <a v-for="spec in this.$store.state.specs" :key="spec.id" :class="{highlight:spec == selected_spec}" @click="selectSpec(spec)">{{spec}}</a>
+    <div class="flex-row">
+
+      <div class="flex-column">
+        <a v-for="spec in this.$store.state.specs"
+           :key="spec.id"
+           :class="{highlight:spec == selected_spec}"
+           @click="selectSpec(spec)">{{spec}}</a>
+      </div>
+
+      <div v-if="this.$store.state.activeSpec" class="flex-column">
+        <a v-for="section in this.$store.state.sections"
+           :key="section.id"
+           :class="{highlight:section == selected_section}"
+           @click="selectSection(section)">{{section}}</a>
+      </div>
+
+      <div v-if="notesOn" class="flex-column">
+        <a v-for="note in notes_local"
+           :key="note.id"
+           :class="{highlight:note.name == selected_note}"
+           @click="selectNote(note.name)">{{note.name}}</a>
+      </div>
+
+      <div v-if="dbLoading" class="flex-column">
+        <a> <strong>Loading notes...</strong></a>
+      </div>
+
     </div>
 
-    <div v-if="this.$store.state.activeSpec" class="flex-column">
-      <a v-for="section in this.$store.state.sections" :key="section.id" :class="{highlight:section == selected_section}" @click="selectSection(section)">{{section}}</a>
-    </div>
+    <div v-if="noteOn" class="note">
 
-    <div v-if="notesOn" class="flex-column">
-      <a v-for="note in notes_local" :key="note.id" :class="{highlight:note.name == selected_note}" @click="selectNote(note.name)">{{note.name}}</a>
-    </div>
+      <div class="note-head">
+        <h5>{{this.$store.state.activeNote.name}}</h5>
+        <div @click="noteOn = false" class="icon"><img src="../assets/x.svg"> </div>
+      </div>
 
-    <div v-if="dbLoading" class="flex-column">
-      <a> <strong>Loading notes...</strong></a>
-    </div>
+      <p style="padding: 0 0 .5rem"><i>{{this.$store.state.activeNote.description}}</i></p>
 
+      <Pathology v-if="this.$store.state.activeNote._section === 'Pathology'" />
+      <Cases v-else-if="this.$store.state.activeNote._section === 'Cases'" />
+      <div v-else>
+        <pre>{{this.$store.state.activeNote.notes}}</pre>
+      </div>
+
+    </div>
   </div>
 
-  <div v-if="noteOn" class="note">
-
-    <div class="note-head">
-      <h5>{{this.$store.state.activeNote.name}}</h5>
-      <div @click="noteOn = false" class="icon"><img src="../assets/x.svg"> </div>
-    </div>
-
-    <p style="padding: 0 0 .5rem"><i>{{this.$store.state.activeNote.description}}</i></p>
-
-    <Pathology v-if="this.$store.state.activeNote._section === 'Pathology'" />
-    <Cases v-else-if="this.$store.state.activeNote._section === 'Cases'" />
-    <div v-else>
-      <pre>{{this.$store.state.activeNote.notes}}</pre>
-    </div>
-
-  </div>
-</div>
 </template>
 
 <script>
-import * as axios from 'axios'
-import Pathology from '@/components/notes/Pathology.vue'
-import Cases from '@/components/notes/Cases.vue'
-import SearchBar from '@/components/SearchBar.vue'
 
-export default {
-  name: 'Notes',
-  components: {
-    Pathology,
-    Cases,
-    SearchBar
-  },
-  data() {
-    return {
-      routeLoading: false,
-      dbLoading: false,
-      //
-      selected_spec: null,
-      selected_section: null,
-      selected_note: null,
-      //
-      notesOn: false,
-      noteOn: false,
-      notes_local: []
-    }
-  },
-  methods: {
-    selectSpec: function(spec) {
-      this.selected_spec = spec
-      this.$store.state.activeSpec = spec
+  import * as axios from 'axios'
+  import Pathology from '@/components/notes/Pathology.vue'
+  import Cases from '@/components/notes/Cases.vue'
+  import SearchBar from '@/components/SearchBar.vue'
 
-      if (!this.routeLoading) {
-        this.$router.push('/notes/' + spec)
-      }
-
-      this.notesOn = false;
-      this.noteOn = false;
-      this.selected_section = null;
+  export default {
+    name: 'Notes',
+    components: {
+      Pathology,
+      Cases,
+      SearchBar
     },
-    selectSection: function(section) {
-      this.selected_section = section
-      this.$store.state.activeSection = section
+    data() {
+      return {
+        routeLoading: false,
+        dbLoading: false,
+        //
+        selected_spec: null,
+        selected_section: null,
+        selected_note: null,
+        //
+        notesOn: false,
+        noteOn: false,
+        notes_local: []
+      }
+    },
+    methods: {
+      selectSpec: function(spec) {
+        this.selected_spec = spec
+        this.$store.state.activeSpec = spec
 
-      this.notes_local = [];
-
-      let i
-      for (i = 0; i < this.notes.length; i++) {
-        let note = this.notes[i]
-        if ((note._spec === this.$store.state.activeSpec && note._section === section)) {
-          this.notes_local.push(note)
+        if (!this.routeLoading) {
+          this.$router.push('/notes/' + spec)
         }
-      }
 
-      if (!this.routeLoading) {
-        this.$router.push('/notes/' + this.$store.state.activeSpec + '/' + section)
-      }
+        this.notesOn = false
+        this.noteOn = false
+        this.selected_section = null
+      },
+      selectSection: function(section) {
+        this.selected_section = section
+        this.$store.state.activeSection = section
 
-      this.notesOn = true;
-      this.noteOn = false;
-    },
-    selectNote: function(note) {
-      this.selected_note = note
+        this.notes_local = []
 
-      let i
-      for (i = 0; i < this.notes_local.length; i++) {
-        let notei = this.notes_local[i]
-        if (notei.name === note) {
-          this.$store.state.activeNote = notei
-        }
-      }
-
-      if (!this.routeLoading) {
-        this.$router.push('/notes/' + this.$store.state.activeSpec + '/' + this.$store.state.activeSection + '/' + note)
-      }
-
-      this.noteOn = true;
-    },
-    routeCheck: function(vm) {
-      if (vm.$route.params.spec) {
-        vm.routeLoading = true;
-        let spec = vm.$route.params.spec
-        vm.selectSpec(spec)
-
-        if (vm.$route.params.section) {
-          let section = vm.$route.params.section
-          vm.selectSection(section)
-
-          if (vm.$route.params.note) {
-            let note = vm.$route.params.note
-            vm.selectNote(note)
+        let i
+        for (i = 0; i < this.notes.length; i++) {
+          let note = this.notes[i]
+          if (note._spec === this.$store.state.activeSpec && note._section === section) {
+            this.notes_local.push(note)
           }
         }
+
+        if (!this.routeLoading) {
+          this.$router.push('/notes/' + this.$store.state.activeSpec + '/' + section)
+        }
+
+        this.notesOn = true
+        this.noteOn = false
+      },
+      selectNote: function(note) {
+        this.selected_note = note
+
+        let i
+        for (i = 0; i < this.notes_local.length; i++) {
+          let notei = this.notes_local[i]
+          if (notei.name === note) {
+            this.$store.state.activeNote = notei
+          }
+        }
+
+        if (!this.routeLoading) {
+          this.$router.push('/notes/' + this.$store.state.activeSpec + '/' + this.$store.state.activeSection + '/' + note)
+        }
+
+        this.noteOn = true
+      },
+      routeCheck: function(vm) {
+        if (vm.$route.params.spec) {
+          vm.routeLoading = true
+          let spec = vm.$route.params.spec
+          vm.selectSpec(spec)
+
+          if (vm.$route.params.section) {
+            let section = vm.$route.params.section
+            vm.selectSection(section)
+
+            if (vm.$route.params.note) {
+              let note = vm.$route.params.note
+              vm.selectNote(note)
+            }
+          }
+        }
+        vm.routeLoading = false
       }
-      vm.routeLoading = false;
-    }
-  },
-  mounted() {
+    },
+    mounted() {
+      let vm = this
 
-    let vm = this;
+      vm.dbLoading = true
+      axios
+        .get('/notes')
+        .then(function(res) {
+          vm.$store.commit('SET_NOTES', res.data)
+          vm.routeCheck(vm)
 
-    vm.dbLoading = true;
-    axios
-      .get('/notes')
-      .then(function(res) {
-        vm.$store.commit("SET_NOTES", res.data);
-        vm.routeCheck(vm)
-
-        vm.routeLoading = false;
-        vm.dbLoading = false;
-      })
-      .catch(function(error) {
-        console.log(error)
-      })
-  },
-  computed: {
-    notes: function() {
-      return this.$store.state.notes
-    }
-  },
-  watch: {
-    $route(to, from) {
-      this.routeCheck(this)
+          vm.routeLoading = false
+          vm.dbLoading = false
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+    },
+    computed: {
+      notes: function() {
+        return this.$store.state.notes
+      }
+    },
+    watch: {
+      $route(to, from) {
+        this.routeCheck(this)
+      }
     }
   }
-}
+
 </script>
 
 <style scoped>
-a {
-  background: #fafafa;
-  padding: .65rem .5rem;
-  margin: .25rem 0;
-  border-radius: .25rem;
-}
 
-a:hover {
-  background: #eee;
-}
+  a {
+    background: #fafafa;
+    padding: 0.65rem 0.5rem;
+    margin: 0.25rem 0;
+    border-radius: 0.25rem;
+  }
 
-a.highlight {
-  background: #eaeaea;
-  font-weight: 600;
-}
+  a:hover {
+    background: #eee;
+  }
 
-p,
-pre {
-  font-family: inherit;
-  word-wrap: normal;
-  margin: 1rem;
-  line-height: 1.6;
-}
+  a.highlight {
+    background: #eaeaea;
+    font-weight: 600;
+  }
 
-h5 {
-  margin: 1rem 1rem 0;
-}
+  p,
+  pre {
+    font-family: inherit;
+    word-wrap: normal;
+    margin: 1rem;
+    line-height: 1.6;
+  }
 
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  margin: 1rem 2rem;
-}
+  h5 {
+    margin: 1rem 1rem 0;
+  }
 
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  margin: 0 .2rem;
-  max-height: 36rem;
-  min-width: 8rem;
-  overflow: scroll;
-}
-
-.note {
-  background: #fafafa;
-  border: 3px solid #eee;
-  margin: 2rem;
-  padding: 1rem;
-  border-radius: .25rem;
-  position: sticky;
-  bottom: 1rem;
-  z-index: 0;
-}
-
-.note-head {
-  display: flex;
-  justify-content: space-between;
-}
-
-.icon {
-  min-width: 1rem;
-  height: auto;
-  padding: 1rem 1rem 0;
-  cursor: pointer;
-}
-
-.front {
-  z-index: 4;
-}
-
-@media screen and (max-width: 500px) {
-
-  .note,
   .flex-row {
-    margin: .2rem 0;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 2rem;
   }
 
   .flex-column {
-    max-width: 33%;
-    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.2rem;
+    max-height: 36rem;
+    min-width: 8rem;
+    overflow: scroll;
   }
 
-  a {
-    padding: .5rem .2rem;
+  .note {
+    background: #fafafa;
+    border: 3px solid #eee;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    position: sticky;
+    bottom: 1rem;
+    z-index: 0;
   }
-}
+
+  .note-head {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icon {
+    min-width: 1rem;
+    height: auto;
+    padding: 1rem 1rem 0;
+    cursor: pointer;
+  }
+
+  .front {
+    z-index: 4;
+  }
+
+  @media screen and (max-width: 500px) {
+    .note,
+    .flex-row {
+      margin: 0.2rem 0;
+    }
+
+    .flex-column {
+      max-width: 33%;
+      min-width: 0;
+    }
+
+    a {
+      padding: 0.5rem 0.2rem;
+    }
+  }
+
 </style>

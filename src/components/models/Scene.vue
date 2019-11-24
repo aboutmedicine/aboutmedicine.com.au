@@ -1,98 +1,97 @@
 <template>
-<div class="scene">
-  <canvas class="" id="scene">
-  </canvas>
-</div>
+
+  <div class="scene">
+    <canvas class="" id="scene">
+    </canvas>
+  </div>
+
 </template>
 
 <script>
-import SceneManager from "@/modules/SceneManager";
 
-export default {
-  name: "Scene",
-  data: () => ({
-    intersected: null,
-    canvas: null,
-  }),
-  mounted() {
-    const canvas = document.getElementById("scene");
-    const controller = new SceneManager(canvas);
+  import SceneManager from '@/modules/SceneManager'
 
-    this.canvas = canvas;
-    this.$store.commit("SET_CONTROLLER", controller);
+  export default {
+    name: 'Scene',
+    data: () => ({
+      intersected: null,
+      canvas: null
+    }),
+    mounted() {
+      const canvas = document.getElementById('scene')
+      const controller = new SceneManager(canvas)
 
-    canvas.addEventListener("mousedown", e =>
-      this.highlightMesh(e, this.$store.state.controller)
-    );
-    canvas.addEventListener("touchstart", e =>
-      this.highlightMesh(e, this.$store.state.controller)
-    );
+      this.canvas = canvas
+      this.$store.commit('SET_CONTROLLER', controller)
 
-    if (this.$route.params.model) {
-      this.loadModel(this.$route.params.model);
-    } else {
-      this.$router.push('/models/heart');
-    }
-  },
-  methods: {
-    highlightMesh(e, controller) {
-      const intersection = this.$store.state.controller.checkIntersection(e);
+      canvas.addEventListener('mousedown', e => this.highlightMesh(e, this.$store.state.controller))
+      canvas.addEventListener('touchstart', e => this.highlightMesh(e, this.$store.state.controller))
 
-      let intersected = this.intersected;
-
-      if (intersection) {
-        if (intersected != intersection.object) {
-          if (intersected)
-            intersected.material.emissive.setHex(intersected.currentHex);
-          intersected = this.intersected = intersection.object;
-
-          intersected.currentHex = intersected.material.emissive.getHex();
-          intersected.material.emissive.setHex(0xaa00aa);
-
-          this.$store.commit("SET_ACTIVE_MESH", {
-            name: intersection.object.name.replace(/_/g, " ").replace(/\d/g, ''),
-            object: intersection.object
-          });
-        }
-
-        const animated = this.$store.state.controller.checkAnimated()
-        if (animated) {
-          this.$store.state.animated = true;
-        } else {
-          this.$store.state.animated = false;
-        }
-
+      if (this.$route.params.model) {
+        this.loadModel(this.$route.params.model)
+      } else {
+        this.$router.push('/models/heart')
       }
-
     },
-    loadModel(model) {
-      this.$store.state.controller.load("../static/models/" + model + ".glb");
-      this.$store.dispatch('CLEAR_SCENE');
+    methods: {
+      highlightMesh(e, controller) {
+        const intersection = this.$store.state.controller.checkIntersection(e)
+
+        let intersected = this.intersected
+
+        if (intersection) {
+          if (intersected != intersection.object) {
+            if (intersected) intersected.material.emissive.setHex(intersected.currentHex)
+            intersected = this.intersected = intersection.object
+
+            intersected.currentHex = intersected.material.emissive.getHex()
+            intersected.material.emissive.setHex(0xaa00aa)
+
+            this.$store.commit('SET_ACTIVE_MESH', {
+              name: intersection.object.name.replace(/_/g, ' ').replace(/\d/g, ''),
+              object: intersection.object
+            })
+          }
+
+          const animated = this.$store.state.controller.checkAnimated()
+          if (animated) {
+            this.$store.state.animated = true
+          } else {
+            this.$store.state.animated = false
+          }
+        }
+      },
+      loadModel(model) {
+        this.$store.state.controller.load('../static/models/' + model + '.glb')
+        this.$store.dispatch('CLEAR_SCENE')
       }
-  },
-  watch: {
-    $route(to) {
-      this.loadModel(to.params.model);
+    },
+    watch: {
+      $route(to) {
+        this.loadModel(to.params.model)
+      }
     }
   }
-};
+
 </script>
 
 <style scoped>
-#scene {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-}
 
-.loading {
-  z-index: 5;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-}
+  #scene {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .loading {
+    z-index: 5;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
 </style>

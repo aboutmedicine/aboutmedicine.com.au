@@ -1,78 +1,84 @@
 <template>
-<div>
-  <h4>Hey I'm Reuben.</h4>
-  <p>
-    I make videos about medicine + sometimes I write stuff too.
-  </p>
-  <div class="hero-box">
-    <a href="/models/heart-schematic"><img id="hero" alt="me" src="../assets/heart_01.jpg"></a>
-  </div>
-  <div class="social">
-    <a href="https://www.youtube.com/c/AboutMedicine"><img alt="youtube" src="../assets/youtube.svg" /></a>
-    <a href="https://twitter.com/About_Medicine"><img alt="twitter" src="../assets/twitter.svg" /></a>
+
+  <div>
+    <h4>Hey I'm Reuben.</h4>
+    <p>
+      I make videos about medicine + sometimes I write stuff too.
+    </p>
+    <div class="hero-box">
+      <a href="/models/heart-schematic"><img id="hero" alt="me" src="../assets/heart_01.jpg"></a>
+    </div>
+    <div class="social">
+      <a href="https://www.youtube.com/c/AboutMedicine"><img alt="youtube" src="../assets/youtube.svg" /></a>
+      <a href="https://twitter.com/About_Medicine"><img alt="twitter" src="../assets/twitter.svg" /></a>
+    </div>
+
   </div>
 
-</div>
 </template>
 
 <script>
-export default {
-  name: 'Me'
-}
+
+  export default {
+    name: 'Me'
+  }
+
 </script>
 
 <style scoped>
-.hero-box {
-  display: flex;
-  justify-content: center;
-}
 
-.social {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
-}
+  .hero-box {
+    display: flex;
+    justify-content: center;
+  }
 
-.social img {
-  width: 3rem;
-  height: auto;
-}
+  .social {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
 
-p {
-  margin: 0 0 2rem;
-  text-align: center;
-}
+  .social img {
+    width: 3rem;
+    height: auto;
+  }
 
-h4 {
-  margin: 2rem 0 1rem;
-  text-align: center;
-}
-
-.social a {
-  padding: 0 2rem;
-  opacity: .4;
-}
-
-.social a:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-
-#hero {
-  width: 360px;
-  margin: 0 0 0 .5rem;
-  height: auto;
-}
-
-@media screen and (max-width: 500px) {
-  #hero {
-    width: 270px;
-    height: 238px;
+  p {
+    margin: 0 0 2rem;
+    text-align: center;
   }
 
   h4 {
-    margin: 1rem 0;
+    margin: 2rem 0 1rem;
     text-align: center;
   }
-}
+
+  .social a {
+    padding: 0 2rem;
+    opacity: 0.4;
+  }
+
+  .social a:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  #hero {
+    width: 360px;
+    margin: 0 0 0 0.5rem;
+    height: auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    #hero {
+      width: 270px;
+      height: 238px;
+    }
+
+    h4 {
+      margin: 1rem 0;
+      text-align: center;
+    }
+  }
+
 </style>
