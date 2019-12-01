@@ -88,9 +88,6 @@
       output: Number,
       contents: String
     },
-    components: {
-      SuperPopup
-    },
     methods: {
       log: function() {
         console.log()

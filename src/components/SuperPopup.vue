@@ -2,7 +2,7 @@
 
   <sup @mouseenter="show($event)" @mouseleave="hide($event)">
 
-      {{title}}
+      i
 
       <div class="popup" v-html="contents"> </div>
 
@@ -48,17 +48,22 @@
   sup {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #7b98fc;
+    color: #fafafa;
     text-decoration: none;
     vertical-align: baseline;
+    display: inline;
     position: relative;
     top: -0.4em;
     z-index: 4;
+    border-radius: 30px;
+    background: #7b98fc;
+    padding: .1rem .42rem;
   }
 
   sup:hover {
     cursor: pointer;
-    color: #5183f5;
+    color: #ccc;
+    background: #5183f5;
   }
 
   .popup {

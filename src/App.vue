@@ -14,7 +14,7 @@
     <router-view />
     <div id="footer">
       <router-link to="/about">contact</router-link>
-      <router-link to="/patreon">patreon</router-link>
+      <a href="https://www.patreon.com/aboutmedicine">patreon</a>
       <router-link to="/learning">learning</router-link>
     </div>
   </div>
@@ -29,14 +29,14 @@
     font-family: 'Arvo', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding: 0px 270px;
+    padding: 0 17rem;
     box-sizing: border-box;
   }
 
   #nav-container {
     display: flex;
     justify-content: space-between;
-    padding: 16px 0px;
+    padding: 1rem 0px;
   }
 
   #nav {
@@ -64,7 +64,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem 10rem;
-    margin-top: 60px;
+    margin-top: 4rem;
   }
 
   #footer a {
@@ -173,6 +173,16 @@
 
     #footer {
       padding: 2rem 2rem;
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    #app {
+      padding: 0 36rem;
+    }
+
+    #footer {
+      padding: 2rem 20rem;
     }
   }
 
