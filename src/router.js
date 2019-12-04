@@ -75,6 +75,11 @@ export default new Router({
       name: 'model',
       component: () => import('./views/Models.vue')
     },
+    {
+      path: '/mindmap',
+      name: 'mindmap',
+      component: () => import('./views/MindMap.vue')
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
