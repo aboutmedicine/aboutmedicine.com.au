@@ -13,6 +13,7 @@ app.use('/', expressStaticGzip(path.join(__dirname, '/dist'), {
 
 BlogPost = require('./server/models/blogposts');
 Note = require('./server/models/notes');
+MindMap = require('./server/models/mindmap');
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://heroku_28trdw16:tpk3e8svp7nu5mlceio2ir16jh@ds029814.mlab.com:29814/heroku_28trdw16', {
@@ -72,6 +73,25 @@ app.post('/notes', (req, res) => {
       throw err;
     }
     res.json(note);
+  });
+});
+
+app.get('/mindmap/:_id', (req, res) => {
+  MindMap.getMindMapBySlug(req.params._id, (err, mindmap) => {
+    if (err) {
+      throw err;
+    }
+    res.json(mindmap);
+  });
+});
+
+app.post('/mindmap', (req, res) => {
+  var mindmap = req.body;
+  MindMap.addMindMap(mindmap, (err, mindmap) => {
+    if (err) {
+      throw err;
+    }
+    res.json(mindmap);
   });
 });
 

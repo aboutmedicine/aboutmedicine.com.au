@@ -28,7 +28,9 @@ export default new Vuex.Store({
     // MindMaps
     //
     mindmapping: false,
-    currentTopic: "AMI",
+    mindmapArrow: false,
+    currentTopic: '',
+    title: '',
     boxes: {},
     activeBox: null
   },
@@ -68,13 +70,24 @@ export default new Vuex.Store({
       Vue.delete(state.boxes[state.currentTopic], id);
       state.activeBox = null;
     },
-    EDIT_BOX(state, payload) {
-      const note = state.boxes[state.currentTopic][state.activeBox];
+    EDIT_BOX_CONTENTS(state, payload) {
+      const box = state.boxes[state.currentTopic][state.activeBox];
 
-      note.text[payload.key] = payload.value;
+      box.text[payload.key] = payload.value;
+    },
+    EDIT_BOX_DIMENSIONS(state, payload) {
+      const box = state.boxes[state.currentTopic][state.activeBox];
+
+      box[payload.key] = payload.value;
     },
     SET_MINDMAP_MODE(state, value) {
       state.mindmapping = value;
+    },
+    SET_MINDMAP_ARROW_MODE(state, value) {
+      state.mindmapArrow = value;
+    },
+    EDIT_MINDMAP_TITLE(state, payload) {
+      state.title = payload.value;
     },
   },
   actions: {
@@ -117,10 +130,16 @@ export default new Vuex.Store({
       commit('ADD_BOX', payload);
       commit('SET_ACTIVE_BOX', payload.id);
     },
+    ADD_ARROW({
+      commit
+    }, payload) {
+      commit('SET_MINDMAP_ARROW_MODE', false);
+      commit('ADD_ARROW', payload);
+    },
   },
   getters: {
-    annotations: (state) => {
-      return state.annotations[state.currentTopic];
+    boxes: (state) => {
+      return state.boxes[state.currentTopic];
     },
     activeModel: (state) => {
       const model = state.models.filter(x => x === state.currentModel)[0];

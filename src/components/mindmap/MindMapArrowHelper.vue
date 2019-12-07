@@ -1,7 +1,7 @@
 <template>
 
-  <div v-if="type" class="box-helper" :style="style">
-    {{ type.name }}
+  <div class="arrow-helper" :style="style">
+    >
   </div>
 
 </template>
@@ -11,21 +11,21 @@
   import { mapState } from 'vuex'
 
   export default {
-    name: 'mindmap-box-helper',
+    name: 'mindmap-arrow-helper',
     data: () => ({
       style: {
         top: '',
         left: '',
-        display: 'none',
-        background: ''
+        display: 'none'
       },
-      isBoxHelperActive: false
+      start: {
+        x: '',
+        y: '',
+      },
+      isActive: false
     }),
-    props: {
-      type: Object
-    },
     computed: {
-      ...mapState(['mindmapping'])
+      ...mapState(['mindmapArrow'])
     },
     mounted() {
       document.addEventListener('mousemove', this.move)
@@ -33,34 +33,30 @@
     },
     methods: {
       move(e) {
-        if (!this.isBoxHelperActive) return
+        if (!this.isActive) return
 
         this.style.top = `${e.y}px`
         this.style.left = `${e.x}px`
         this.style.display = 'block'
-        this.style.background = this.type.style.background
+
+        this.start.x = e.x
+        this.start.y = e.y
       },
 
       place(e) {
-        if (!this.isBoxHelperActive) return
+        if (!this.isActive) return
 
         this.style.display = 'none'
-        this.$store.dispatch('ADD_BOX', {
+        this.$store.dispatch('ADD_ARROW', {
           id: new Date().getTime(),
-          text: {},
-          type: this.type.name,
-          style: {
-            top: this.style.top,
-            left: this.style.left,
-            background: this.type.style.background
-          },
+          start: this.start,
+          end: this.end
         })
-
       }
     },
     watch: {
-      mindmapping(to) {
-        this.isBoxHelperActive = to
+      'mindmapArrow'(to) {
+        this.isActive = to
       }
     }
   }
@@ -69,7 +65,7 @@
 
 <style>
 
-  .box-helper {
+  .arrow-helper {
     position: absolute;
     z-index: 1;
     width: 150px;

@@ -1,152 +1,130 @@
 <template>
-	<div class="box"
-	     :class="isOpen ? 'open' : ''"
-	     :id="id"
-	     :style="style"
-	>
-		<div class="box-icon" @click="open">
-			<i class="fas fa-plus"></i>
-		</div>
-		<div class="box-content">
-			<button type="button" class="ico close-box" @click="close">
-				<i class="fas fa-times"></i>
-			</button>
+<div v-resize:debounce="onResize" class="box" :id="id" :style="typestyle" ref="container">
 
-			<input class="box-title" placeholder="box" name="title"
-			       @input="inputChange"
-			       :value="text.title"
-			>
-			<textarea class="box-details" rows="3" placeholder="Type Here..." name="description"
-			          @input="inputChange"
-			          :value="text.description"
-			></textarea>
+  <div v-if="this.$route.path === '/mindmap/make'" id="x" class="box-icon" @click="remove">
+    <img class="icon" src="../../assets/x.svg" height="24" alt="">
+  </div>
 
-			<button type="button" class="ico delete delete-box" @click="remove">
-				<i class="fas fa-trash"></i>
-			</button>
-		</div>
-	</div>
+  <textarea class="box-details" rows="10" placeholder="Type Here..." name="description" @input="inputChange" :value="text.description"></textarea>
+
+</div>
 </template>
 
 <script>
-	export default {
-		name: 'mindmap-box',
-		props: {
-			id: Number,
-			text: Object,
-			isOpen: Boolean,
-			position: {}
-		},
-		data: () => ({
-			style: {
-				top: '',
-				left: '',
-				opacity: 1
-			},
-			title: '',
-			description: ''
-		}),
-		methods: {
-			move(toPoint = {}) {
-				this.style.top = `${toPoint.y}px`;
-				this.style.left = `${toPoint.x}px`;
-			},
+import resize from 'vue-resize-directive'
 
-			remove() {
-				this.$store.commit('REMOVE_BOX', this.id);
-			},
+export default {
+  name: 'mindmap-box',
+  directives: {
+    resize,
+  },
+  props: {
+    id: Number,
+    text: Object,
+    typestyle: Object,
+    height: String,
+    width: String
+  },
+  data: () => ({
+    title: '',
+    description: ''
+  }),
+  mounted() {
+    if (this.height !== undefined) {
+      console.log('height should be:' + this.height);
 
-			inputChange(e) {
-				console.log(e.target.value, e.target.name);
-				this.$store.commit('EDIT_BOX', {
-					key: e.target.name,
-					value: e.target.value
-				});
-			},
+      let box = this.$refs.container;
+      box.style.height = this.height;
 
-			open() {
-				this.$store.commit('SET_ACTIVE_BOX', this.id);
-				this.style.opacity = 1;
-			},
+    };
+    if (this.width !== undefined) {
+      console.log('width should be:' + this.width);
 
-			close() {
-				this.$store.commit('SET_ACTIVE_BOX', null);
-				this.updatePosition();
-			}
-		}
+      let box = this.$refs.container;
+      box.style.width = this.width;
 
-	}
+    }
+  },
+  methods: {
+    remove() {
+      this.$store.commit('REMOVE_BOX', this.id)
+    },
+
+    inputChange(e) {
+      if(this.$route.path !== "/mindmap/make") return;
+
+      this.$store.commit('EDIT_BOX_CONTENTS', {
+        key: e.target.name,
+        value: e.target.value
+      })
+    },
+
+    onResize(e) {
+      if(this.$route.path !== "/mindmap/make") return;
+
+        console.log(e.offsetWidth);
+
+        this.$store.commit('EDIT_BOX_DIMENSIONS', {
+          key: 'width',
+          value: (e.offsetWidth - 32) + 'px'
+        })
+        this.$store.commit('EDIT_BOX_DIMENSIONS', {
+          key: 'height',
+          value: (e.offsetHeight - 32) + 'px'
+        })
+
+    }
+  }
+}
 </script>
 
 <style scoped>
+.box {
+  position: absolute;
+  z-index: 1;
+  background: #e1f1f6;
+  width: 300px;
+  padding: 1rem;
+  border-radius: 6px;
+  resize: both;
+  overflow: auto;
+}
 
-	.box {
-		position: absolute;
-		z-index: 1;
-	}
+.box-icon {
+  position: relative;
+}
 
-	.box-content {
-		padding: 1em;
-		background: var(--black);
-		border-radius: 0px 20px 20px 20px;
-		line-height: 1.3;
-		text-align: right;
-		position: absolute;
-		left: 0;
-		top: 0;
-		min-width: 300px;
-		min-height: 150px;
-		display: none;
-	}
+.box-details {
+  font-size: 1em;
+  font-weight: 600;
+}
 
-	.box.open {}
+.icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
 
-	.box-icon {
-		display: block;
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 36px;
-		height: 36px;
-		background: rgba(50, 50, 50, 0.8);
-		border-radius: 0px 20px 20px 20px;
-		color: #fff;
-		font-size: 25px;
-		text-align: center;
-		transition: color ease-out .15s;
-	}
+textarea {
+  color: #555;
+  font-family: inherit;
+  font-weight: 300 !important;
+  margin-bottom: 10px;
+  background: none;
+  border: none;
+  width: 95%;
+  resize: none;
+  height: inherit;
+  overflow: visible;
+  text-align: left;
+}
 
+@media screen and (max-width: 500px) {
+  .box {
+    width: 150px;
+    height: 75px;
+  }
+}
 
-	.box-icon:hover {
-		color: var(--grey);
-	}
-
-	.box-title {
-		font-size: 1.5em;
-		font-weight: 600;
-	}
-
-	.box-details {
-		font-size: 1em;
-		font-weight: 600;
-	}
-
-	.close-box {
-		position: absolute;
-		right: 20px;
-		top: 20px;
-	}
-
-	.box > textarea,
-	.box > input {
-		color: #fafafa;
-		font-weight: 300;
-		font-family: 'Avenir Next';
-		margin-bottom: 10px;
-		background: none;
-		border: none;
-		width: 95%;
-		resize: none;
-		text-align: left;
-	}
 </style>

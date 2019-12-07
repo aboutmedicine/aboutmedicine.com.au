@@ -47,7 +47,7 @@
   #nav a {
     font-weight: 500;
     color: #777;
-    padding: 0px 10px;
+    padding: 3px 10px;
   }
 
   #nav a:hover {
