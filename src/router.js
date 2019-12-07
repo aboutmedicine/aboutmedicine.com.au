@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 
 Vue.use(Router)
 
@@ -10,40 +9,37 @@ export default new Router({
   routes: [{
       path: '/',
       name: 'home',
-      component: Home
+      component: () => import( /* webpackChunkName: "home" */ './views/Home.vue')
     },
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import( /* webpackChunkName: "about" */ './views/About.vue')
     },
     {
       path: '/learning',
       name: 'learning',
-      component: () => import('./views/Learning.vue')
+      component: () => import(/* webpackChunkName: "learning" */ './views/Learning.vue')
     },
     {
       path: '/blog/:id',
       name: 'blog',
-      component: () => import('./views/BlogPost.vue')
+      component: () => import(/* webpackChunkName: "blogpost" */ './views/BlogPost.vue')
     },
     {
       path: '/write',
       name: 'write',
-      component: () => import('./views/WritePost.vue')
+      component: () => import(/* webpackChunkName: "write-blogpost" */'./views/WritePost.vue')
     },
     {
       path: '/neural-networks',
       name: 'neural-networks',
-      component: () => import('./views/NN.vue')
+      component: () => import(/* webpackChunkName: "neural-networks" */ './views/NN.vue')
     },
     {
       path: '/notes',
       name: 'notes',
-      component: () => import('./views/Notes.vue')
+      component: () => import(/* webpackChunkName: "notes" */ './views/Notes.vue')
     },
     {
       path: '/notes/:spec',
@@ -63,12 +59,12 @@ export default new Router({
     {
       path: '/add-note',
       name: 'add-note',
-      component: () => import('./views/AddNote.vue')
+      component: () => import(/* webpackChunkName: "add-note" */'./views/AddNote.vue')
     },
     {
       path: '/models',
       name: 'models',
-      component: () => import('./views/Models.vue')
+      component: () => import(/* webpackChunkName: "models" */ './views/Models.vue')
     },
     {
       path: '/models/:model',
@@ -78,12 +74,12 @@ export default new Router({
     {
       path: '/mindmap/make',
       name: 'mindmap-make',
-      component: () => import('./views/MindMapMaker.vue')
+      component: () => import(/* webpackChunkName: "mindmap-maker" */ './views/MindMapMaker.vue')
     },
     {
       path: '/mindmap/view/:id',
       name: 'mindmap-view',
-      component: () => import('./views/MindMapViewer.vue')
+      component: () => import(/* webpackChunkName: "mindmap-viewer" */'./views/MindMapViewer.vue')
     },
   ],
   scrollBehavior(to, from, savedPosition) {

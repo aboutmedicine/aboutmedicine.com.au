@@ -275,12 +275,6 @@
       padding: 0rem 1rem;
       font-size: 1rem;
     }
-
-    .save-box, .flex-row-end {
-      position: absolute;
-      bottom: 1rem;
-      left: .5rem;
-    }
   }
 
 </style>

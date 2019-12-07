@@ -112,6 +112,9 @@
       var btn_drawar = document.getElementById('btn_drawar')
       if (btn_drawar)
         btn_drawar.addEventListener('click', function(e) {
+
+
+
           drawAr.draw *= -1
           e.target.style.background = drawAr.draw == 1 ? '#bbb' : '#eee'
           e.target.innerHTML = drawAr.draw == 1 ? 'Turn Off' : 'Arrows'
