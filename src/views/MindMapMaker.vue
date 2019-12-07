@@ -135,7 +135,7 @@
           })
           .then(function(res) {
             console.log(res)
-            vm.$refs.result.innerHTML = `<div> Congratulations! Your mindmap has been saved, and is visible here: <a href="#/mindmap/view/${mindmapSlug}"> ${
+            vm.$refs.result.innerHTML = `<div> Congratulations! Your mindmap has been saved, and is visible here: <a href="https://www.aboutmedicine.com.au/mindmap/view/${mindmapSlug}"> ${
               vm.topic
             } </a></div>`
           })
@@ -255,6 +255,17 @@
     height: auto;
     padding: 0 1rem 0;
     cursor: pointer;
+  }
+
+  a {
+    font-weight: 600;
+    color: #7b98fc;
+    text-decoration: none;
+  }
+
+  a:hover {
+    cursor: pointer;
+    color: #5183f5;
   }
 
   @media screen and (max-width: 500px) {
