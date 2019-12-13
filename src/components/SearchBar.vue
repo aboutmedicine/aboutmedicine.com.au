@@ -39,14 +39,14 @@
     computed: {},
     watch: {
       search_data: function() {
-        let i, txtValue
+        let i, note
         this.dropdown_contents = []
 
         for (i = 0; i < this.$store.state.notes.length; i++) {
-          txtValue = this.$store.state.notes[i].name
+          note = this.$store.state.notes[i].name
 
-          if (txtValue.toUpperCase().indexOf(this.search_data.toUpperCase()) > -1) {
-            this.dropdown_contents.push(txtValue)
+          if (note.toUpperCase().indexOf(this.search_data.toUpperCase()) > -1) {
+            this.dropdown_contents.push(note)
             this.link_array.push(this.$store.state.notes[i])
 
             if (this.dropdown_contents.length > 5) {

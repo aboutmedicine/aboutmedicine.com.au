@@ -30,6 +30,7 @@
           e.target.firstElementChild.hidden = false
           e.target.firstElementChild.style.left = e.clientX.toString() + 'px'
           e.target.firstElementChild.style.top = e.clientY.toString() + 'px'
+          e.target.firstElementChild.zIndex = 4;
         }
       },
       hide: function(e) {

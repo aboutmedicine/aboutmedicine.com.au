@@ -11,17 +11,16 @@
     </div>
 
     <template v-for="type in types">
-        <div class="click-box" :style="type.style" @click="toggleMindMapMode(type)">
-          {{ type.name }}
-        </div>
-      </template>
+      <div class="click-box" :style="type.style" @click="toggleMindMapMode(type)">
+        {{ type.name }}
+      </div>
+    </template>
 
     <mind-map-box-helper :type="type" />
 
     <template v-for="(item) in boxes">
-        <mind-map-box :key="item.id" :id="item.id" :type="item.type" :text="item.text" :typestyle="item.style" :height="item.height" :width="item.width">
-        </mind-map-box>
-      </template>
+      <mind-map-box :key="item.id" :id="item.id" :type="item.type" :text="item.text" :typestyle="item.style" :height="item.height" :width="item.width"></mind-map-box>
+    </template>
 
     <mind-map-arrow-mode></mind-map-arrow-mode>
 
@@ -32,9 +31,7 @@
       </div>
     </div>
 
-    <div class="result" id="result" ref="result">
-
-    </div>
+    <div class="result" id="result" ref="result"></div>
 
   </div>
 

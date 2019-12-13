@@ -24,7 +24,7 @@
      The open source packages available makes it super easy to create a neural network from scratch.
      These packages are modules of code, written to perform a specific set of tasks. Two of these packages
   packages are Numpy and Matplotlib. Numpy is short for Numerical Python. It's capable of certain types of computation that Python can't do alone.
-  MMatplotlib is a visualisation library, mostly used for creating graphs. To check that both of
+  Matplotlib is a visualisation library, mostly used for creating graphs. To check that both of
   these are installed correctly, type into your python ‘shell’:   <super-popup title="i" contents="In layman's terms, a shell is a program you can use to
         type and execute code from a certain language. When you first open Terminal, you are inside the GNU bash shell.
         Then, if you type <strong>python</strong> and hit enter, you are in the python shell." />
@@ -35,7 +35,7 @@
   >>> import matplotlib
   >>> matplotlib.__version__" />
 
-  <p>Numpy is the universal go-to for operations like matrix multiplication (watch 3b1b’s introductory linear algebra series
+  <p>Numpy is the universal go-to for operations like matrix multiplication (watch <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">3b1b</a>’s introductory linear algebra series
   if those two words gave you palpitations).</p>
 
   <code-block :lines="3" contents="  >>> a = numpy.array([[1,2],[3,4]])
@@ -49,8 +49,8 @@
   >>> array([[ 8,  5],
          [20, 13]])" />
 
-  <p>Take a look back at the original matrices. How did we get from there to here? Working it out by hand, we take the product
-  sum of the first row and the first column, the second row and the first column, and so on with this pattern.</p>
+  <p>Take a look back at the original matrices. How did we get from there to here? Working it out by hand, we take the
+  first row of the first matrix (1,2), and the first column of the second matrix (4,2). The first entry in the new matrix is (4*1 + 2*2). The second entry is the same operation between (1,2) and the second column of the second matrix: (1*3 + 2*1) = 5. And so on with this pattern: <a href="http://matrixmultiplication.xyz/">here</a> is an awesome graphic which visualises this process.</p>
 
   <p>This may seem like an unnecessary detour, but is an important part of understanding neural networks. </p>
 
@@ -106,7 +106,8 @@
   which this is a subtype called a fully connected network. It's generally used as the first example for introducing people
   to the topic.</p>
 
-  <p>The aim of a fully connected network is to produce correct outputs when we supply it with data (inputs). As we'll see in a moment, it does this by performing a series of matrix operations.</p>
+  <p>The job of a fully connected network is to produce outputs when we supply it with data (inputs). At the beginning these outputs are random, but as we'll see in a moment, training
+the network will transform them into something meaningful. </p>
 
   <p>Neural networks are capable of some pretty sophisticated tasks. One such task is image recognition. For example, we supply an image of a cat, and the network produces a numerical label that
   corresponds to the category “cat”. In this example, the classification is binary: it's either a cat, or not a cat.</p>
@@ -190,11 +191,11 @@
 
   <p>
   The contents of this output will, for our example, be a list of probabilities. We'll refer to these individual probability
-  values as 'labels' from now on. For a cat input, we'd like to see the network produce a high score for the cat category
+  values as 'scores' from now on. For a cat input, we'd like to see the network produce a high score for the cat category
   only.
   </p>
 
-  <p>So - how do we get from this list of pixel values at one end, to a list of labels for each category at the other?
+  <p>So - how do we get from this list of pixel values at one end, to a list of scores for each category at the other?
   </p>
 
   <p>The answer lies, of course, in the intermediary. To make things simple we have just one intermediate layer. We refer to
@@ -304,8 +305,8 @@
 </div>
 
   <p>
-  The neuron output is then passed through an ‘activation function’, which determines whether this neuron will activate or not (whether
-  it will contribute to the end result, or remain 'silent'). The most common activation function is called <strong>ReLU</strong>, or rectified
+  The neuron output is then passed through an ‘activation function’, which determines to what degree this neuron will activate (whether
+  it will contribute strongly to the end result, or remain mostly 'silent'). The most common activation function is called <strong>ReLU</strong>, or rectified
   linear unit. It’s very simple: if the result is a negative value, it outputs zero, otherwise it passes through the result
   unchanged.
   </p>
@@ -345,7 +346,7 @@
   in the resulting vector (maybe add a bias value), then feed the result through an activation function. We then have our value
   for this particular neuron, which makes up one entry in this layer's vector.</p>
 
-  <p>And now, that process is repeated on this entire layer. At this point in our model, we receive an output, and have completed
+  <p>And now, that process is repeated on this entire layer. At this point in our model, we generate an output, and have completed
   the network's "forward pass" for this piece of training data.</p>
 
   <p>You’re probably itching to write some more code, so let’s get down some of what we’ve learned so far.</p>
@@ -379,21 +380,21 @@
   <p>First we’ll be defining our variables. Our first proper line of code looks like this:
   </p>
 
-  <code-block :lines="1" contents="  batch_size, dimensions, hidden_nodes, output_nodes = 16, 256, 24, 16"></code-block>
+  <code-block :lines="1" contents="  batch_size, dimensions, hidden_nodes, output_nodes = 16, 2, 2, 3"></code-block>
 
-  <p><strong>batch size</strong> is simply the number of pieces of training data we want to put through
-  the network at a time.</p>
+  <p><strong>batch size</strong> is simply the number of pieces of training data we will put through
+  the network at the same time.</p>
   <p><strong>dimensions</strong> refers to the number of input entries we have. For our earlier image example, this was
   784.
   </p>
   <p><strong>hidden nodes</strong> is the number of neurons in the hidden layer. We will have only one hidden layer with 24 nodes. We had three neurons in our hidden layer in the last example. </p>
-  <p><strong>output nodes</strong>, as you might have guessed, is number of nodes in the output. </p>
+  <p><strong>output nodes</strong> is the number of categories we want to have a prediction for. In our cat pic example, it was two: "cat" and "not a cat". </p>
   <p>Now lets initialise our random data.</p>
 
-  <code-block :lines="2" contents="  input = randn(N, D_in)
-  labels = randn(N, D_out)"></code-block>
+  <code-block :lines="2" contents="  input = randn(batch_size, dimensions)
+  scores = randn(batch_size, output_nodes)"></code-block>
 
-  <p>So for each run through our network, we’ll pass 16 input vectors, and 16 labels vectors. </p>
+  <p>So for each run through our network, we’ll pass 16 input vectors, and 16 scores vectors. </p>
   <p>Let’s print out one of these input vectors to get an idea what it will look like. </p>
 
   <code-block :lines="2" contents="  print(input[0]) # print the first input
@@ -405,8 +406,8 @@
   <p>Next we randomly initialise the weights matrices. Have a think about what the dimensions of these might look like, and why,
   before you read on any further.</p>
 
-  <code-block :lines="2" contents="  w1 = randn(D_in, H)
-  w2 = randn(H, D_out)"></code-block>
+  <code-block :lines="2" contents="  w1 = randn(dimensions, hidden_nodes)
+  w2 = randn(hidden_nodes, output_nodes)"></code-block>
 
   <p>So w1 holds 2 values for every H. We have 3 neurons in our hidden layer, so w1 should hold 6 values, right? Let’s print
   it out:</p>
@@ -424,7 +425,7 @@
   <p>Our detour into matrix multiplication finally proves useful. When we multiply two matrices we are said to be taking their
   dot product, and in numpy we achieve this like so:</p>
 
-  <code-block :lines="1" contents="  dot_product = x.dot(w1)"></code-block>
+  <code-block :lines="1" contents="  dot_product = input.dot(w1)"></code-block>
 
   <p>Awesome! Now we just have to add our bias value:</p>
 
@@ -441,19 +442,19 @@
 
   <p>Now we multiply this result by our second weights matrix:</p>
 
-  <code-block :lines="1" contents="  labels_prediction = hidden_layer_relu.dot(w2)"></code-block>
+  <code-block :lines="1" contents="  scores_prediction = hidden_layer_relu.dot(w2)"></code-block>
 
-  <p>This final result is the predicted labels for each category. We have completed what's known as our “forward pass”.</p>
+  <p>This final result is the predicted scores for each category. We have completed what's known as our “forward pass”.</p>
 
   <p>To find out how well our model has done, we will calculate the degree of error.</p>
 
-  <p>A simple way to do this is to calculate the difference between actual label and prediction made by our model.</p>
+  <p>A simple way to do this is to calculate the difference between the actual label, and the prediction made by our model.</p>
 
   <p>In order to give more weight to large errors, we take the square of the error.</p>
 
   <p>Introducing the ‘loss function’, whose purpose is to establish how good our prediction is. A simple loss function is the squared difference between the correct category, and our prediction.</p>
 
-  <code-block :lines="1" contents="  loss = np.square(labels_prediction - labels).sum()"></code-block>
+  <code-block :lines="1" contents="  loss = np.square(scores_prediction - scores).sum()"></code-block>
 
   <p>We sum together the loss for each score, to get the total loss for this set of predictions. The higher the loss, the worse
   the predictions.</p>
@@ -661,14 +662,14 @@
   <p>The first gradient we calculate is for the final output. Remember, we are trying to work out how each part of the network
   will affect the loss function. So our first gradient is actually just the derivative of</p>
 
-  <code-block :lines="1" contents="  loss = np.square(labels_prediction - labels).sum()"></code-block>
+  <code-block :lines="1" contents="  loss = np.square(scores_prediction - scores).sum()"></code-block>
 
   <p>We follow something called the power rule to uncover the gradient here:   <super-popup title="i" contents="Without going into the intuition, the power rule is this pattern: For a function y=x^3, the derivative is 3x^2. For y = x^4, the derivative is 4x^3. And for y = x^2, the derivative is 2x."></super-popup>
   </p>
 
-  <code-block :lines="1" contents="  gradient_wrt_predicted_labels = 2 * (labels_prediction - labels)"></code-block>
+  <code-block :lines="1" contents="  gradient_wrt_predicted_scores = 2 * (scores_prediction - scores)"></code-block>
 
-  <p>So now we know for each change in the predicted labels, what effect it will have on the loss function. But that’s of no
+  <p>So now we know for each change in the predicted scores, what effect it will have on the loss function. But that’s of no
   use to us. Our next step will be though, calculating the gradient with regards to w2, the second weights matrix.</p>
 
   <p>One way to express the chain rule is like this:</p>
@@ -687,13 +688,13 @@
   <h6>∂f / ∂w2 = (∂f / ∂y) * (∂y / ∂w2)</h6>
   </div>
 
-  <p>Our intermediate (∂y) will be our previously calculated <strong>labels_prediction</strong>. Why?</p>
+  <p>Our intermediate (∂y) will be our previously calculated <strong>scores_prediction</strong>. Why?</p>
 
-  <p>For starters, because we already know (∂f / ∂labels_prediction): it's the gradient_wrt_predicted_labels we just calculated.</p>
+  <p>For starters, because we already know (∂f / ∂scores_prediction): it's the gradient_wrt_predicted_scores we just calculated.</p>
 
   <p>Secondly: when y = 3x, ∂y / ∂x = 3. For every slight change in x, <strong>y</strong> changed by <strong>3</strong> times this.</p>
 
-  <p>And in our network, remember that <strong>labels_prediction = h_relu * w2</strong>, therefore ∂labels_prediction / ∂w2 = h_relu. Because for every slight change in w2, <strong>(labels_prediction)</strong> changed by <strong>(h_relu)</strong> times this.</p>
+  <p>And in our network, remember that <strong>scores_prediction = hidden_layer_relu * w2</strong>, therefore ∂scores_prediction / ∂w2 = hidden_layer_relu. Because for every slight change in w2, <strong>(scores_prediction)</strong> changed by <strong>(hidden_layer_relu)</strong> times this.</p>
 
   <p>So,</p>
 
@@ -704,14 +705,14 @@
   <p>Is identical to:</p>
 
   <div class="flex-row">
-  <h6>∂f / ∂w2 = gradient_wrt_predicted_labels * h_relu</h6>
+  <h6>∂f / ∂w2 = gradient_wrt_predicted_scores * hidden_layer_relu</h6>
   </div>
 
   <p>Now, because each step of our network involved matrix multiplication, we can use this as a pattern for our backward pass. We've essentially established that the gradient for each part of the network will just be the preceding layer multiplied by the gradient of the subsequent layer, and can thus can continue all the way back to the beginning of our network like so.</p>
 
-  <code-block :lines="6" contents="  gradient_wrt_predicted_labels = 2 * (labels_prediction - labels)
-  gradient_wrt_w2 = h_relu.T.dot(gradient_wrt_predicted_labels)
-  gradient_wrt_hidden_relu = gradient_wrt_predicted_labels.dot(w2.T)
+  <code-block :lines="6" contents="  gradient_wrt_predicted_scores = 2 * (scores_prediction - scores)
+  gradient_wrt_w2 = hidden_layer_relu.T.dot(gradient_wrt_predicted_scores)
+  gradient_wrt_hidden_relu = gradient_wrt_predicted_scores.dot(w2.T)
   gradient_wrt_hidden = gradient_wrt_hidden_relu.copy()
   gradient_wrt_hidden[h < 0] = 0
   gradient_wrt_w1 = x.T.dot(gradient_wrt_hidden)"></code-block>
@@ -761,9 +762,10 @@ For example transpose of a 2 by 3 matrix will be 3 by 2:</p>
   </svg>
 </div>
 
-<p>Our h_relu output looked like <span style="background:#7b97ff; border: 2px solid #5c7efe; padding: 0 .4rem"></span> &nbsp;, of (16 rows, 100 columns), to be precise. And our labels prediction matrix looked like <span style="background:#7b97ff; border: 2px solid #5c7efe; padding: 0 .4rem"></span> &nbsp; also (16 rows, 10 columns). We have to flip the first in the dot product to produce the result we’re looking for: (100, 16) * (16, 10). We won’t go into any more detail here, but this can be a bit finicky, so take care when you’re manually constructing a net like this. <super-popup contents=" Most of the time, you won’t be, but having an understanding of these details will serve you well down the track."></super-popup></p>
+<p>Our hidden_layer_relu output looked like <span style="background:#7b97ff; border: 2px solid #5c7efe; padding: 0 .4rem"></span> &nbsp;, of (16 rows, 100 columns), to be precise. And our scores prediction matrix looked like <span style="background:#7b97ff; border: 2px solid #5c7efe; padding: 0 .4rem"></span> &nbsp; also (16 rows, 10 columns). We have to flip the first in the dot product to produce the result we’re looking for: (100, 16) * (16, 10). We won’t go into any more detail here, but this can be a bit finicky, so take care when you’re manually constructing a net like this. <super-popup contents=" Most of the time, you won’t be, but having an understanding of these details will serve you well down the track."></super-popup></p>
 
-<p>Lastly, we need to remove all the 0s from our h gradient, before we can calculate the gradient for w1. This is expressed in Python like so:</p>
+<p>Lastly, we need to substitute all negative numbers in our h gradient with
+zeros, before we can calculate the gradient for w1. This is expressed in Python like so:</p>
 
 <code-block :lines="1" contents="  gradient_wrt_hidden[h < 0] = 0"></code-block>
 
@@ -777,16 +779,16 @@ For example transpose of a 2 by 3 matrix will be 3 by 2:</p>
   from numpy.random import randn
   from matplotlib import pyplot as plt
 
-  # batch size, hidden layer size, dimensions in and out
-  N, D_in, H, D_out = 16, 256, 24, 16
+  # batch size ( = number of pieces of training data in each pass), dimensions in the input layer, hidden layer size, and number of output nodes (which correlate to the number of scores for our data)
+  batch_size, dimensions, hidden_nodes, output_nodes  = 16, 2, 2, 3
 
   # random input and output data
-  x = randn(N, D_in)
-  y = randn(N, D_out)
+  input = randn(batch_size, dimensions)
+  scores = randn(batch_size, output_nodes)
 
   # random weights
-  w1 = randn(D_in, H)
-  w2 = randn(H, D_out)
+  w1 = randn(dimensions, hidden_nodes)
+  w2 = randn(hidden_nodes, output_nodes)
 
   learning_rate = 1e-8
 
@@ -795,18 +797,18 @@ For example transpose of a 2 by 3 matrix will be 3 by 2:</p>
 
   for i in range(10000):
     # forward pass
-    hidden = x.dot(w1)
-    hidden_relu= np.maximum(h, 0)
-    labels_prediction = hidden_relu.dot(w2)
+    hidden = input.dot(w1)
+    hidden_relu = np.maximum(h, 0)
+    scores_prediction = hidden_relu.dot(w2)
 
     # calculate and print loss
-    loss = np.square(labels_prediction - labels).sum()
+    loss = np.square(scores_prediction - scores).sum()
     print('Loss: %s' %loss)
 
     # backward pass
-    gradient_wrt_predicted_labels = 2 * (labels_prediction - labels)
-    gradient_wrt_w2 = h_relu.T.dot(gradient_wrt_predicted_labels)
-    gradient_wrt_hidden_relu = gradient_wrt_predicted_labels.dot(w2.T)
+    gradient_wrt_predicted_scores = 2 * (scores_prediction - scores)
+    gradient_wrt_w2 = hidden_layer_relu.T.dot(gradient_wrt_predicted_scores)
+    gradient_wrt_hidden_relu = gradient_wrt_predicted_scores.dot(w2.T)
     gradient_wrt_hidden = gradient_wrt_hidden_relu.copy()
     gradient_wrt_hidden[h < 0] = 0
     gradient_wrt_w1 = x.T.dot(gradient_wrt_hidden)
@@ -835,14 +837,12 @@ For example transpose of a 2 by 3 matrix will be 3 by 2:</p>
 
 <script>
 import SuperPopup from '@/components/SuperPopup.vue'
-import svgNodes from '@/components/svgNodes.vue'
 import CodeBlock from '@/components/CodeBlock.vue'
 
 export default {
   name: 'neural-networks',
   components: {
   SuperPopup,
-  svgNodes,
   CodeBlock
   },
   data() {

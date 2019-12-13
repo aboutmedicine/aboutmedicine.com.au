@@ -1,15 +1,12 @@
 <template>
 
   <div class="">
-    <div id="container">
-
-    </div>
+    
+    <div id="container"></div>
 
     <div class="btn" id="btn_drawar">Arrows</div>
     <div class="btn" id="btn_delar">Undo Arrow</div>
-    <div class="tutorial" id="tutorial">
-    </div>
-
+    <div class="tutorial" id="tutorial"></div>
 
   </div>
 
@@ -112,9 +109,6 @@
       var btn_drawar = document.getElementById('btn_drawar')
       if (btn_drawar)
         btn_drawar.addEventListener('click', function(e) {
-
-
-
           drawAr.draw *= -1
           e.target.style.background = drawAr.draw == 1 ? '#bbb' : '#eee'
           e.target.innerHTML = drawAr.draw == 1 ? 'Turn Off' : 'Arrows'
@@ -127,7 +121,7 @@
       if (btn_delar)
         btn_delar.addEventListener('click', function(e) {
           var arrsvg = document.querySelectorAll('.arrsvg')
-          var last_arr = arrsvg[arrsvg.length - 1];
+          var last_arr = arrsvg[arrsvg.length - 1]
           last_arr.outerHTML = ''
         })
     }
@@ -152,7 +146,7 @@
     color: #555;
     width: 150px !important;
     text-align: center;
-    padding:.8rem;
+    padding: 0.8rem;
     border-radius: 6px;
     position: relative;
     cursor: pointer;
@@ -167,35 +161,34 @@
     width: 150px;
     height: 20px;
     text-align: center;
-    padding:0rem 1rem .6rem;
+    padding: 0rem 1rem 0.6rem;
     position: relative;
     margin: 1rem;
     z-index: 2;
     opacity: 1;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 
   .btn:hover {
-    opacity: .8;
+    opacity: 0.8;
   }
 
   @media screen and (max-width: 500px) {
     .btn {
       max-width: 3.6rem;
-      max-height: .8rem;
+      max-height: 0.8rem;
       overflow: none;
-      padding: .5rem;
-      font-size: .6rem;
+      padding: 0.5rem;
+      font-size: 0.6rem;
     }
 
     .tutorial {
       max-width: 4rem;
-      max-height: .8rem;
+      max-height: 0.8rem;
       overflow: none;
-      padding: .5rem;
-      font-size: .6rem;
+      padding: 0.5rem;
+      font-size: 0.6rem;
     }
-
   }
 
 </style>

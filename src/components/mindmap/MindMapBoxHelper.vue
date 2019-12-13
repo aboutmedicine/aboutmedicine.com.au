@@ -55,7 +55,6 @@
             background: this.type.style.background
           },
         })
-
       }
     },
     watch: {

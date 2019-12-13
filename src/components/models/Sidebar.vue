@@ -5,7 +5,7 @@
 
       <a @click.prevent="showModels = !showModels">
         <img v-show="!showModels" alt="Model List" class="sidebar-toggle" src="../../assets/bars.svg" height="32" width="32">
-        <img v-show="showModels" alt="CloseModel List" class="sidebar-toggle" src="../../assets/x.svg" height="32" width="32">
+        <img v-show="showModels" alt="Close Model List" class="sidebar-toggle" src="../../assets/x.svg" height="32" width="32">
       </a>
 
       <div class="sidebar-open">
