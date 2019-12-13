@@ -715,7 +715,7 @@ the network will transform them into something meaningful. </p>
   gradient_wrt_hidden_relu = gradient_wrt_predicted_scores.dot(w2.T)
   gradient_wrt_hidden = gradient_wrt_hidden_relu.copy()
   gradient_wrt_hidden[h < 0] = 0
-  gradient_wrt_w1 = x.T.dot(gradient_wrt_hidden)"></code-block>
+  gradient_wrt_w1 = input.T.dot(gradient_wrt_hidden)"></code-block>
 
 <p>With a couple of caveats: you’ll notice for a start the capital T, which seems to be lurking fairly arbitrarily in our dot products.
   This stands for transpose. We get the transpose of a matrix by converting all its rows into columns, or vice versa.
@@ -811,7 +811,7 @@ zeros, before we can calculate the gradient for w1. This is expressed in Python 
     gradient_wrt_hidden_relu = gradient_wrt_predicted_scores.dot(w2.T)
     gradient_wrt_hidden = gradient_wrt_hidden_relu.copy()
     gradient_wrt_hidden[h < 0] = 0
-    gradient_wrt_w1 = x.T.dot(gradient_wrt_hidden)
+    gradient_wrt_w1 = input.T.dot(gradient_wrt_hidden)
 
     w1 -= learning_rate * gradient_wrt_w1
     w2 -= learning_rate * gradient_wrt_w2
