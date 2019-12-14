@@ -1,12 +1,9 @@
 <template>
 
   <sup @mouseenter="show($event)" @mouseleave="hide($event)">
-
-      i
-
-      <div class="popup" v-html="contents"> </div>
-
-    </sup>
+    i
+    <div class="popup" v-html="contents"> </div>
+  </sup>
 
 </template>
 
@@ -30,7 +27,7 @@
           e.target.firstElementChild.hidden = false
           e.target.firstElementChild.style.left = e.clientX.toString() + 'px'
           e.target.firstElementChild.style.top = e.clientY.toString() + 'px'
-          e.target.firstElementChild.zIndex = 4;
+          e.target.firstElementChild.zIndex = 4
         }
       },
       hide: function(e) {
@@ -58,7 +55,9 @@
     z-index: 4;
     border-radius: 30px;
     background: #7b98fc;
-    padding: .1rem .42rem;
+    padding: 0.1rem 0.42rem;
+    max-width: 0.26rem !important;
+    margin: 0 .1rem;
   }
 
   sup:hover {

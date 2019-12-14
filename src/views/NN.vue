@@ -17,13 +17,12 @@
 
   <p>From here you can write and execute any code written in the Python language. Python is a general purpose programming language, which means you can perform any kind of task from it - from using it as a calculator to creating a neural network. Try typing in something like this:</p>
 
-  <code-block :lines="2" contents="  >>> 4 ** 3
-  >>> 64" />
+  <code-block :lines="2" contents="  >>> 4 ** 3   #  now press enter (everything after a # is a comment I've made, not what you need to type in)
+  >>> 64       #  this should be your output" />
 
-  <p>Python is the perfect language for AI and machine learning, because of its vast community, and the contributions of this community.
-     The open source packages available makes it super easy to create a neural network from scratch.
-     These packages are modules of code, written to perform a specific set of tasks. Two of these packages
-  packages are Numpy and Matplotlib. Numpy is short for Numerical Python. It's capable of certain types of computation that Python can't do alone.
+  <p>Python is the perfect language for AI and machine learning, because of its huge community, and the packages that this community contribute to the language.
+     These packages are modules of code, written to perform a specific set of tasks. The two we're concerned with are called
+  Numpy and Matplotlib. Numpy is short for Numerical Python, and allows for fast complex maths operations.
   Matplotlib is a visualisation library, mostly used for creating graphs. To check that both of
   these are installed correctly, type into your python ‘shell’:   <super-popup title="i" contents="In layman's terms, a shell is a program you can use to
         type and execute code from a certain language. When you first open Terminal, you are inside the GNU bash shell.
@@ -35,7 +34,7 @@
   >>> import matplotlib
   >>> matplotlib.__version__" />
 
-  <p>Numpy is the universal go-to for operations like matrix multiplication (watch <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">3b1b</a>’s introductory linear algebra series
+  <p>Numpy is your go-to for operations like matrix multiplication (watch <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">3b1b</a>’s introductory linear algebra series
   if those two words gave you palpitations).</p>
 
   <code-block :lines="3" contents="  >>> a = numpy.array([[1,2],[3,4]])
@@ -43,11 +42,11 @@
   >>> print(a, b)" />
 
   <p>As you can see from the output, we’ve made two matrices, which are stored in the variables <strong>a</strong> and <strong>b</strong>.
-  The result of multiplying two matrices is also referred to as their dot product. This is achieved by typing:</p>
+  The result of multiplying two matrices is also referred to as their dot product. We can get this by typing:</p>
 
   <code-block :lines="3" contents="  >>> numpy.dot(a, b)
   >>> array([[ 8,  5],
-         [20, 13]])" />
+             [20, 13]])" />
 
   <p>Take a look back at the original matrices. How did we get from there to here? Working it out by hand, we take the
   first row of the first matrix (1,2), and the first column of the second matrix (4,2). The first entry in the new matrix is (4*1 + 2*2). The second entry is the same operation between (1,2) and the second column of the second matrix: (1*3 + 2*1) = 5. And so on with this pattern: <a href="http://matrixmultiplication.xyz/">here</a> is an awesome graphic which visualises this process.</p>
@@ -102,14 +101,13 @@
 
   </div>
 
-  <p>You may have seen a diagram like this to describe neural networks. Think of neural networks as a broad umbrella term, of
-  which this is a subtype called a fully connected network. It's generally used as the first example for introducing people
+  <p>Think of neural networks as a broad umbrella term. This diagram, which you might've seen before, describes a subtype called a fully connected network. It's generally used as the first example for introducing people
   to the topic.</p>
 
   <p>The job of a fully connected network is to produce outputs when we supply it with data (inputs). At the beginning these outputs are random, but as we'll see in a moment, training
 the network will transform them into something meaningful. </p>
 
-  <p>Neural networks are capable of some pretty sophisticated tasks. One such task is image recognition. For example, we supply an image of a cat, and the network produces a numerical label that
+  <p>Neural networks are capable of some pretty sophisticated tasks. One such task is image recognition. For example, we supply an image of a cat, and the network produces a numerical value that
   corresponds to the category “cat”. In this example, the classification is binary: it's either a cat, or not a cat.</p>
 
   <div class="flex-row">
@@ -165,8 +163,10 @@ the network will transform them into something meaningful. </p>
   so let’s talk about that process first. To train the network to accurately produce the label cat when it is supplied
   with a cat pic, we have to supply it with thousands of cat pics.</p>
 
-  <p>Computers don't have eyes; they read images as lists of numbers (in a grayscale image, each number represents a single pixel).
-    Each number is an entry in this long list, which gets called a vector. The network makes predictions, then compares them to the correct
+  <p>Computers don't have eyes
+      <super-popup title="i" contents="'Whoa, that's deep! Tell me more!' I hear you say." />
+  ; they read images as lists of numbers (in a grayscale image, each number represents a single pixel).
+  Each number is an entry in this long list, which gets called a vector. The network assigns a probability value to each category, then compares them to the correct
   category (which is of course supplied, for the training data). Each piece of training data is therefore formatted like
   so:
   </p>
@@ -198,7 +198,7 @@ the network will transform them into something meaningful. </p>
   <p>So - how do we get from this list of pixel values at one end, to a list of scores for each category at the other?
   </p>
 
-  <p>The answer lies, of course, in the intermediary. To make things simple we have just one intermediate layer. We refer to
+  <p>The answer lies, of course, in the intermediary. To keep things simple for us, we'll have just one intermediate layer. We refer to
   this architecture as a 'two-layer' fully connected network, counting the intermediate and output layers. Let's isolate
   one intermediate neuron and observe what will happen to its value as it passes through the network.
   </p>
@@ -337,17 +337,64 @@ the network will transform them into something meaningful. </p>
 
   </svg>
   <h6>if neuron output < 0: activated output = 0</h6>
-  <h6>if neuron output >= 0: activated output = neuron output</h6>
+  <h6>if neuron output ≥ 0: activated output = neuron output</h6>
 
 
   </div>
 
-  <p>This process is then repeated for each node: Take the vector of inputs, multiply it by a weights vector, sum up the values
+  <p>This process is then repeated for each intermediate node: Take the vector of inputs, multiply it by a weights vector, sum up the values
   in the resulting vector (maybe add a bias value), then feed the result through an activation function. We then have our value
   for this particular neuron, which makes up one entry in this layer's vector.</p>
 
-  <p>And now, that process is repeated on this entire layer. At this point in our model, we generate an output, and have completed
-  the network's "forward pass" for this piece of training data.</p>
+  <p>And now, we perform matrix multiplication on the intermediate layer's entries: multiplying them by another weights matrix, w2.</p>
+
+  <div class="flex-row">
+
+    <svg width="300" height="200">
+
+    <!-- lines  -->
+
+    <line style="stroke: #ccc;" x1="170" y1="25" x2="255" y2="62.5" />
+    <line style="stroke: #ccc;" x1="170" y1="100" x2="255" y2="62.5" />
+    <line style="stroke: #ccc;" x1="170" y1="175" x2="255" y2="62.5" />
+    <line style="stroke: #ccc;" x1="170" y1="25" x2="255" y2="137.5" />
+    <line style="stroke: #ccc;" x1="170" y1="100" x2="255" y2="137.5" />
+    <line style="stroke: #ccc;" x1="170" y1="175" x2="255" y2="137.5" />
+
+    <!-- hidden -->
+    <circle cx="150" cy="25" r="20" stroke="#555" stroke-width="3" fill="#ddd" />
+    <circle cx="150" cy="100" r="20" stroke="#555" stroke-width="3" fill="#aaa" />
+    <circle cx="150" cy="175" r="20" stroke="#555" stroke-width="3" fill="#fafafa" />
+
+    <!-- output -->
+    <circle cx="275" cy="62.5" r="20" stroke="#555" stroke-width="3" fill="#ff7469" />
+    <circle cx="275" cy="137.5" r="20" stroke="#555" stroke-width="3" fill="#ffdcd9" />
+
+    <text x="141" y="34">.3</text>
+    <text x="141" y="109">.7</text>
+    <text x="142" y="184">.1</text>
+    <text x="195" y="108">W2</text>
+    <text x="264" y="70">.9</text>
+    <text x="266" y="145">.1</text>
+
+    </svg>
+
+  </div>
+
+  <p>So what we're seeing here is the network generating an output - a list of probability scores for each of the categories mentioned earlier.</p>
+
+  <p>Based on the numbers in the input vector, the network assigns a high probability to this being a "cat" pic.</p>
+
+  <p>In case you're a bit confused (we all were the first time we learned this, don't worry), we generated the output of <b>0.9</b> like so:</p>
+
+  <div class="flex-column">
+    <h6>( .3 * wa ) + ( .7 * wb ) + ( .1 * wc ) = .9</h6>
+  </div>
+
+  <p>Where wa, wb and wc were all entries in the weights that make up W2.</p>
+
+<p>So at this point we have generated an output - and completed
+  what we call the network's "forward pass" - for this single piece of training data.</p>
 
   <p>You’re probably itching to write some more code, so let’s get down some of what we’ve learned so far.</p>
 
@@ -364,7 +411,7 @@ the network will transform them into something meaningful. </p>
 
   <code-block :lines="1" contents="  python neural-network.py"></code-block>
 
-  <p>And hey presto, you should receive an output of 81. Now in the same file, let’s begin writing up our neural network. First
+  <p>And hey presto, you should receive an output of 81! Now in the same file, let’s begin writing up our neural network. First
   we need to import the modules we’ll be using (numpy and matplotlib). Convention has it that we do this in the following
   way:
   </p>
@@ -387,7 +434,7 @@ the network will transform them into something meaningful. </p>
   <p><strong>dimensions</strong> refers to the number of input entries we have. For our earlier image example, this was
   784.
   </p>
-  <p><strong>hidden nodes</strong> is the number of neurons in the hidden layer. We will have only one hidden layer with 24 nodes. We had three neurons in our hidden layer in the last example. </p>
+  <p><strong>hidden nodes</strong> is the number of neurons in the hidden layer. We will have only one hidden layer with 2 nodes. We had three neurons in our hidden layer in the last example. </p>
   <p><strong>output nodes</strong> is the number of categories we want to have a prediction for. In our cat pic example, it was two: "cat" and "not a cat". </p>
   <p>Now lets initialise our random data.</p>
 
@@ -402,8 +449,11 @@ the network will transform them into something meaningful. </p>
 
   <p>Your input[0] should have looked like a list of 2 numbers. This is just gibberish data - but making a purposeless network
   will teach us the fundamentals more simply. And there’s something zen about the idea of a purposeless neural network.
-  Or is that just me?</p>
-  <p>Next we randomly initialise the weights matrices. Have a think about what the dimensions of these might look like, and why,
+  Or is that just me 🤔</p>
+  <p>Next we randomly initialise the weights matrices. This is often what we would actually do in the initial construction of a network:
+    we have no idea what numbers will work here, so we just start off with a random bunch of values.</p>
+
+    <p>Have a think about what the dimensions of these might look like, and why,
   before you read on any further.</p>
 
   <code-block :lines="2" contents="  w1 = randn(dimensions, hidden_nodes)
@@ -444,22 +494,24 @@ the network will transform them into something meaningful. </p>
 
   <code-block :lines="1" contents="  scores_prediction = hidden_layer_relu.dot(w2)"></code-block>
 
-  <p>This final result is the predicted scores for each category. We have completed what's known as our “forward pass”.</p>
+  <p>This final result is the predicted scores for each category. And thus, we have completed our “forward pass”.</p>
 
-  <p>To find out how well our model has done, we will calculate the degree of error.</p>
+  <p>But the result is probably absolute crap, right? If we randomly initialised our weights, then the output is almost certain to be random: completely inaccurate classification.</p>
+
+  <p>So in order to find out just how crap our network is at present, we'll calculate the degree of error in our prediction.</p>
 
   <p>A simple way to do this is to calculate the difference between the actual label, and the prediction made by our model.</p>
 
-  <p>In order to give more weight to large errors, we take the square of the error.</p>
+  <p>And in order to give more weight to large errors, we take the square of the error.</p>
 
-  <p>Introducing the ‘loss function’, whose purpose is to establish how good our prediction is. A simple loss function is the squared difference between the correct category, and our prediction.</p>
+  <p>Now introducing the ‘loss function’, whose purpose is to establish how good our prediction is. A simple loss function is the squared difference between the correct category, and our prediction.</p>
 
   <code-block :lines="1" contents="  loss = np.square(scores_prediction - scores).sum()"></code-block>
 
   <p>We sum together the loss for each score, to get the total loss for this set of predictions. The higher the loss, the worse
   the predictions.</p>
 
-  <p>The “learning” process of a neural network is all about modifying the values in w and b, to improve our predictions and
+  <p>Now we've worked out how bad our predictions were, we need to train the network to predict better. This “learning” process of a neural network is all about just modifying the values in w and b, to improve our predictions and
   thereby reduce our loss.</p>
 
   <p>Basically, we know that theoretically, there exists an optimal set of values for w and b, that will give us a minimal loss
@@ -470,7 +522,7 @@ the network will transform them into something meaningful. </p>
   <p>Fortunately, calculus provides us with a beautiful set of tools for performing this optimisation. If you haven’t seen any
   calculus before, don’t worry too much. I’ll try and make this intuitive.</p>
 
-  <p>One of the core principles of calculus is the derivative. The derivative of a function tells us what the slope of it’s
+  <p>One of the core principles of calculus is the <b>derivative</b>. The derivative of a function tells us what the slope of it’s
   line is at any point in time. So if we have a curve like that of y = x^3, it’s slope at three different points looks
   like this:
   </p>
@@ -611,7 +663,7 @@ the network will transform them into something meaningful. </p>
   <img src="../assets/gradient.png" alt="">
   </div>
 
-  <p>When we’re looking at derivatives beyond single-variable functions, each of these slopes we call a partial derivative.
+  <p>When we’re looking at derivatives beyond single-variable functions, each of these slopes we call a <b>partial derivative</b>.
   Partial derivatives are denoted by the symbol ∂, which is pronounced "del".
   So in order to take a step down into this 3D valley, we need to know the partial derivative for each of these variables
   that make up our function. </p>
@@ -670,7 +722,7 @@ the network will transform them into something meaningful. </p>
   <code-block :lines="1" contents="  gradient_wrt_predicted_scores = 2 * (scores_prediction - scores)"></code-block>
 
   <p>So now we know for each change in the predicted scores, what effect it will have on the loss function. But that’s of no
-  use to us. Our next step will be though, calculating the gradient with regards to w2, the second weights matrix.</p>
+  use to us: remember that we're only trying to work out how to optimise our weights and biases (and from here on, we'll just focus on the weights to keep things simple). Our next step will be more useful: calculating the gradient with regards to w2, the second weights matrix.</p>
 
   <p>One way to express the chain rule is like this:</p>
 
@@ -771,7 +823,7 @@ zeros, before we can calculate the gradient for w1. This is expressed in Python 
 
 <p>Goodness me. We’ve now worked out the gradient of this function with respect to our weights matrices! As discussed earlier, we can now take a step downwards in the direction of these gradients, treading toward a local minimum.</p>
 
-<p>The size of this step is held in a variable we call ‘learning_rate’. It’s negative, because we want to take a downward step, and its small. If it's too small, training will happen extremely slowly. If it is much bigger, then our optimisation step will be too big and we may miss the optimal parameters entirely.</p>
+<p>The size of this step is held in a variable we call ‘learning_rate’. It’s negative, because we want to take a downward step, and its a pretty small value (1e-8, or 0.00000001). If it's too small, training will happen extremely slowly. If it is much bigger, then our optimisation step will be too big and we may miss the optimal parameters entirely.</p>
 
 <p>And with that, our two-layer network is done! Here is the complete code:</p>
 
@@ -779,7 +831,8 @@ zeros, before we can calculate the gradient for w1. This is expressed in Python 
   from numpy.random import randn
   from matplotlib import pyplot as plt
 
-  # batch size ( = number of pieces of training data in each pass), dimensions in the input layer, hidden layer size, and number of output nodes (which correlate to the number of scores for our data)
+  # batch size ( = number of pieces of training data in each pass), dimensions in the input layer,
+  # hidden layer size, and number of output nodes (which correlate to the number of scores for our data)
   batch_size, dimensions, hidden_nodes, output_nodes  = 16, 2, 2, 3
 
   # random input and output data
@@ -825,12 +878,16 @@ zeros, before we can calculate the gradient for w1. This is expressed in Python 
 
 <p>You will notice I've added a few lines to visualise the process, using the matplotlib library. </p>
 
-<p>Head to your terminal and again run python neural-network.py. You should see a high initial loss value, quickly reduced. Although all of our data was random, our network is successfully determining some kind of pattern within it. We are training our network to better understand this pattern; our machine is learning.</p>
+<p>Head to your terminal and again run python neural-network.py. You should see a high initial loss value, quickly reduced. You should also see a graph pop up, which will demonstrate how the loss value changed over each iteration (of which we had 10000: see line 21 of our code). </p>
+<p>Although all of our data was random, our network is successfully determining some kind of pattern within it. We are training our network to better understand this pattern; our machine is learning.</p>
 
+<p>If you made it this far, thank you for reading! If you have any thoughts or feedback, find my email on the <a href="https://www.aboutmedicine.com.au/about">About</a> page.</p>
 
+<p>Good luck and may your neural networks eventually save the world 😉</p>
 
-  <p>Thanks to <a href="https://github.com/jcjohnson">Justin Johnson</a> and
-  <a href="https://github.com/Kayzaks">Michael Kissner</a> for their work on clarifying this topic. </p>
+<p>-- </p>
+<p>If you're looking for more resources, I've found hugely valuable the work of <a href="https://github.com/jcjohnson">Justin Johnson</a> and
+  <a href="https://github.com/Kayzaks">Michael Kissner</a>. A big thank-you to them for their work clarifying this topic. </p>
 
 </div>
 </template>
