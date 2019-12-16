@@ -18,7 +18,7 @@ export default new Vuex.Store({
     //
     // Models
     //
-    models: ['axilla', 'brain-schematic', 'cranial-nerves', 'embryo', 'femoral-triangle', 'forearm-anterior', 'heart', 'heart-schematic', 'inguinal-canal', 'ischioanal-fossae', 'perineum', 'peritoneum'],
+    models: ['abdomen-simplified', 'axilla', 'brain-schematic', 'cranial-nerves', 'embryo', 'femoral-triangle', 'forearm-anterior', 'heart', 'heart-schematic', 'inguinal-canal', 'ischioanal-fossae', 'perineum', 'peritoneum'],
     controller: null,
     currentModel: null,
     activeMesh: {},
