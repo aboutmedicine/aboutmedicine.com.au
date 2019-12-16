@@ -46,6 +46,22 @@
 
 <style scoped>
 
+  div >>> p {
+    margin: 2rem .5rem;
+    line-height: 1.6;
+  }
+
+  div >>> a {
+    font-weight: 600;
+    color: #7b98fc;
+    text-decoration: none;
+  }
+
+  div >>> a:hover {
+    cursor: pointer;
+    color: #5183f5;
+  }
+
   .content {
     margin: 2rem 1.5rem;
   }

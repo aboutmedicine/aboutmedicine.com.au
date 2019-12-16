@@ -23,15 +23,22 @@ db = client.database
 # Find one document
 ###
 
-db[:notes].find(:name => "Amyotrophic Lateral Sclerosis").each do |doc|
-    puts doc
-end
+# db[:notes].find(:name => "Amyotrophic Lateral Sclerosis").each do |doc|
+#     puts doc
+# end
 
 ###
 # Find and update one document
 ###
 
 # db[:notes].update_one({:name => "Amyotrophic Lateral Sclerosis"}, '$set' => {:hx => ""})
+
+###
+# Find and delete one document
+###
+
+db[:blogposts].delete_one({:title => "The Ascending Tracts - Spinothalamic Pathway"})
+
 
 ###
 # Delete all documents
