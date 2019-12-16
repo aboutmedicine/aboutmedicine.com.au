@@ -62,6 +62,12 @@
     color: #5183f5;
   }
 
+  div >>> .flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .content {
     margin: 2rem 1.5rem;
   }
