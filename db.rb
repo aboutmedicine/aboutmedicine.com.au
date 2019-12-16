@@ -37,7 +37,7 @@ db = client.database
 # Find and delete one document
 ###
 
-db[:blogposts].delete_one({:title => "The Ascending Tracts - Spinothalamic Pathway"})
+db[:blogposts].delete_one({:title => "MRI / 3D Brain Anatomy: Internal Capsule, Thalamus & Brainstem"})
 
 
 ###

@@ -64,7 +64,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem 10rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
 
   #footer a {

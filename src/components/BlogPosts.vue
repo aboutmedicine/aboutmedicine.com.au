@@ -2,12 +2,27 @@
 
   <div>
     <h5>Recent Posts</h5>
-    <a class="posts"
-       v-for="post in posts_array.slice().reverse()"
-       v-on:click.prevent="setActiveBlogPost(post)"
-       :key="post.id">
-      {{post.title}}
-      </a>
+
+    <div v-if="!showAll">
+      <a class="posts"
+         v-for="post in posts_array.slice(0, 10).reverse()"
+         @click.prevent="setActiveBlogPost(post)"
+         :key="post.id">
+         {{post.title}}
+        </a>
+    </div>
+
+    <div v-else>
+      <a class="posts"
+         v-for="post in posts_array.slice().reverse()"
+         @click.prevent="setActiveBlogPost(post)"
+         :key="post.id">
+         {{post.title}}
+        </a>
+    </div>
+
+    <a class="show-all" @click.prevent="showAll = true">Show All Posts</a>
+
   </div>
 
 </template>
@@ -20,7 +35,8 @@
     name: 'BlogPosts',
     data() {
       return {
-        posts_array: []
+        posts_array: [],
+        showAll: false
       }
     },
     methods: {
@@ -34,6 +50,7 @@
       }
     },
     created() {
+      console.log(this.$route)
       let vm = this
       axios
         .get('/blogposts')
@@ -68,14 +85,26 @@
     border-radius: 0.5rem;
   }
 
+  .posts:hover {
+    background-color: #eee;
+    cursor: pointer;
+  }
+
   a {
     text-decoration: none;
     margin: 0 2rem;
   }
 
-  .posts:hover {
-    background-color: #eee;
+  .show-all {
+    font-weight: 600;
+    color: #7b98fc;
+    text-decoration: none;
+    margin-top: 1rem;
+  }
+
+  .show-all:hover {
     cursor: pointer;
+    color: #5183f5;
   }
 
   @media screen and (max-width: 800px) {
