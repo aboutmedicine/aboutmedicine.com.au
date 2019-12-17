@@ -1,11 +1,11 @@
 <template>
 
   <div>
-    <h5>Recent Posts</h5>
+    <h4>Recent Posts</h4>
 
     <div v-if="!showAll">
       <a class="posts"
-         v-for="post in posts_array.slice(0, 10).reverse()"
+         v-for="post in posts_array.slice(0, 10)"
          @click.prevent="setActiveBlogPost(post)"
          :key="post.id">
          {{post.title}}
@@ -14,14 +14,14 @@
 
     <div v-else>
       <a class="posts"
-         v-for="post in posts_array.slice().reverse()"
+         v-for="post in posts_array.slice()"
          @click.prevent="setActiveBlogPost(post)"
          :key="post.id">
          {{post.title}}
         </a>
     </div>
 
-    <a class="show-all" @click.prevent="showAll = true">Show All Posts</a>
+    <button class="show-all" @click.prevent="showAll = true">Show All Posts</button>
 
   </div>
 
@@ -57,7 +57,7 @@
         .then(function(res) {
           let i
           for (i = 0; i < res.data.length; i++) {
-            vm.posts_array.push(res.data[i])
+            vm.posts_array.unshift(res.data[i])
           }
         })
         .catch(function(error) {
@@ -75,7 +75,7 @@
     text-align: center;
   }
 
-  h5 {
+  h4 {
     margin: 1rem 2rem;
   }
 
@@ -96,19 +96,11 @@
   }
 
   .show-all {
-    font-weight: 600;
-    color: #7b98fc;
-    text-decoration: none;
-    margin-top: 1rem;
-  }
-
-  .show-all:hover {
-    cursor: pointer;
-    color: #5183f5;
+    margin: 1rem 2rem 0;
   }
 
   @media screen and (max-width: 800px) {
-    h5 {
+    h4 {
       margin: 1rem 1rem;
     }
 

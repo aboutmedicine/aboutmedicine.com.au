@@ -1,12 +1,12 @@
 <template>
 
   <div>
-    <h4>Hey I'm Reuben.</h4>
-    <p>
+    <h3>Hey I'm Reuben.</h3>
+    <h6>
       I make videos about medicine + sometimes I write stuff too.
-    </p>
+    </h6>
     <div class="hero-box">
-      <a href="/models/heart-schematic"><img id="hero" alt="me" src="../assets/heart_01.jpg"></a>
+      <a href="/models/heart-schematic"><img id="hero" alt="me" src="../assets/heart_01.png"></a>
     </div>
     <div class="social">
       <a href="https://www.youtube.com/c/AboutMedicine"><img alt="youtube" src="../assets/youtube.svg" /></a>
@@ -35,20 +35,21 @@
   .social {
     display: flex;
     justify-content: center;
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
 
   .social img {
-    width: 3rem;
+    width: 4rem;
     height: auto;
   }
 
-  p {
+  h6 {
     margin: 0 0 2rem;
+    font-weight: 400;
     text-align: center;
   }
 
-  h4 {
+  h3 {
     margin: 2rem 0 1rem;
     text-align: center;
   }
@@ -64,8 +65,8 @@
   }
 
   #hero {
-    width: 360px;
-    margin: 0 0 0 0.5rem;
+    width: 498px;
+    margin: .5rem 0 .5rem 2rem;
     height: auto;
   }
 
@@ -75,7 +76,7 @@
       height: 238px;
     }
 
-    h4 {
+    h3 {
       margin: 1rem 0;
       text-align: center;
     }

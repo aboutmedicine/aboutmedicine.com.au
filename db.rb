@@ -37,7 +37,7 @@ db = client.database
 # Find and delete one document
 ###
 
-db[:blogposts].delete_one({:title => "Brain Anatomy, in Schematic 3D"})
+db[:blogposts].delete_one({:title => "3D Tour of the Pelvic Floor"})
 
 
 ###
