@@ -162,7 +162,7 @@ class SceneManager {
         object.material.clippingPlanes = [];
       }
     });
-    this._resetCamera();
+
     this._renderer.localClippingEnabled = false;
     this._renderer.clippingPlanes = [];
 
@@ -203,13 +203,11 @@ class SceneManager {
       if (this._animations[i].name.includes(mesh.name)) {
 
         this._showAnimationOf(mesh.name)
-
         this._mixer.clipAction(this._animations[i]).paused = false;
 
       } else if (this._animations[i].name.includes(mesh.parent.name)) {
 
         this._showAnimationOf(mesh.parent.name)
-
         this._mixer.clipAction(this._animations[i]).paused = false;
       }
     }
@@ -229,46 +227,6 @@ class SceneManager {
   lookAt(mesh) {
     mesh.getWorldPosition(this._controls.target);
     this._controls.update();
-  }
-
-  clip(x = -1, y = 0, z = 0) {
-    const plane = new THREE.Plane(new THREE.Vector3(x, y, z), 0);
-
-    this._renderer.localClippingEnabled = true;
-
-    const backSideMaterial = new THREE.MeshBasicMaterial({
-      color: 0xeeeeee
-    });
-
-    backSideMaterial.side = THREE.BackSide;
-
-    this._renderer.clippingPlanes = [plane];
-
-    this._interactiveObjects.traverse(node => {
-      if (node.isMesh) {
-        node.material.clippingPlanes = [plane];
-        node.material.clipShadows = true;
-        node.material.needsUpdate = true;
-
-        node.onAfterRender = function(
-          renderer,
-          scene,
-          camera,
-          geometry,
-          material,
-          group
-        ) {
-          renderer.renderBufferDirect(
-            camera,
-            scene.fog,
-            geometry,
-            backSideMaterial,
-            node,
-            group
-          );
-        };
-      }
-    });
   }
 
   get scene() {
@@ -344,13 +302,11 @@ class SceneManager {
   _showAnimationOf(mesh) {
 
     this._animating = true;
-
     this._scene.traverse(object => {
 
       if (object.name.includes(mesh)) {
 
         object.visible = true;
-
         this._setLayers(object.userData.layer)
 
       } else if (object.isMesh) {

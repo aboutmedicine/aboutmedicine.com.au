@@ -459,7 +459,7 @@ the network will transform them into something meaningful. </p>
   <code-block :lines="2" contents="  w1 = randn(dimensions, hidden_nodes)
   w2 = randn(hidden_nodes, output_nodes)"></code-block>
 
-  <p>So w1 holds 2 values for every H. We have 3 neurons in our hidden layer, so w1 should hold 6 values, right? Let’s print
+  <p>So w1 holds 2 values for every hidden node. We have 3 neurons in our hidden layer, so w1 should hold 6 values, right? Let’s print
   it out:</p>
 
   <code-block :lines="1" contents="  print(w1)"></code-block>
@@ -470,16 +470,11 @@ the network will transform them into something meaningful. </p>
   <code-block :lines="1" contents="  print(w2)"></code-block>
 
   <p>So to begin with, remember how we multiply the input values by the weights vector? Well, when we pass in the data like
-  this, we have two matrices: x is a matrix because of the batch size, and w1 is a matrix because it is a collection of
+  this, we have two matrices: <b>input</b> is a matrix because of the batch size, and w1 is a matrix because it is a collection of
   each weights vector.</p>
-  <p>Our detour into matrix multiplication finally proves useful. When we multiply two matrices we are said to be taking their
-  dot product, and in numpy we achieve this like so:</p>
+  <p>Our detour into matrix multiplication finally proves useful. Let's get the dot product of our input matrix and our w1 matrix:</p>
 
-  <code-block :lines="1" contents="  dot_product = input.dot(w1)"></code-block>
-
-  <p>Awesome! Now we just have to add our bias value:</p>
-
-  <code-block :lines="1" contents="  hidden_layer = dot_product + b"></code-block>
+  <code-block :lines="1" contents="  hidden_layer = input.dot(w1)"></code-block>
 
   <p>And pass the result through our activation function, achieved like so:</p>
 
@@ -760,7 +755,7 @@ the network will transform them into something meaningful. </p>
   <h6>∂f / ∂w2 = gradient_wrt_predicted_scores * hidden_layer_relu</h6>
   </div>
 
-  <p>Now, because each step of our network involved matrix multiplication, we can use this as a pattern for our backward pass. We've essentially established that the gradient for each part of the network will just be the preceding layer multiplied by the gradient of the subsequent layer, and can thus can continue all the way back to the beginning of our network like so.</p>
+  <p>Now, because each step of our network involved matrix multiplication, we can use this as a pattern for our backward pass. We've essentially established that the gradient for each part of the network will just be the preceding layer multiplied by the gradient of the subsequent layer, and can thus continue all the way back to the beginning of our network like so.</p>
 
   <code-block :lines="6" contents="  gradient_wrt_predicted_scores = 2 * (scores_prediction - scores)
   gradient_wrt_w2 = hidden_layer_relu.T.dot(gradient_wrt_predicted_scores)
@@ -819,7 +814,7 @@ For example transpose of a 2 by 3 matrix will be 3 by 2:</p>
 <p>Lastly, we need to substitute all negative numbers in our h gradient with
 zeros, before we can calculate the gradient for w1. This is expressed in Python like so:</p>
 
-<code-block :lines="1" contents="  gradient_wrt_hidden[h < 0] = 0"></code-block>
+<code-block :lines="1" contents="  gradient_wrt_hidden[hidden < 0] = 0"></code-block>
 
 <p>Goodness me. We’ve now worked out the gradient of this function with respect to our weights matrices! As discussed earlier, we can now take a step downwards in the direction of these gradients, treading toward a local minimum.</p>
 
@@ -831,7 +826,7 @@ zeros, before we can calculate the gradient for w1. This is expressed in Python 
   from numpy.random import randn
   from matplotlib import pyplot as plt
 
-  # batch size ( = number of pieces of training data in each pass), dimensions in the input layer,
+  # batch size (number of pieces of training data in each pass), dimensions in the input layer,
   # hidden layer size, and number of output nodes (which correlate to the number of scores for our data)
   batch_size, dimensions, hidden_nodes, output_nodes  = 16, 2, 2, 3
 
@@ -843,7 +838,7 @@ zeros, before we can calculate the gradient for w1. This is expressed in Python 
   w1 = randn(dimensions, hidden_nodes)
   w2 = randn(hidden_nodes, output_nodes)
 
-  learning_rate = 1e-8
+  learning_rate = 1e-5
 
   loss_array = np.array([[]])
   indices = np.array([[]])
@@ -851,7 +846,7 @@ zeros, before we can calculate the gradient for w1. This is expressed in Python 
   for i in range(10000):
     # forward pass
     hidden = input.dot(w1)
-    hidden_relu = np.maximum(h, 0)
+    hidden_relu = np.maximum(hidden, 0)
     scores_prediction = hidden_relu.dot(w2)
 
     # calculate and print loss
@@ -860,10 +855,10 @@ zeros, before we can calculate the gradient for w1. This is expressed in Python 
 
     # backward pass
     gradient_wrt_predicted_scores = 2 * (scores_prediction - scores)
-    gradient_wrt_w2 = hidden_layer_relu.T.dot(gradient_wrt_predicted_scores)
+    gradient_wrt_w2 = hidden_relu.T.dot(gradient_wrt_predicted_scores)
     gradient_wrt_hidden_relu = gradient_wrt_predicted_scores.dot(w2.T)
     gradient_wrt_hidden = gradient_wrt_hidden_relu.copy()
-    gradient_wrt_hidden[h < 0] = 0
+    gradient_wrt_hidden[hidden < 0] = 0
     gradient_wrt_w1 = input.T.dot(gradient_wrt_hidden)
 
     w1 -= learning_rate * gradient_wrt_w1

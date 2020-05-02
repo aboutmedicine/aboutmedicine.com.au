@@ -71,16 +71,6 @@ export default new Router({
       name: 'model',
       component: () => import('./views/Models.vue')
     },
-    {
-      path: '/mindmap/make',
-      name: 'mindmap-make',
-      component: () => import(/* webpackChunkName: "mindmap-maker" */ './views/MindMapMaker.vue')
-    },
-    {
-      path: '/mindmap/view/:id',
-      name: 'mindmap-view',
-      component: () => import(/* webpackChunkName: "mindmap-viewer" */'./views/MindMapViewer.vue')
-    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

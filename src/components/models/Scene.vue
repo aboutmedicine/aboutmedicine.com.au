@@ -45,7 +45,7 @@
             intersected = this.intersected = intersection.object
 
             intersected.currentHex = intersected.material.emissive.getHex()
-            intersected.material.emissive.setHex(0xaa00aa)
+            intersected.material.emissive.setHex(0x220022)
 
             this.$store.commit('SET_ACTIVE_MESH', {
               name: intersection.object.name.replace(/_/g, ' ').replace(/\d/g, ''),
