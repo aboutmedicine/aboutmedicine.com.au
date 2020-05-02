@@ -23,6 +23,7 @@
 
       this.canvas = canvas
       this.$store.commit('SET_CONTROLLER', controller)
+      
       canvas.addEventListener('mousedown', e => this.highlightMesh(e, this.$store.state.controller))
       canvas.addEventListener('touchstart', e => this.highlightMesh(e, this.$store.state.controller))
 
