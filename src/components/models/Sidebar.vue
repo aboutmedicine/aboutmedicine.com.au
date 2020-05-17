@@ -75,7 +75,12 @@
     padding: 1rem;
     border-radius: 5px;
     overflow: scroll;
+    -ms-overflow-style: none;
   }
+
+  .sidebar-open::-webkit-scrollbar {
+  display: none;
+}
 
   .model-list {
     padding: 0.5rem 0.5rem;

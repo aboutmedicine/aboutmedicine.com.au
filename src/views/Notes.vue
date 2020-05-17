@@ -225,7 +225,12 @@
     max-height: 36rem;
     min-width: 8rem;
     overflow: scroll;
+    -ms-overflow-style: none;
   }
+
+  .flex-column::-webkit-scrollbar {
+  display: none;
+}
 
   .note {
     background: #fafafa;
